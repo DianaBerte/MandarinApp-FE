@@ -15,6 +15,7 @@ MandarinApp is a full stack application to facilitate the learning and practicin
 ## Features
 
 ### v1. Core features:
+<li>user login and profile customization
 <li>gamified exercises for practicing Mandarin Chinese
 
 ### v2. Added features:
