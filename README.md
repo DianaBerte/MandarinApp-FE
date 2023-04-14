@@ -2,10 +2,10 @@
  
 ## Technologies
 <ul>
-<li> Bootstrap
-<li> JavaScript
+<li> Bootstrap 4.6
 <li> React
 <li> React-Redux
+<li> Socket.io
 <li> Cloud deployment: Vercel
 </ul>
 
