@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import "./App.css";
+import "../src/assets/global.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GameOne from "./pages/Games/gameOne.jsx";
 

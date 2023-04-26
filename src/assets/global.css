@@ -1,0 +1,36 @@
+body {
+    background-color: rgb(0, 45, 45);
+}
+
+.container-div {
+    border: 1px solid red;
+    height: 30rem;
+    padding-top: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 3rem;
+}
+
+.game-container {
+    border: 3px solid rgb(25, 255, 25);
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+    justify-content: center;
+}
+
+.left-column {
+    border: 1px solid white;
+    display: inline-flex;
+    height: 15rem;
+    width: 5rem;
+}
+
+.right-column {
+    border: 1px solid white;
+    display: inline-flex;
+    height: 15rem;
+    width: 5rem;
+}

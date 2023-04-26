@@ -1,3 +1,8 @@
+import { Container, Button } from "react-bootstrap";
+
+
+
+
 const GameOne = () => {
 
 
@@ -12,7 +17,14 @@ const GameOne = () => {
 
     return(
         <>
-        <p>HELLOOOOOOOOOOOOOOOOOOO</p>
+        <Container>
+            <div className="container-div">
+                <div className="game-container">
+                    <div className="left-column"></div>
+                    <div className="right-column"></div>
+                </div>
+            </div>
+        </Container>
         </>
     )
 }
