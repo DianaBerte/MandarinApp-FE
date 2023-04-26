@@ -3,6 +3,7 @@ body {
 }
 
 .container-div {
+    margin-top: 3rem;
     border: 1px solid red;
     height: 30rem;
     padding-top: 3rem;
@@ -25,12 +26,12 @@ body {
     border: 1px solid white;
     display: inline-flex;
     height: 15rem;
-    width: 5rem;
+    width: 8rem;
 }
 
 .right-column {
     border: 1px solid white;
     display: inline-flex;
     height: 15rem;
-    width: 5rem;
+    width: 8rem;
 }
