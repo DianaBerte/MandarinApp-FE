@@ -1,4 +1,4 @@
-import { SET_USER_INFO } from "../actions/index"
+import { SET_USER_INFO } from "../actions/index.js"
 
 const initialState = {
     userInfo: [],

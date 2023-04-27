@@ -9,10 +9,18 @@ const GameOne = () => {
     const navigate = useNavigate();
 
     const playGameOne = async () => {
+        
         try {
-            let res = await fetch(`${process.env.REACT_APP_BE_URL}/games`);
-            let data = await JSON.parse(res);
-            console.log("data: ", data)
+            let res = await fetch(`${process.env.REACT_APP_BE_URL}/games`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            if (res.ok) {
+                const currentGame = await res.json();
+                dispatch(currentGame)
+            }
         } catch (error) {
             console.log(error)  
         }
