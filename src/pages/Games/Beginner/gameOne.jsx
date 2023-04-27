@@ -1,24 +1,54 @@
 import { Container, Button } from "react-bootstrap";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks/index.js";
 import { useNavigate } from "react-router-dom";
+import { SET_CURRENT_GAME, getGames } from "../../../redux/actions/index.js";
 
 const GameOne = () => {
 
-    const dispatch = useDispatch();
+
+
+    // const playGameOne = () => {
+
+    //     const dispatch = useAppDispatch();
+    //     const navigate = useNavigate();
+
+    //     return async (dispatch, getState) => {
+    //         console.log("hello")
+    //       try {
+    //         let res = await fetch(`${process.env.REACT_APP_BE_URL}/games`, {
+    //           method: "GET",
+    //           headers: {
+    //             "Content-Type": "application/json",
+    //           },
+    //         });
+    //         if (res.ok) {
+    //           const currentGame = await res.json();
+    //           dispatch({ type: 'SET_CURRENT_GAME', payload: currentGame });
+    //           console.log("current game: ", currentGame)
+    //         }
+    //       } catch (error) {
+    //         console.log(error);  
+    //       }
+    //     };
+    //   };
+
+    
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
-    const playGameOne = async () => {
+    const playGameOne = async (dispatch) => {      
         
-        try {
+        try {            
             let res = await fetch(`${process.env.REACT_APP_BE_URL}/games`, {
                 method: "GET",
                 headers: {
-                    "Content-Type": "application/json",
+                    "Content-Type": "application/json",       
                 },
             });
-            if (res.ok) {
+            if (res.ok) { 
                 const currentGame = await res.json();
+                console.log("THIS IS THE LAST FUNCTIONING LINE")
                 dispatch(currentGame)
             }
         } catch (error) {
