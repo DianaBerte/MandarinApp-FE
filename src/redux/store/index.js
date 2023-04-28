@@ -4,8 +4,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import ThunkMiddleware from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import userReducer from "../reducers/userReducer.js";
-
-
+import currentGameReducer from "../reducers/currentGameReducer.js";
 
 const persistConfig = {
     storage: Storage,
@@ -14,21 +13,23 @@ const persistConfig = {
 
 const combinedReducer = combineReducers({
     users: userReducer,
+    currentGame: currentGameReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, combinedReducer);
 
-const composedEnhancer = composeWithDevTools(applyMiddleware(ThunkMiddleware))
+// const composedEnhancer = composeWithDevTools(applyMiddleware(ThunkMiddleware))
 
 const store = configureStore(
     {
         reducer: persistedReducer,
-        middleware: (getDefaultMiddleware) => {
-            return getDefaultMiddleware({
+        middleware: (getDefaultMiddleware) =>
+            getDefaultMiddleware({
                 serializableCheck: false,
-            });
-        },
-    }, composedEnhancer
+            })
+
+    }
+    // composedEnhancer
 );
 
 const persistedStore = persistStore(store)
