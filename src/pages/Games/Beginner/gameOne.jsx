@@ -18,10 +18,9 @@ const GameOne = () => {
         dispatch(setCurrentGame());
     }, [])
 
-    const playGameOne = async () => {          
+    const nextGame = async () => {          
         try {
-            // const currentGame = await res.json();
-            dispatch(setCurrentGame())
+            dispatch(setNextGame())
             console.log("games ", games)
         } catch (error) {
             console.log(error)  
@@ -35,16 +34,16 @@ const GameOne = () => {
         <Container>
             <div className="container-div">
                 <div className="game-container">
+                    <div className="left-title"><h5>Questions</h5></div>
                     <div className="left-column">
-                        <h5>Questions</h5>
                         <ul>
                             {games.map(game => (
-                                <li key={game._id}>{game.questions}</li>
+                                <li key={game._id}>{game.question}</li>
                             ))}
                         </ul>
                     </div>
+                    <div className="right-title"><h5>Answers</h5></div>
                     <div className="right-column">
-                        <h5>Answers</h5>
                         <ul>
                             {games.map((game) =>
                             game.answers.map((answer) => 
@@ -57,8 +56,8 @@ const GameOne = () => {
                     </div>
                 </div>
                 <div className="btn-wrapper">
-                    <Button className="play" onClick={playGameOne}>
-                      Play
+                    <Button className="next" onClick={nextGame}>
+                      Next
                     </Button>
                 </div>
             </div>

@@ -1,6 +1,5 @@
-import thunk from "redux-thunk";
-
 export const SET_USER_INFO = "SET_USER_INFO";
+
 export const GET_GAMES = "GET_GAMES";
 export const SET_CURRENT_GAME = "SET_CURRENT_GAME";
 
