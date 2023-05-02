@@ -39,25 +39,22 @@ const GameOne = () => {
         <>
         <Container>
             <div className="container-div">
+                <div><h1>Match the pairs!</h1></div>
                 <div className="game-container">
-                    <div className="left-title"><h5>Questions</h5></div>
+                    <div className="left-title"><h5></h5></div>
                     <div className="left-column">
-                        <ul>
-                           <li>{currentGame.question}</li>      
-                        </ul>
+                           <p className="pinyin">{currentGame.question}</p>
                     </div>
-                    <div className="right-title"><h5>Answers</h5></div>
+                    <div className="right-title"><h5></h5></div>
                     <div className="right-column">
-                        <ul>
                             {currentGame.answers && currentGame.answers.length > 0 &&
                                 currentGame.answers[0].answers.map((ans) => (
-                                    <li key={ans}>{ans}</li>
+                                    <button className="chars-btn" key={ans}>{ans}</button>
                                 ))}
-                        </ul>
                     </div>
                 </div>
                 <div className="btn-wrapper">
-                    <Button className="next" onClick={nextGame}>
+                    <Button className="next-btn" onClick={nextGame}>
                       Next
                     </Button>
                 </div>
