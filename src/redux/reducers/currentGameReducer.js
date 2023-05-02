@@ -1,10 +1,10 @@
-import { SET_CURRENT_GAME } from "../actions/index.js";
+import { FETCH_GAME } from "../actions/index.js";
 
 const inState = {};
 
 const currentGameReducer = (state = inState, action) => {
     switch (action.type) {
-        case SET_CURRENT_GAME:
+        case FETCH_GAME:
             return action.payload;
         default:
             return state;

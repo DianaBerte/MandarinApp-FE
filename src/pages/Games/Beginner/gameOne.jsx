@@ -1,7 +1,7 @@
 import { Container, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { setCurrentGame } from "../../../redux/actions/index.js";
+import { fetchGames } from "../../../redux/actions/index.js";
 
 const GameOne = () => {
     let [currentGameIndex, setCurrentGameIndex] = useState(0); //stores the index of the current game beong displayed
@@ -11,12 +11,12 @@ const GameOne = () => {
         return state.currentGame;
     });
  
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     dispatch(setCurrentGame());
-    //     setGame(games[currentGameIndex]) //setting the initial value of "game" to the first game in the list
-    // }, [])
+    useEffect(() => {
+        dispatch(fetchGames());
+        setCurrentGame(games[currentGameIndex]) //setting the initial value of "game" to the first game in the list
+    }, [])
 
     const nextGame = async () => {          
         try {
@@ -34,8 +34,6 @@ const GameOne = () => {
     useEffect(() => { //runs every time the "games" or "currentGameIndex" state changes, and updates the "currentGame" state to be the correct object based on the current index
         setCurrentGame(games[currentGameIndex]);
     }, [games, currentGameIndex]);
-
-
 
     return(
         <>

@@ -1,9 +1,8 @@
 export const SET_USER_INFO = "SET_USER_INFO";
 
-export const GET_GAMES = "GET_GAMES";
-export const SET_CURRENT_GAME = "SET_CURRENT_GAME";
+export const FETCH_GAME = "FETCH_GAME";
 
-export const setCurrentGame = () => {
+export const fetchGames = () => {
     return async (dispatch) => {
         try {
             const res = await fetch(
@@ -17,7 +16,7 @@ export const setCurrentGame = () => {
             if (res.ok) {
                 const data = await res.json();
                 dispatch({
-                    type: SET_CURRENT_GAME,
+                    type: FETCH_GAME,
                     payload: data,
                 });
             } else {
