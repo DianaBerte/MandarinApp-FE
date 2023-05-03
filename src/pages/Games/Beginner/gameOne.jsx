@@ -18,7 +18,7 @@ const GameOne = () => {
         setCurrentGame(games[currentGameIndex]) //setting the initial value of "game" to the first game in the list
     }, [])
 
-    const nextGame = async () => {          
+    const nextExercise = async () => {          
         try {
             if (currentGameIndex < games.length - 1) { //checking if there are more games in the list and updating the state accordingly 
                 setCurrentGameIndex(currentGameIndex + 1);
@@ -57,14 +57,18 @@ const GameOne = () => {
                                         } else {
                                             console.log("Nay:(")
                                         }
-                                        nextGame();
+                                        nextExercise();
                                     }}key={ans}>{ans}</button>
                                 ))}
                     </div>
-                </div>
+                    {/* <div className="right-column">
+                        {currentGame.answers && currentGame.answers.length > 0 && currentGame.answers[0].answers.map((ans) =>
+                         ( <button className={`chars-btn ${ans === currentGame.answers[0].correctAnswer ? 'chars-btn-green' : 'chars-btn-red'}`}
+                           key={ans} > {ans} </button> ))} 
+                    </div>*/}
+                </div> 
                 <div className="btn-wrapper">
-                    <Button className="next-btn">
-                    {/* // onClick={nextGame} */}
+                    <Button className="next-btn" onClick={nextExercise}> 
                       Next
                     </Button>
                 </div>

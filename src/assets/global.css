@@ -115,6 +115,14 @@ body {
   box-shadow: rgba(0, 129, 9, 0.65) 2px 8px 4px -6px;
 }
 
+.chars-btn-red {
+  background-color: red;
+}
+
+.chars-btn-green {
+  background-color: aqua;
+}
+
 .next-btn {
   background-color: #6eac18;
   border: 0 solid #E5E7EB;
