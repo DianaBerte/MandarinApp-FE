@@ -3,11 +3,13 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGames } from "../../../redux/actions/index.js";
 import RightAnswerModal from "../../../components/RightAnswerModal.jsx";
+import WrongAnswerModal from "../../../components/WrongAnswerModal.jsx";
 
 const GameOne = () => {
     let [currentGameIndex, setCurrentGameIndex] = useState(0); //stores the index of the current game beong displayed
     let [currentGame, setCurrentGame] = useState({}); //stores the game object
     let [showRightAnsModal, setShowRightAnsModal] = useState(false);
+    let [showWrongAns, setShowWrongAns] = useState(false);
     let [selectedAnswer, setSelectedAnswer] = useState(null)
 
     const games = useSelector((state) => {
@@ -66,8 +68,7 @@ const GameOne = () => {
                         if(selectedAnswer === currentGame.answers[0].correctAnswer) {
                              setShowRightAnsModal(true)
                         } else {
-                             console.log("Nay:(")
-                            //when user presses on "Check", the modal should display wrong alert
+                             setShowWrongAns(true)
                         }
                         }}key={selectedAnswer}>Check
                     </ Button>
@@ -81,6 +82,7 @@ const GameOne = () => {
             </div>
         </Container>
         <RightAnswerModal show={showRightAnsModal} onHide={() => setShowRightAnsModal(false)} />
+        <WrongAnswerModal show={showWrongAns} onHide={() => setShowWrongAns(false)}/>
         </>
     )
 }
