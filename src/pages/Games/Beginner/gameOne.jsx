@@ -2,10 +2,12 @@ import { Container, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGames } from "../../../redux/actions/index.js";
+import ModalComponent from "../../../components/Modal.jsx";
 
 const GameOne = () => {
     let [currentGameIndex, setCurrentGameIndex] = useState(0); //stores the index of the current game beong displayed
     let [currentGame, setCurrentGame] = useState({}); //stores the game object
+    let [smShow, setSmShow] = useState(false);
 
     const games = useSelector((state) => {
         return state.currentGame;
@@ -33,7 +35,7 @@ const GameOne = () => {
 
     useEffect(() => { //runs every time the "games" or "currentGameIndex" state changes, and updates the "currentGame" state to be the correct object based on the current index
         setCurrentGame(games[currentGameIndex]);
-    }, [games, currentGameIndex]);
+    }, [games, currentGameIndex]);  
 
     return(
         <>
@@ -54,7 +56,6 @@ const GameOne = () => {
                                         console.log("currentGame.answers[0].correctAnswer: ", currentGame.answers[0].correctAnswer)
                                         if(ans === currentGame.answers[0].correctAnswer) {
                                             console.log("Yay!")
-                                            //when user presses on "Check", the modal should display success alert
                                         } else {
                                             console.log("Nay:(")
                                             //when user presses on "Check", the modal should display wrong alert
@@ -64,10 +65,9 @@ const GameOne = () => {
                     </div>
                 </div> 
                 <div className="btn-wrapper">
-                    <Button className="check-btn">
-                     {/* onClick={checkExercise} */}
-                      Check
-                    </Button>
+                    <Button className="check-btn" onClick={() => setSmShow(true)}>
+                        Check
+                    </Button>{' '}
                 </div>
                 <div className="btn-wrapper">
                     <Button className="next-btn" onClick={nextExercise}> 
@@ -76,6 +76,7 @@ const GameOne = () => {
                 </div>
             </div>
         </Container>
+        <ModalComponent show={smShow} onHide={() => setSmShow(false)} />
         </>
     )
 }
