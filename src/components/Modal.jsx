@@ -1,21 +1,21 @@
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 const ModalComponent = ({show, onHide}) => {
 
     return     (
     <>
         <Modal
+            className="modal"
             size="sm"
             show={show}
             onHide={onHide}
-            aria-labelledby="example-modal-sizes-title-sm"
             >
             <Modal.Header closeButton>
-                <Modal.Title id="example-modal-sizes-title-sm">
+                <Modal.Title className="modal-title">
                 TEEEEEEEEEEST
                 </Modal.Title>
             </Modal.Header>
-            <Modal.Body>blablabla</Modal.Body>
+            <Modal.Body className="modal-text">blablabla</Modal.Body>
         </Modal>
     </>
 );
