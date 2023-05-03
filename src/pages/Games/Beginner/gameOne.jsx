@@ -49,7 +49,16 @@ const GameOne = () => {
                     <div className="right-column">
                             {currentGame.answers && currentGame.answers.length > 0 //checking if the object "currentGame" has a property called "answers" and if it has elements in its "answers" array
                                 && currentGame.answers[0].answers.map((ans) => ( //If condition is met, it maps through the first element in the "answers" array and renders button
-                                    <button className="chars-btn" onClick={nextGame} key={ans}>{ans}</button>
+                                    <button className="chars-btn" onClick={() => {
+                                        console.log("ans: ", ans)
+                                        console.log("currentGame.answers[0].correctAnswer: ", currentGame.answers[0].correctAnswer)
+                                        if(ans === currentGame.answers[0].correctAnswer) {
+                                            console.log("Yay!")
+                                        } else {
+                                            console.log("Nay:(")
+                                        }
+                                        nextGame();
+                                    }}key={ans}>{ans}</button>
                                 ))}
                     </div>
                 </div>
