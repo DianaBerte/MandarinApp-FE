@@ -239,14 +239,38 @@ body {
 
 /************************* MODAL ************************/
 
-.modal-title {
-  color: rgb(0, 45, 45);
+.gmodal-title {
+  color: #3c950d;
   font-size: 2.5rem;
   font-weight: 700;
+  align-content: center;
 }
 
-.modal-text {
-  color: rgb(0, 45, 45);
-  font-size: 1.5rem;
+.gmodal-title p {
+  font-family: Neucha, sans-serif;
+} 
+
+.gmodal-text {
+  color: #3c950d;
+  font-size: 2.5rem;
   font-weight: 600;
+  align-self: center;
+}
+
+.rmodal-title {
+  color: #9b1515;
+  font-size: 2.5rem;
+  font-weight: 700;
+  align-content: center;
+}
+
+.rmodal-title p {
+  font-family: Neucha, sans-serif;
+} 
+
+.rmodal-text {
+  color: #9b1515;
+  font-size: 2.5rem;
+  font-weight: 600;
+  align-self: center;
 }

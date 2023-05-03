@@ -5,17 +5,17 @@ const RightAnswerModal = ({show, onHide}) => {
     return     (
     <>
         <Modal
-            className="modal"
+            className="green-modal"
             size="sm"
             show={show}
             onHide={onHide}
             >
             <Modal.Header closeButton>
-                <Modal.Title className="modal-title">
-                <p>YAY!<br/>你太棒了!</p>
+                <Modal.Title className="gmodal-title">
+                <p>你太棒了!</p>
                 </Modal.Title>
             </Modal.Header>
-            <Modal.Body className="modal-text">[Nǐ tài bàngle]<br/>You're great!</Modal.Body>
+            <Modal.Body className="gmodal-text">[Nǐ tài bàngle]<br/>You're doing great!</Modal.Body>
         </Modal>
     </>
 );

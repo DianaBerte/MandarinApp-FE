@@ -5,17 +5,17 @@ const WrongAnswerModal = ({show, onHide}) => {
     return     (
     <>
         <Modal
-            className="modal"
+            className="red-modal"
             size="sm"
             show={show}
             onHide={onHide}
             >
             <Modal.Header closeButton>
-                <Modal.Title className="modal-title">
+                <Modal.Title className="rmodal-title">
                 <p>再试一次!<br/></p>
                 </Modal.Title>
             </Modal.Header>
-            <Modal.Body className="modal-text">[Zài shì yīcì]<br />Try again!</Modal.Body>
+            <Modal.Body className="rmodal-text">[Zài shì yīcì]<br />Try again!</Modal.Body>
         </Modal>
     </>
 );
