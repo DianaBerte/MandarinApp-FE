@@ -54,14 +54,21 @@ const GameOne = () => {
                                         console.log("currentGame.answers[0].correctAnswer: ", currentGame.answers[0].correctAnswer)
                                         if(ans === currentGame.answers[0].correctAnswer) {
                                             console.log("Yay!")
+                                            //when user presses on "Check", the modal should display success alert
                                         } else {
                                             console.log("Nay:(")
+                                            //when user presses on "Check", the modal should display wrong alert
                                         }
-                                        nextExercise();
                                     }}key={ans}>{ans}</button>
                                 ))}
                     </div>
                 </div> 
+                <div className="btn-wrapper">
+                    <Button className="check-btn">
+                     {/* onClick={checkExercise} */}
+                      Check
+                    </Button>
+                </div>
                 <div className="btn-wrapper">
                     <Button className="next-btn" onClick={nextExercise}> 
                       Next
