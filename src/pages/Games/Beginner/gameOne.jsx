@@ -7,7 +7,7 @@ import RightAnswerModal from "../../../components/RightAnswerModal.jsx";
 const GameOne = () => {
     let [currentGameIndex, setCurrentGameIndex] = useState(0); //stores the index of the current game beong displayed
     let [currentGame, setCurrentGame] = useState({}); //stores the game object
-    let [showModal, setShowModal] = useState(false);
+    let [showRightAnsModal, setShowRightAnsModal] = useState(false);
     let [selectedAnswer, setSelectedAnswer] = useState(null)
 
     const games = useSelector((state) => {
@@ -64,7 +64,7 @@ const GameOne = () => {
                 <div className="btn-wrapper">                                
                     <Button className="check-btn" onClick={() => {
                         if(selectedAnswer === currentGame.answers[0].correctAnswer) {
-                             setShowModal(true)
+                             setShowRightAnsModal(true)
                         } else {
                              console.log("Nay:(")
                             //when user presses on "Check", the modal should display wrong alert
@@ -80,7 +80,7 @@ const GameOne = () => {
                 </div>
             </div>
         </Container>
-        <RightAnswerModal show={showModal} onHide={() => setShowModal(false)} />
+        <RightAnswerModal show={showRightAnsModal} onHide={() => setShowRightAnsModal(false)} />
         </>
     )
 }
