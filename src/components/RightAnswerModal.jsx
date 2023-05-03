@@ -1,6 +1,6 @@
 import { Modal } from "react-bootstrap";
 
-const ModalComponent = ({show, onHide}) => {
+const RightAnswerModal = ({show, onHide}) => {
 
     return     (
     <>
@@ -12,7 +12,7 @@ const ModalComponent = ({show, onHide}) => {
             >
             <Modal.Header closeButton>
                 <Modal.Title className="modal-title">
-                TEEEEEEEEEEST
+                <p>YAY!<br/>你太棒了！</p>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body className="modal-text">blablabla</Modal.Body>
@@ -21,4 +21,4 @@ const ModalComponent = ({show, onHide}) => {
 );
 }
 
-export default ModalComponent
+export default RightAnswerModal
