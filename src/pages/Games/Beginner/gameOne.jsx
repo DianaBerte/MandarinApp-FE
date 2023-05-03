@@ -47,8 +47,8 @@ const GameOne = () => {
                     </div>
                     <div className="right-title"><h5></h5></div>
                     <div className="right-column">
-                            {currentGame.answers && currentGame.answers.length > 0 &&
-                                currentGame.answers[0].answers.map((ans) => (
+                            {currentGame.answers && currentGame.answers.length > 0 //checking if the object "currentGame" has a property called "answers" and if it has elements in its "answers" array
+                                && currentGame.answers[0].answers.map((ans) => ( //If condition is met, it maps through the first element in the "answers" array and renders button
                                     <button className="chars-btn" onClick={nextGame} key={ans}>{ans}</button>
                                 ))}
                     </div>
