@@ -61,11 +61,6 @@ const GameOne = () => {
                                     }}key={ans}>{ans}</button>
                                 ))}
                     </div>
-                    {/* <div className="right-column">
-                        {currentGame.answers && currentGame.answers.length > 0 && currentGame.answers[0].answers.map((ans) =>
-                         ( <button className={`chars-btn ${ans === currentGame.answers[0].correctAnswer ? 'chars-btn-green' : 'chars-btn-red'}`}
-                           key={ans} > {ans} </button> ))} 
-                    </div>*/}
                 </div> 
                 <div className="btn-wrapper">
                     <Button className="next-btn" onClick={nextExercise}> 
