@@ -7,7 +7,7 @@ import ModalComponent from "../../../components/Modal.jsx";
 const GameOne = () => {
     let [currentGameIndex, setCurrentGameIndex] = useState(0); //stores the index of the current game beong displayed
     let [currentGame, setCurrentGame] = useState({}); //stores the game object
-    let [smShow, setSmShow] = useState(false);
+    let [showModal, setShowModal] = useState(false);
 
     const games = useSelector((state) => {
         return state.currentGame;
@@ -56,6 +56,7 @@ const GameOne = () => {
                                         console.log("currentGame.answers[0].correctAnswer: ", currentGame.answers[0].correctAnswer)
                                         if(ans === currentGame.answers[0].correctAnswer) {
                                             console.log("Yay!")
+                                            //when user presses on "Check", the modal should display success alert
                                         } else {
                                             console.log("Nay:(")
                                             //when user presses on "Check", the modal should display wrong alert
@@ -65,7 +66,7 @@ const GameOne = () => {
                     </div>
                 </div> 
                 <div className="btn-wrapper">
-                    <Button className="check-btn" onClick={() => setSmShow(true)}>
+                    <Button className="check-btn" onClick={() => setShowModal(true) } >
                         Check
                     </Button>{' '}
                 </div>
@@ -76,7 +77,7 @@ const GameOne = () => {
                 </div>
             </div>
         </Container>
-        <ModalComponent show={smShow} onHide={() => setSmShow(false)} />
+        <ModalComponent show={showModal} onHide={() => setShowModal(false)} />
         </>
     )
 }

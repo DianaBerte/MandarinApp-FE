@@ -1,16 +1,13 @@
 import { Modal, Button } from "react-bootstrap";
-import { useState } from "react";
 
-const ModalComponent = () => {
-    const [smShow, setSmShow] = useState(false);
+const ModalComponent = ({show, onHide}) => {
 
     return     (
     <>
-        <Button onClick={() => setSmShow(true)}>Small modal</Button>{' '}
         <Modal
             size="sm"
-            show={smShow}
-            onHide={() => setSmShow(false)}
+            show={show}
+            onHide={onHide}
             aria-labelledby="example-modal-sizes-title-sm"
             >
             <Modal.Header closeButton>
@@ -18,7 +15,7 @@ const ModalComponent = () => {
                 TEEEEEEEEEEST
                 </Modal.Title>
             </Modal.Header>
-            <Modal.Body>...</Modal.Body>
+            <Modal.Body>blablabla</Modal.Body>
         </Modal>
     </>
 );
