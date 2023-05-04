@@ -6,7 +6,7 @@ export const fetchGames = () => {
     return async (dispatch) => {
         try {
             const res = await fetch(
-                `${process.env.REACT_APP_BE_URL}/games`, {
+                `${process.env.REACT_APP_BE_URL}/games/${level}/${number}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -60,8 +60,7 @@ export const fetchGames = () => {
 //   return (
 //     <Router>
 //       <Switch>
-//         <Route path="/games/:level">
-//           <GameLevel />
+//         <Route path="/games/:level"> <GameLevel />
 //         </Route>
 //       </Switch>
 //     </Router>

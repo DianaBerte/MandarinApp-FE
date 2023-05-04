@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchGames } from "../../../redux/actions/index.js";
 import RightAnswerModal from "../../../components/RightAnswerModal.jsx";
 import WrongAnswerModal from "../../../components/WrongAnswerModal.jsx";
+import { useParams } from "react-router-dom";
 
 const GameOne = () => {
+    const {level} = useParams();
     let [currentGameIndex, setCurrentGameIndex] = useState(0); //stores the index of the current game beong displayed
     let [currentGame, setCurrentGame] = useState({}); //stores the game object
     let [showRightAnsModal, setShowRightAnsModal] = useState(false);
@@ -21,7 +23,7 @@ const GameOne = () => {
     useEffect(() => {
         dispatch(fetchGames());
         setCurrentGame(games[currentGameIndex]) //setting the initial value of "game" to the first game in the list
-    }, [])
+    }, [level])
 
     const nextExercise = async () => {          
         try {
