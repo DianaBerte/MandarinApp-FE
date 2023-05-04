@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 
 const GameOne = () => {
     const {level} = useParams();
+    const {number} = useParams();
     let [currentGameIndex, setCurrentGameIndex] = useState(0); //stores the index of the current game beong displayed
     let [currentGame, setCurrentGame] = useState({}); //stores the game object
     let [showRightAnsModal, setShowRightAnsModal] = useState(false);
@@ -21,9 +22,9 @@ const GameOne = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchGames());
+        dispatch(fetchGames(level, number));
         setCurrentGame(games[currentGameIndex]) //setting the initial value of "game" to the first game in the list
-    }, [level])
+    }, [])
 
     const nextExercise = async () => {          
         try {

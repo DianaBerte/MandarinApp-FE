@@ -3,6 +3,8 @@ export const SET_USER_INFO = "SET_USER_INFO";
 export const FETCH_GAME = "FETCH_GAME";
 
 export const fetchGames = (level, number) => {
+    console.log("level: ", level)
+    console.log("number: ", number)
     return async (dispatch) => {
         try {
             const res = await fetch(
