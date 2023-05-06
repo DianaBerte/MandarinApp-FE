@@ -8,11 +8,11 @@ const ChooseYourLevel = () => {
     return(
         <>
         <h1>Choose Your Level</h1>
-        <Button onClick={() => navigate("/start")}>
+        <Button onClick={() => navigate("/start/:level")}>
             Beginner</Button>
-        <Button onClick={() => navigate("/start")}>
+        <Button onClick={() => navigate("/start/:level")}>
             Intermediate</Button>
-        <Button onClick={() => navigate("/start")}>
+        <Button onClick={() => navigate("/start/:level")}>
             Advanced</Button>
         </>
     )

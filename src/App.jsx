@@ -13,8 +13,8 @@ function App() {
             <Routes>
                 <Route path="/" element={<Homepage />}  />
                 <Route path="/chooseYourLevel" element={<ChooseYourLevel />} />
-                <Route path="/start" element={< StartPage />} />
-                <Route path="/games/beginner" element={<GameOne />}  />
+                <Route path="/start/:level" element={< StartPage />} />
+                <Route path="/games/:level" element={<GameOne />}  />
                 {/* What I want to happen: *User clicks on Beginner, Start Game*
                 <Route element={<GamePage />}  path="/games/beginner/:number"  />
                 */}

@@ -49,7 +49,7 @@ const StartPage = () => {
     useEffect(() => {
         if (timerEnded) {
             const id = setTimeout(() => {
-                navigate('/games/beginner');
+                navigate('/games/:level'); //this should be a dynamic route based on the difficulty level chosen
             }, 1000)
             return() => clearTimeout(id);
         }
