@@ -4,8 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchGames } from "../../../redux/actions/index.js";
 import RightAnswerModal from "../../../components/RightAnswerModal.jsx";
 import WrongAnswerModal from "../../../components/WrongAnswerModal.jsx";
+import { useParams } from "react-router-dom";
 
 const GameOne = () => {
+    const {level} = useParams();
+    const {number} = useParams();
     let [currentGameIndex, setCurrentGameIndex] = useState(0); //stores the index of the current game beong displayed
     let [currentGame, setCurrentGame] = useState({}); //stores the game object
     let [showRightAnsModal, setShowRightAnsModal] = useState(false);
@@ -19,7 +22,7 @@ const GameOne = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchGames());
+        dispatch(fetchGames(level, number));
         setCurrentGame(games[currentGameIndex]) //setting the initial value of "game" to the first game in the list
     }, [])
 
@@ -53,13 +56,11 @@ const GameOne = () => {
                     <div className="right-title"><h5></h5></div>
                     <div className="right-column">
                             {currentGame.answers && currentGame.answers.length > 0 //checking if the object "currentGame" has a property called "answers" and if it has elements in its "answers" array
-                                && currentGame.answers[0].answers.map((ans) => ( //If condition is met, it maps through the first element in the "answers" array and renders button
+                                && currentGame.answers[0].answers.map((ans) => ( //If condition is met, it maps through the first element in the "answers" array and renders button with chars
                                     <button className="chars-btn" onClick={() => {
                                         setSelectedAnswer(ans);
-                                        // console.log("ans: ", ans)
-                                        // console.log("currentGame.answers[0].correctAnswer: ", currentGame.answers[0].correctAnswer)
                                     }}key={ans}>{ans}</button>
-                                ))}
+                                ))} {/* Else, it should render a button to the next page */}
                     </div>
                 </div> 
 
