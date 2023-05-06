@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Button, Container } from "react-bootstrap";
 import { useNavigate } from "react-router";
 
@@ -45,6 +45,15 @@ const StartPage = () => {
         deadline.setSeconds(deadline.getSeconds() + 3);
         return deadline;
     }
+
+    useEffect(() => {
+        if (timerEnded) {
+            const id = setTimeout(() => {
+                navigate('/games/beginner/first');
+            }, 1000)
+            return() => clearTimeout(id);
+        }
+    }, [timerEnded, navigate])
 
     const ready = () => {
         clearTimer(getDeadTime())
