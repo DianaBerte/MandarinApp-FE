@@ -8,7 +8,7 @@ const ChooseYourLevel = () => {
     return(
         <>
         <h1>Choose Your Level</h1>
-        <Button onClick={() => navigate("/GamePage/Beginner/first")}>
+        <Button onClick={() => navigate("/start")}>
             Beginner</Button>
         <h3>Intermediate</h3>
         <h3>Advanced</h3>

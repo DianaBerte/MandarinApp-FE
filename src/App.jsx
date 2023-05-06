@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage/Homepage.jsx";
 import GameOne from "./pages/Games/Beginner/gameOne.jsx";
 import ChooseYourLevel from "./pages/Homepage/ChooseYourLevel.jsx";
+import StartPage from "./pages/Homepage/StartPage";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Homepage />}  />
                 <Route path="/chooseYourLevel" element={<ChooseYourLevel />} />
+                <Route path="/start" element={< StartPage />} />
                 <Route path="/games" element={<GameOne />}  />
                 {/* What I want to happen: *User clicks on Beginner, Start Game*
                 <Route element={<GamePage />}  path="/games/beginner/:number"  />
