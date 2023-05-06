@@ -49,7 +49,7 @@ const StartPage = () => {
     useEffect(() => {
         if (timerEnded) {
             const id = setTimeout(() => {
-                navigate('/games/:level/:number');
+                navigate('/games/beginner');
             }, 1000)
             return() => clearTimeout(id);
         }
