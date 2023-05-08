@@ -5,13 +5,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage/Homepage.jsx";
 import GameOne from "./pages/Games/Beginner/gameOne.jsx";
 import ChooseYourLevel from "./pages/Homepage/ChooseYourLevel.jsx";
-import StartPage from "./pages/Homepage/StartPage";
+import StartPage from "./pages/Homepage/StartPage.jsx";
+import LoginComponent from "./pages/Login/LoginComponent.jsx";
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Homepage />}  />
+                <Route path="/login" element={<LoginComponent /> } />
                 <Route path="/chooseYourLevel" element={<ChooseYourLevel />} />
                 <Route path="/start/:level" element={< StartPage />} />
                 <Route path="/games/:level" element={<GameOne />}  />
