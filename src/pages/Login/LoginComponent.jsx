@@ -18,7 +18,7 @@ const LoginComponent = () => {
         email,
         password,
       })
-      toast("Login successfull! 💪", { autoClose: 1000 })
+      toast("Login successful! 💪", { autoClose: 1000 })
       localStorage.setItem("accessToken", data.accessToken)
       navigate("/users")
     } catch (error) {
