@@ -1,6 +1,7 @@
-import { Button, Container } from "react-bootstrap"
+import { Button, Col, Container, Row } from "react-bootstrap"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { useEffect } from "react"
+import FlutePlayer from "../../assets/img/FlutePlayer.png"
 
 const Homepage = () => {
 
@@ -17,10 +18,19 @@ const Homepage = () => {
 
     return(
         <>
-        <Container>
-        {/* only after user's logged in or signed up appears Start Game btn */}
-        <Button onClick={() => navigate("/ChooseYourLevel")}
-        >Choose your level & Start!</Button>
+        <Container fluid className="p-5 my-5">
+            <Row>
+                <Col col="10" md="6">
+                    <Button onClick={() => navigate("/ChooseYourLevel")}
+                    >Choose your level & Start!
+                    </Button>
+                </Col>
+                <Col>
+                <Row>
+                    <img className="flute" src={FlutePlayer} alt="flute player" />
+                </Row>
+                </Col>
+            </Row>
         </Container>
         </>
     )
