@@ -1,9 +1,18 @@
 import { useState, useRef, useEffect } from "react";
 import { Button, Container } from "react-bootstrap";
 import { useNavigate } from "react-router";
+import { useParams } from "react-router-dom";
 
 const StartPage = () => {
 
+    // 3. Vedo che quando scatta "timerEnded" a true vuoi portare l'utente alla rotta "/games/qualcosa", a seconda del livello di difficoltà che era stato scelto
+    // (e che quando questo componente viene montato dovrebbe essere nell'URL, perchè ricordiamo se sei qui vuol dire che l'indirizzo è qualcosa tipo "/start/beginner").
+    // Devi solo prendere il "beginner/intermediate/advanced" che hai nell'URL dopo "/start/" e utilizzarlo per creare questo navigate().
+    // Lo puoi fare inserendo in cima al componente questa riga: const { level } = useParams(), dove useParams lo importi da "react-router-dom",
+    // ...esattamente come stai già facendo nel componente GameOne, dove leggi correttamente il parametro level dall'indirizzo...
+    
+    const { level } = useParams()
+    
     const Ref = useRef(null);
     const navigate = useNavigate()
 
@@ -49,7 +58,7 @@ const StartPage = () => {
     useEffect(() => {
         if (timerEnded) {
             const id = setTimeout(() => {
-                navigate('/games/:level'); //this should be a dynamic route based on the difficulty level chosen
+                navigate('/games/beginner'); //this should be a dynamic route based on the difficulty level chosen
             }, 1000)
             return() => clearTimeout(id);
         }

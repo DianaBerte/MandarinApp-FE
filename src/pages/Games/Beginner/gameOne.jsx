@@ -7,6 +7,10 @@ import WrongAnswerModal from "../../../components/WrongAnswerModal.jsx";
 import { useParams } from "react-router-dom";
 
 const GameOne = () => {
+    // 4. ...esattamente come stai già facendo nel componente GameOne, dove leggi correttamente il parametro level dall'indirizzo.
+    // Cerchi anche di leggere un parametro number tuttavia, che credo sia undefined perchè non è previsto nella rotta.
+    // Level lo stai già passando a fetchGames() come parametro, e se fixi il navigate presente alla riga 49 di <StartPage /> questa cosa dovrebbe già funzionare
+
     const {level} = useParams();
     const {number} = useParams();
     let [currentGameIndex, setCurrentGameIndex] = useState(0); //stores the index of the current game beong displayed

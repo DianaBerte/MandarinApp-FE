@@ -1,7 +1,13 @@
 import { Button, Col, Container, Row } from "react-bootstrap"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { useEffect } from "react"
-import FlutePlayer from "../../assets/img/FlutePlayer.png"
+import RiverLi from "../../assets/img/RiverLi.png"
+
+const FlutePlayer = () => (
+    <div>
+        <video src={process.env.PUBLIC_URL + "/assets/img/FlutePlayer.mp4"} controls autoPlay />
+    </div>
+)
 
 const Homepage = () => {
 
@@ -27,7 +33,8 @@ const Homepage = () => {
                 </Col>
                 <Col>
                 <Row>
-                    <img className="flute" src={FlutePlayer} alt="flute player" />
+                    <img className="riverLi" src={RiverLi} alt="River Li" />
+                    <FlutePlayer />
                 </Row>
                 </Col>
             </Row>
