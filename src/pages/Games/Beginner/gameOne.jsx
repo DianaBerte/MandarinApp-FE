@@ -40,6 +40,8 @@ const GameOne = () => {
                     navigate(`/games/beginner/second`)}
                 if (level === "intermediate") {
                     navigate(`/games/intermediate/second`)}
+                if (level === "advanced") {
+                    navigate(`/games/advanced/second`)}
             }
         } catch (error) {
             console.log(error)  
