@@ -1,5 +1,5 @@
 
-const GameThree = () => {
+const GameFour = () => {
     return(
         <>
         <h1>INTERMEDIATE/SECOND</h1>
@@ -7,4 +7,4 @@ const GameThree = () => {
     )
 }
 
-export default GameThree
+export default GameFour
