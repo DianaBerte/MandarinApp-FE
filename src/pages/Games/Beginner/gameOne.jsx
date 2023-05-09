@@ -5,7 +5,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import { fetchGames } from "../../../redux/actions/index.js";
 import RightAnswerModal from "../../../components/RightAnswerModal.jsx";
 import WrongAnswerModal from "../../../components/WrongAnswerModal.jsx";
-import GameTwo from "./gameTwo.jsx";
 
 const GameOne = () => {
 

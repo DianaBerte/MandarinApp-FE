@@ -19,17 +19,16 @@ function App() {
                 <Route path="/" element={<Homepage />}  />
                 <Route path="/chooseYourLevel" element={<ChooseYourLevel />} />
                 <Route path="/start/:level" element={< StartPage />} />
+                
                 <Route path="/games/:level" element={<GameOne />}  />
                 <Route path="/games/beginner/second" element={< GameTwo />} />
                 {/* <Route path="/games/beginner/third" element={< GameThree />} /> */}
+
                 <Route path="/games/intermediate/second" element={< GameFour />} />
                 <Route path="/games/intermediate/third" element={< GameFive />} />
+
                 {/* <Route path="/games/advanced/second" element={< GameSix />} />
                 <Route path="/games/advanced/third" element={< GameSeven />} /> */}
-                {/* //Lidia: one different component that checks whether the user has clicked on beginner/int/advanced */}
-                {/* What I want to happen: *User clicks on Beginner, Start Game*
-                <Route element={<GamePage />}  path="/games/beginner/:number"  />
-                */}
             </Routes>
         </BrowserRouter>
     );
