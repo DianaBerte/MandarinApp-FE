@@ -1,15 +1,17 @@
 import { Container, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { fetchGames } from "../../../redux/actions/index.js";
 import RightAnswerModal from "../../../components/RightAnswerModal.jsx";
 import WrongAnswerModal from "../../../components/WrongAnswerModal.jsx";
-import { useParams } from "react-router-dom";
+import GameTwo from "./gameTwo.jsx";
 
 const GameOne = () => {
 
     const {level} = useParams();
     const {number} = useParams();
+
     let [currentGameIndex, setCurrentGameIndex] = useState(0); //stores the index of the current game beong displayed
     let [currentGame, setCurrentGame] = useState({}); //stores the game object
     let [showRightAnsModal, setShowRightAnsModal] = useState(false);
@@ -33,7 +35,7 @@ const GameOne = () => {
                 setCurrentGameIndex(currentGameIndex + 1);
                 setCurrentGame(games[currentGameIndex + 1]);
             } else {
-                console.log("No more games");
+                //I want to navigate to the component GameTwo.jsx
             }
         } catch (error) {
             console.log(error)  
