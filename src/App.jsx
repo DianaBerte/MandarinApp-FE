@@ -15,9 +15,6 @@ function App() {
                 <Route path="/" element={<Homepage />}  />
                 <Route path="/login" element={<LoginComponent /> } />
                 <Route path="/chooseYourLevel" element={<ChooseYourLevel />} />
-{/*1. qua tutto bene, hai predisposto delle rotte dinamiche per <StartPage /> e <GameOne />, e hai chiamato level la parte dell'URL dopo "start/" e "games/".
-Quindi <StartPage /> e <GameOne /> verranno caricati quando la rotta è qualcosa tipo "/start/beginner", oppure "/start/buongiorgio", cose così.
-In questi esempi, beginner e buongiorgio sono il valore del parametro che hai chiamato "level" */}
                 <Route path="/start/:level" element={< StartPage />} />
                 <Route path="/games/:level" element={<GameOne />}  />
                 {/* What I want to happen: *User clicks on Beginner, Start Game*

@@ -3,11 +3,6 @@ import { useNavigate, useSearchParams } from "react-router-dom"
 import { useEffect } from "react"
 import RiverLi from "../../assets/img/RiverLi.png"
 
-const FlutePlayer = () => (
-    <div>
-        <video src={process.env.PUBLIC_URL + "/assets/img/FlutePlayer.mp4"} controls autoPlay />
-    </div>
-)
 
 const Homepage = () => {
 
@@ -34,7 +29,6 @@ const Homepage = () => {
                 <Col>
                 <Row>
                     <img className="riverLi" src={RiverLi} alt="River Li" />
-                    <FlutePlayer />
                 </Row>
                 </Col>
             </Row>

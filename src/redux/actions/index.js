@@ -4,10 +4,6 @@ export const FETCH_GAME = "FETCH_GAME";
 
 export const fetchGames = (level) => {
 
-    // 5. Qui funziona tutto immagino, anche se fetchGames() non utilizza nessun parametro (dovrebbe almeno ricevere level dal momento che lo lanci in <GameOne />).
-    // Come dicevi tu qui potresti usare questa informazione di level (beginner, intermediate, advanced)
-    //per fare un'unica fetch delle domande con livello di difficoltà corretto.
-
     return async (dispatch) => {
         try {
             const res = await fetch(
@@ -25,7 +21,7 @@ export const fetchGames = (level) => {
                     payload: data,
                 });
             } else {
-                console.log("Error fetching games!");
+                console.log("FE: Error fetching games!");
             }
         } catch (error) {
             console.log(error);
