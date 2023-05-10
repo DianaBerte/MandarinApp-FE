@@ -1,6 +1,6 @@
 export const SET_USER_INFO = "SET_USER_INFO";
-
 export const FETCH_GAME = "FETCH_GAME";
+// export const FETCH_AUDIO = "FETCH_AUDIO";
 
 export const fetchGames = (level) => {
 
@@ -29,7 +29,8 @@ export const fetchGames = (level) => {
     };
 };
 
-export const fetchAudio = () => {
+export const fetchInterSecond = () => {
+
     return async (dispatch) => {
         try {
             const res = await fetch(
@@ -43,14 +44,40 @@ export const fetchAudio = () => {
             if (res.ok) {
                 const data = await res.json();
                 dispatch({
-                    type: FETCH_AUDIO,
+                    type: FETCH_GAME,
                     payload: data,
                 });
             } else {
-                console.log("FE: Error fetching audio.")
+                console.log("FE: Error fetching games!");
             }
         } catch (error) {
-            console.log(error)
+            console.log(error);
         }
-    }
-}
+    };
+};
+
+// export const fetchAudio = () => {
+//     return async (dispatch) => {
+//         try {
+//             const res = await fetch(
+//                 `${process.env.REACT_APP_BE_URL}/games/intermediate/second`, {
+//                 method: "GET",
+//                 headers: {
+//                     "Content-Type": "application/json",
+//                 },
+//             }
+//             );
+//             if (res.ok) {
+//                 const data = await res.json();
+//                 dispatch({
+//                     type: FETCH_AUDIO,
+//                     payload: data,
+//                 });
+//             } else {
+//                 console.log("FE: Error fetching audio.")
+//             }
+//         } catch (error) {
+//             console.log(error)
+//         }
+//     }
+// }
