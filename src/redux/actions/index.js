@@ -1,6 +1,5 @@
 export const SET_USER_INFO = "SET_USER_INFO";
 export const FETCH_GAME = "FETCH_GAME";
-// export const FETCH_AUDIO = "FETCH_AUDIO";
 
 export const fetchGames = (level) => {
 
@@ -21,7 +20,7 @@ export const fetchGames = (level) => {
                     payload: data,
                 }); console.log("Working: fetchGames()");
             } else {
-                console.log("FE: Error fetching games!");
+                console.log("FE: Error in fetchGames()");
             }
         } catch (error) {
             console.log(error);
@@ -33,6 +32,7 @@ export const fetchInterSecond = () => {
 
     return async (dispatch) => {
         try {
+            console.log("Entering: fetchInterSecond()")
             const res = await fetch(
                 `${process.env.REACT_APP_BE_URL}/games/intermediate/second`, {
                 method: "GET",
@@ -46,9 +46,9 @@ export const fetchInterSecond = () => {
                 dispatch({
                     type: FETCH_GAME,
                     payload: data,
-                });
+                }); console.log("Working: fetchInterSecond()");
             } else {
-                console.log("FE: Error fetching games!");
+                console.log("FE: Error in fetchInterSecond()");
             }
         } catch (error) {
             console.log(error);

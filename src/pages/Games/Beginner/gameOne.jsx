@@ -29,12 +29,12 @@ const GameOne = () => {
         setCurrentGame(games[currentGameIndex]) //setting the initial value of "game" to the first game in the list
     }, [])
 
-    const nextExercise = async () => {    
-        console.log("Working: gameOne nextExercise()")      
+    const nextExercise = async () => {     
         try {
             if (currentGameIndex < games.length - 1) { //checking if there are more games in the list and updating the state accordingly 
                 setCurrentGameIndex(currentGameIndex + 1);
                 setCurrentGame(games[currentGameIndex + 1]);
+                console.log("Working: nextExercise() in gameOne")     
             } else {
                 if (level === "beginner") {
                     navigate(`/games/beginner/second`)}

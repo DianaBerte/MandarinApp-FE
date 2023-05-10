@@ -8,8 +8,8 @@ import WrongAnswerModal from "../../../components/WrongAnswerModal.jsx";
 
 const GameFour = () => {
 
-    const {level} = useParams();
-    const {number} = useParams();
+    // const {level} = useParams();
+    // const {number} = useParams();
     const navigate = useNavigate();
 
     let [currentGameIndex, setCurrentGameIndex] = useState(0); //stores the index of the current game beong displayed
@@ -19,24 +19,24 @@ const GameFour = () => {
     let [selectedAnswer, setSelectedAnswer] = useState(null)
 
     const games = useSelector((state) => {
+        console.log("Working: return state.currentGame in gameFour")
         return state.currentGame;
     });
  
     const dispatch = useDispatch();
 
     useEffect(() => {
-        console.log("Dispatching(fetchInterSecond())") 
-        dispatch(fetchInterSecond(level, number));
+        dispatch(fetchInterSecond());
         setCurrentGame(games[currentGameIndex]) //setting the initial value of "game" to the first game in the list
- 
+        console.log("Working: dispatch(fetchInterSecond) in gameFour")  
     }, [])
 
-    const nextExercise = async () => {  
-        console.log("Triggered nextExercise()")      
+    const nextExercise = async () => {     
         try {
             if (currentGameIndex < games.length - 1) { //checking if there are more games in the list and updating the state accordingly 
                 setCurrentGameIndex(currentGameIndex + 1);
                 setCurrentGame(games[currentGameIndex + 1]);
+                console.log("Working: nextExercise() in gameFour")   
             } else {
                 navigate(`/games/intermediate/third`)
 
