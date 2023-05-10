@@ -25,17 +25,21 @@ const GameFour = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        console.log("Dispatching(fetchInterSecond())") 
         dispatch(fetchInterSecond(level, number));
         setCurrentGame(games[currentGameIndex]) //setting the initial value of "game" to the first game in the list
+ 
     }, [])
 
-    const nextExercise = async () => {          
+    const nextExercise = async () => {  
+        console.log("Triggered nextExercise()")      
         try {
             if (currentGameIndex < games.length - 1) { //checking if there are more games in the list and updating the state accordingly 
                 setCurrentGameIndex(currentGameIndex + 1);
                 setCurrentGame(games[currentGameIndex + 1]);
             } else {
                 navigate(`/games/intermediate/third`)
+
             }
         } catch (error) {
             console.log(error)  
@@ -52,6 +56,7 @@ const GameFour = () => {
         <Container>
             <div className="container-div">
                 <div><h1>Match the pairs!</h1></div>
+
                 <div className="game-container">
                     <div className="left-title"><h5></h5></div>
                     <div className="left-column">

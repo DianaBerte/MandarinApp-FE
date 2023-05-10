@@ -2,7 +2,7 @@
 const GameTwo = () => {
     return(
         <>
-        <h1>BEGINNER/SECOND</h1>
+        <h1>BEGINNER / SECOND ovvero GameTwo</h1>
         </>
     )
 }

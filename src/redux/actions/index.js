@@ -19,7 +19,7 @@ export const fetchGames = (level) => {
                 dispatch({
                     type: FETCH_GAME,
                     payload: data,
-                });
+                }); console.log("Working: fetchGames()");
             } else {
                 console.log("FE: Error fetching games!");
             }

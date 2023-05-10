@@ -29,7 +29,8 @@ const GameOne = () => {
         setCurrentGame(games[currentGameIndex]) //setting the initial value of "game" to the first game in the list
     }, [])
 
-    const nextExercise = async () => {          
+    const nextExercise = async () => {    
+        console.log("Working: gameOne nextExercise()")      
         try {
             if (currentGameIndex < games.length - 1) { //checking if there are more games in the list and updating the state accordingly 
                 setCurrentGameIndex(currentGameIndex + 1);
@@ -59,6 +60,7 @@ const GameOne = () => {
                 <div className="game-container">
                     <div className="left-title"><h5></h5></div>
                     <div className="left-column">
+
                            <p className="pinyin">{currentGame.question}</p>
                     </div>
                     <div className="right-title"><h5></h5></div>
