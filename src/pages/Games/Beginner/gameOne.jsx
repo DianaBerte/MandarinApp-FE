@@ -60,8 +60,7 @@ const GameOne = () => {
                 <div className="game-container">
                     <div className="left-title"><h5></h5></div>
                     <div className="left-column">
-
-                           <p className="pinyin">{currentGame.question}</p>
+                        <p className="pinyin">{currentGame.question}</p>
                     </div>
                     <div className="right-title"><h5></h5></div>
                     <div className="right-column">
