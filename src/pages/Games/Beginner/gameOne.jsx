@@ -12,7 +12,7 @@ const GameOne = () => {
     const {number} = useParams();
     const navigate = useNavigate();
 
-    let [currentGameIndex, setCurrentGameIndex] = useState(0); //stores the index of the current game beong displayed
+    let [currentGameIndex, setCurrentGameIndex] = useState(0); //stores the index of the current game being displayed
     let [currentGame, setCurrentGame] = useState({}); //stores the game object
     let [showRightAnsModal, setShowRightAnsModal] = useState(false);
     let [showWrongAns, setShowWrongAns] = useState(false);
@@ -31,7 +31,7 @@ const GameOne = () => {
 
     const nextExercise = async () => {     
         try {
-            if (currentGameIndex < games.length - 1) { //checking if there are more games in the list and updating the state accordingly 
+            if (currentGameIndex <= 3) { //checking if there are more games (max. 5) in the list and updating the state accordingly 
                 setCurrentGameIndex(currentGameIndex + 1);
                 setCurrentGame(games[currentGameIndex + 1]);
                 console.log("Working: nextExercise() in gameOne")     

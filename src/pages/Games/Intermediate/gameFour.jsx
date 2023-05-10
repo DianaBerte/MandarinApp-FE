@@ -12,7 +12,7 @@ const GameFour = () => {
     // const {number} = useParams();
     const navigate = useNavigate();
 
-    let [currentGameIndex, setCurrentGameIndex] = useState(0); //stores the index of the current game beong displayed
+    let [currentGameIndex, setCurrentGameIndex] = useState(5); //stores the index of the current game beong displayed
     let [currentGame, setCurrentGame] = useState({}); //stores the game object
     let [showRightAnsModal, setShowRightAnsModal] = useState(false);
     let [showWrongAns, setShowWrongAns] = useState(false);
@@ -39,7 +39,6 @@ const GameFour = () => {
                 console.log("Working: nextExercise() in gameFour")   
             } else {
                 navigate(`/games/intermediate/third`)
-
             }
         } catch (error) {
             console.log(error)  
