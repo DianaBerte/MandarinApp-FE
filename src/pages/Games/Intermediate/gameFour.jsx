@@ -47,8 +47,6 @@ const GameFour = () => {
     }, [games, currentGameIndex]);  
 
 
-
-
     return(
         <>
         <Container>
