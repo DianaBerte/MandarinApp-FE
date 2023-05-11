@@ -107,3 +107,13 @@ export const fetchBegSecond = () => {
         }
     }
 }
+
+// export const setUserInfo = () => {
+//     return async (dispatch) => {
+//         try {
+//             const res = await fetch
+//         } catch (error) {
+            
+//         }
+//     }
+// }

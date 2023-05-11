@@ -6,6 +6,7 @@ import Homepage from "./pages/Homepage/Homepage.jsx";
 import GameOne from "./pages/Games/Beginner/gameOne.jsx";
 import ChooseYourLevel from "./pages/Homepage/ChooseYourLevel.jsx";
 import StartPage from "./pages/Homepage/StartPage.jsx";
+import UserProfile from "./pages/Profile/ProfilePage.jsx";
 import LoginComponent from "./pages/Login/LoginComponent.jsx";
 import GameTwo from "./pages/Games/Beginner/gameTwo";
 import GameFour from "./pages/Games/Intermediate/gameFour";
@@ -29,6 +30,8 @@ function App() {
 
                 {/* <Route path="/games/advanced/second" element={< GameSix />} />
                 <Route path="/games/advanced/third" element={< GameSeven />} /> */}
+
+                <Route path="/users/:id/profile" element={ <UserProfile /> } />
             </Routes>
         </BrowserRouter>
     );

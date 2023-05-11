@@ -4,6 +4,15 @@ body {
     font-family: 'Reenie Beanie', cursive;
 }
 
+/* ****************************profile ********************************** */
+.profile-img {
+  width: 20%;
+}
+
+.profile-img-wrapper {
+  padding: 3rem;
+}
+
 .container-div {
     margin-top: 3rem;
     /* border: 1px solid red; */
