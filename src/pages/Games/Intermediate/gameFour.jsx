@@ -1,15 +1,13 @@
 import { Container, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { fetchInterSecond } from "../../../redux/actions/index.js";
 import RightAnswerModal from "../../../components/RightAnswerModal.jsx";
 import WrongAnswerModal from "../../../components/WrongAnswerModal.jsx";
 
 const GameFour = () => {
 
-    // const {level} = useParams();
-    // const {number} = useParams();
     const navigate = useNavigate();
 
     let [currentGameIndex, setCurrentGameIndex] = useState(5); //stores the index of the current game beong displayed
