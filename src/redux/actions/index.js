@@ -54,6 +54,33 @@ export const fetchInterSecond = () => {
     };
 };
 
+export const fetchInterThird = () => {
+    return async (dispatch) => {
+        try {
+            console.log("Entering: fetchInterThird()")
+            const res = await fetch(
+                `${process.env.REACT_APP_BE_URL}/games/intermediate/third`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+            );
+            if (res.ok) {
+                const data = await res.json();
+                dispatch({
+                    type: FETCH_GAME,
+                    payload: data,
+                }); console.log("Working: fetchInterThird()");
+            } else {
+                console.log("FE: Error in fetchInterThird()");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+};
+
 export const fetchBegSecond = () => {
     return async (dispatch) => {
         try {
