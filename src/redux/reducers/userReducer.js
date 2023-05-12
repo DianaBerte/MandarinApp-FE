@@ -1,7 +1,8 @@
-import { SET_USER_INFO } from "../actions/index.js"
+import { SET_USER_INFO, GET_CURRENT_USER } from "../actions/index.js"
 
 const initialState = {
     userInfo: [],
+    currentUser: {}
 }
 
 const userReducer = (state = initialState, action) => {
@@ -11,6 +12,11 @@ const userReducer = (state = initialState, action) => {
                 ...state,
                 userInfo: action.payload,
             };
+        case GET_CURRENT_USER:
+            return {
+                ...state,
+                currentUser: action.payload,
+            }
         default:
             return state;
     }

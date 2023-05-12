@@ -1,4 +1,5 @@
 export const SET_USER_INFO = "SET_USER_INFO";
+export const GET_CURRENT_USER = "GET_CURRENT_USER";
 export const FETCH_GAME = "FETCH_GAME";
 
 export const fetchGames = (level) => {
@@ -108,6 +109,58 @@ export const fetchBegSecond = () => {
     }
 }
 
+export const getCurrentUser = (id) => {
+    return async (dispatch) => {
+        console.log("Entering: getCurrentUser()")
+        if (!id) {
+            console.log("No id passed in getCurrentUser()")
+            return
+        }
+        try {
+            const res = await fetch(`${process.env.REACT_APP_BE_URL}/users/${id}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            if (res.ok) {
+                const user = await res.json();
+                dispatch({
+                    type: GET_CURRENT_USER,
+                    payload: user,
+                }); console.log("Working: getCurrentUser()");
+            } else {
+                console.log("FE: Error in getCurrentUser()")
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+
+export const updateUser = (editProfileObj, currentUser, image) => {
+    return async (dispatch) => {
+        console.log("update user image: ", image)
+        try {
+            let res = await fetch(`${process.env.REACT_APP_BE_URL}/users/profile`, {
+                method: "PUT",
+                body: JSON.stringify(editProfileObj),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            if (res.ok) {
+                dispatch(profileImage(currentUser._id, image))
+                dispatch(getCurrentUser());
+            } else {
+                console.log("FE: Error in updateUser()")
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+
 // export const setUserInfo = () => {
 //     return async (dispatch) => {
 //         try {
@@ -132,25 +185,27 @@ export const fetchBegSecond = () => {
 //     }
 // }
 
-// export const setProfileImage = (id, image, setIsChanging) => {
-//     return async (dispatch) => {
-//         try {
-//             const res = await fetch(`${process.env.REACT_APP_BE_URL}/users/${id}/profile/image`, {
-//                 method: "POST",
-//                 body: image,
-//                 headers: {
-//                     "Content-Type": "application/json",
-//                 },
-//             });
-//             if (res.ok) {
-//                 dispatch(setUserInfo());
-//                 setIsChanging();
-//                 console.log("Working: setProfileImage()");
-//             } else {
-//                 console.log("FE: Error in setProfileImage()")
-//             }
-//         } catch (error) {
-//             console.error(error)
-//         }
-//     }
-// }
+export const profileImage = (id, image) => {
+    return async (dispatch) => {
+        try {
+            const formData = new FormData();
+            formData.append("profile", image);
+            const res = await fetch(`${process.env.REACT_APP_BE_URL}/users/profile/${id}/image`, {
+                method: "POST",
+                body: formData,
+                headers:
+                {
+                    "Content-Type": "application/json",
+                },
+            }
+            );
+            if (res.ok) {
+                console.log("FE: Image upload working ✅")
+            } else {
+                console.log("FE: Error in profileImage()")
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
