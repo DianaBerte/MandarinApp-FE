@@ -111,9 +111,46 @@ export const fetchBegSecond = () => {
 // export const setUserInfo = () => {
 //     return async (dispatch) => {
 //         try {
-//             const res = await fetch
+//             const res = await fetch(`${process.env.REACT_APP_BE_URL}/users/${id}/profile`, {
+//                 method: "GET",
+//                 headers: {
+//                     "Content-Type": "application/json",
+//                 },
+//             });
+//             if (res.ok) {
+//                 const data = await res.json();
+//                 dispatch({
+//                     type: SET_USER_INFO,
+//                     payload: data,
+//                 }); console.log("Working: setUserInfo()");
+//             } else {
+//                 console.log("FE: Error in setUserInfo()")
+//             }
 //         } catch (error) {
-            
+//             console.log(error)
+//         }
+//     }
+// }
+
+// export const setProfileImage = (id, image, setIsChanging) => {
+//     return async (dispatch) => {
+//         try {
+//             const res = await fetch(`${process.env.REACT_APP_BE_URL}/users/${id}/profile/image`, {
+//                 method: "POST",
+//                 body: image,
+//                 headers: {
+//                     "Content-Type": "application/json",
+//                 },
+//             });
+//             if (res.ok) {
+//                 dispatch(setUserInfo());
+//                 setIsChanging();
+//                 console.log("Working: setProfileImage()");
+//             } else {
+//                 console.log("FE: Error in setProfileImage()")
+//             }
+//         } catch (error) {
+//             console.error(error)
 //         }
 //     }
 // }
