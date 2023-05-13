@@ -1,26 +1,43 @@
 import { Col, Container, Row, Form, Button } from "react-bootstrap";
-import { useState } from "react";
+import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setCurrentUser } from "../../redux/actions/index.js";
+import { getUsers } from "../../redux/actions/index.js";
 
-const UserProfile = () => {
+const UserProfile = (  ) => {
 
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [imageUrl, setImageUrl] = useState('');
+   
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // Here I can send the updated details to the server
-    }
+    let currentUserInfo = useSelector((state) => state.currentUser)
 
-    const handleImageChange = (event) => {
-        const { value } = event.target;
-        setImageUrl(value);
-      };
+    const [newUsername, setNewUsername] = useState(currentUserInfo.firstName);
+
+    // const [name, setName] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [imageUrl, setImageUrl] = useState('');
+
+    const dispatch = useDispatch()
+
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     // Here I can send the updated details to the server
+    // }
+
+    // const handleImageChange = (event) => {
+    //     const { value } = event.target;
+    //     setImageUrl(value);
+    //   };
+
+    useEffect(() => {
+        dispatch(getUsers());
+    }, [])
 
     return(
         <>
         <Container>
-            <Row>
+            <h1>hello, {currentUserInfo.firstName}</h1>
+            {/* <Row>
                 <Col>
                     <div>
                         <h1>你好! Nihao!</h1>
@@ -83,7 +100,7 @@ const UserProfile = () => {
                         </Form>
                     </div>
                 </Col>
-            </Row>
+            </Row> */}
         </Container>
         </>
     )

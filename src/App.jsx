@@ -31,7 +31,7 @@ function App() {
                 {/* <Route path="/games/advanced/second" element={< GameSix />} />
                 <Route path="/games/advanced/third" element={< GameSeven />} /> */}
 
-                <Route path="/users/:id/profile" element={ <UserProfile /> } />
+                <Route path="/users/me" element={ <UserProfile /> } />
             </Routes>
         </BrowserRouter>
     );

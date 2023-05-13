@@ -1,4 +1,5 @@
 export const SET_USER_INFO = "SET_USER_INFO";
+export const SET_CURRENT_USER = "SET_CURRENT_USER";
 export const FETCH_GAME = "FETCH_GAME";
 
 export const fetchGames = (level) => {
@@ -101,6 +102,40 @@ export const fetchBegSecond = () => {
                 }); console.log("Working: fetchBegSecond()");
             } else {
                 console.log("FE: Error in fetchBegSecond()")
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+
+export const setUserInfo = (user) => {
+    return {
+        type: SET_USER_INFO,
+        payload: { userInfo: user }
+    }
+}
+
+export const setCurrentUser = (currentUser) => {
+    return {
+        type: SET_CURRENT_USER,
+        payload: currentUser,
+    }
+}
+
+export const getUsers = () => {
+    return async (dispatch) => {
+        console.log("Entering: getUsers()")
+        try {
+            const res = await fetch(`${process.env.REACT_APP_BE_URL}/users`)
+            if (res.ok) {
+                const data = await res.json();
+                dispatch({
+                    type: SET_USER_INFO,
+                    payload: data,
+                }); console.log("Working ok: getUsers()")
+            } else {
+                console.log("FE: error fetching users in getUsers().")
             }
         } catch (error) {
             console.log(error)
