@@ -16,14 +16,15 @@ body {
   padding: 1rem;
   max-width: 20%;
   max-height: max-content;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .form {
   /* display: flex; */
   padding: 2rem;
+  width: fit-content;
   max-width: 100%;
-  border: 1px solid lightblue;
+  /* border: 1px solid lightblue; */
 }
 
 .container-div {

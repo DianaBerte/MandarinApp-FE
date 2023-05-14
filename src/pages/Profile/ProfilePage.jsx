@@ -112,7 +112,7 @@ const UserProfile = (  ) => {
                     <Form>
 
                         <Form.Group className="mb-3">
-                        <Form.Label>aaaaaa</Form.Label>
+                        <Form.Label>aaaaaaaa</Form.Label>
                         <Form.Control
                             type=""
                             placeholder="Enter email"
