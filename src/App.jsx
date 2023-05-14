@@ -7,6 +7,7 @@ import GameOne from "./pages/Games/Beginner/gameOne.jsx";
 import ChooseYourLevel from "./pages/Homepage/ChooseYourLevel.jsx";
 import StartPage from "./pages/Homepage/StartPage.jsx";
 import UserProfile from "./pages/Profile/ProfilePage.jsx";
+import Registration from "./pages/Registration/Registration.jsx";
 import LoginComponent from "./pages/Login/LoginComponent.jsx";
 import GameTwo from "./pages/Games/Beginner/gameTwo";
 import GameFour from "./pages/Games/Intermediate/gameFour";
@@ -17,6 +18,7 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/login" element={<LoginComponent /> } />
+                <Route path="/registration" element={<Registration />} />
                 <Route path="/" element={<Homepage />}  />
                 <Route path="/chooseYourLevel" element={<ChooseYourLevel />} />
                 <Route path="/start/:level" element={< StartPage />} />
