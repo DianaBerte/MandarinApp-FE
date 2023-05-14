@@ -44,6 +44,8 @@ const UserProfile = (  ) => {
             if (res.ok) {
                 const updatedUser = await res.json();
                 dispatch(setCurrentUser(updatedUser.user))
+                const finallyUpdatedUser = {...currentUserInfo, image: updatedUser.user.image};
+                dispatch(setCurrentUser(finallyUpdatedUser));
             }
         } catch (error) {
             console.log(error)
