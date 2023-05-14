@@ -1,4 +1,4 @@
-import { Col, Container, Row, Form, Button, Modal } from "react-bootstrap";
+import { Col, Container, Row, Form, Button, Modal, ListGroup } from "react-bootstrap";
 import { FiLogOut } from "react-icons/fi"
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
@@ -94,6 +94,51 @@ const UserProfile = (  ) => {
 
     return(
         <>
+        <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+            <Modal.Title className="modal-title" ><h1>Update profile</h1></Modal.Title>
+            </Modal.Header>
+
+            <Modal.Body>
+
+            <Form>
+                <Form.Group>
+                <Form.Label><h4>Your new name:</h4></Form.Label>
+                <Form.Control
+                    value={newFirstName}
+                    onChange={(e) => setNewFirstName(e.target.value)}
+                />
+                </Form.Group>
+
+                <Form.Group>
+                <Form.Label><h4>Your new last name:</h4></Form.Label>
+                <Form.Control
+                    value={newLastName}
+                    onChange={(e) => setNewLastName(e.target.value)}
+                />
+                </Form.Group>
+
+                <Form.Group>
+                <Form.Label><h4>Your new email address:</h4></Form.Label>
+                <Form.Control
+                    value={newEmail}
+                    onChange={(e) => setNewEmail(e.target.value)}
+                />
+                </Form.Group>
+            </Form>
+
+            </Modal.Body>
+
+            <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+                Close
+            </Button>
+            <Button variant="primary" onClick={updateUserInfo}>
+                Save Changes
+            </Button>
+            </Modal.Footer>
+        </Modal>
+
         <Container>
             <Col>
             <Row>
@@ -105,63 +150,17 @@ const UserProfile = (  ) => {
                 </div>
                 <div className="form">
                 <div className="title-wrapper">
-                <h3>Edit Profile</h3>
+
                 </div>
 
                 <div>
-                    <Form>
-
-                        <Form.Group className="mb-3">
-                        <Form.Label>aaaaaaaa</Form.Label>
-                        <Form.Control
-                            type=""
-                            placeholder="Enter email"
-                            value={""}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        </Form.Group>
-
-                        <Form.Group className="mb-3">
-                        <Form.Label>aaaaaa</Form.Label>
-                        <Form.Control
-                            type=""
-                            placeholder="Enter email"
-                            value={""}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        </Form.Group>
-
-                        <Form.Group className="mb-3">
-                        <Form.Label>aaaaaa</Form.Label>
-                        <Form.Control
-                            type=""
-                            placeholder="Enter email"
-                            value={""}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        </Form.Group>
-
-                        <Form.Group className="mb-3">
-                        <Form.Label>aaaaaa</Form.Label>
-                        <Form.Control
-                            type=""
-                            placeholder="Enter email"
-                            value={""}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        </Form.Group>
-
-                        <Form.Group className="mb-3">
-                        <Form.Label>aaaaaa</Form.Label>
-                        <Form.Control
-                            type=""
-                            placeholder="Enter email"
-                            value={""}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        </Form.Group>
-
-                    </Form>
+                    <ListGroup variant="flush">
+                        <ListGroup.Item className="listgroup-text">{currentUserInfo.firstName} {currentUserInfo.lastName}</ListGroup.Item>
+                        <ListGroup.Item className="listgroup-text">{currentUserInfo.email}</ListGroup.Item>
+                    </ListGroup>
+                    <button onClick={handleShow}>
+                    <h3>Edit Profile</h3>
+                    </button>
                 </div>
                 </div>
             </Row>

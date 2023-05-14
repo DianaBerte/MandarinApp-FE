@@ -27,6 +27,19 @@ body {
   /* border: 1px solid lightblue; */
 }
 
+.listgroup-text {
+  color: #3c950d;
+  font-weight: 700;
+}
+
+Form {
+  color: #3c950d;
+}
+
+.modal-title {
+  color: #3c950d;
+}
+
 .container-div {
     margin-top: 3rem; 
     height: 30rem;
