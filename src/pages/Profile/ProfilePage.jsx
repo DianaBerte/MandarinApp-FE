@@ -16,7 +16,6 @@ const UserProfile = (  ) => {
     const [newLastName, setNewLastName] = useState(currentUserInfo.lastName);
     const [newImage, setNewImage] = useState(currentUserInfo.image);
     const [newEmail, setNewEmail] = useState(currentUserInfo.email);
-    const [newPW, setNewPW] = useState(currentUserInfo.password);
 
     const [show, setShow] = useState(false)
 
@@ -46,6 +45,7 @@ const UserProfile = (  ) => {
                 dispatch(setCurrentUser(updatedUser.user))
                 const finallyUpdatedUser = {...currentUserInfo, image: updatedUser.user.image};
                 dispatch(setCurrentUser(finallyUpdatedUser));
+                updateUserInfo();
             }
         } catch (error) {
             console.log(error)
@@ -56,10 +56,9 @@ const UserProfile = (  ) => {
         const updatedUser = {
             firstName: newFirstName,
             lastName: newLastName,
-            email: newEmail,
-            password: newPW,
+            email: newEmail
         };
-        try {
+        try { console.log("updatedUser: ", updatedUser)
             let res = await fetch(`${process.env.REACT_APP_BE_URL}/users/me`, {
                 method: "PUT",
                 body: JSON.stringify(updatedUser),
@@ -129,6 +128,11 @@ const UserProfile = (  ) => {
                     onChange={(e) => setNewEmail(e.target.value)}
                 />
                 </Form.Group>
+
+                <Form.Group>
+                <Form.Label><h4>Your new image:</h4></Form.Label>
+                <MdOutlinePhotoCamera /><input className="input" type="file" onChange={changeImage}></input>
+                </Form.Group>
             </Form>
 
             </Modal.Body>
@@ -153,11 +157,6 @@ const UserProfile = (  ) => {
                 <div className="profile-img-wrapper">
                     <img className="profile-img" src={currentUserInfo.image} alt="User Profile Image" />
                 </div>
-                <label className="change-user-image">
-                    {""}
-                    <MdOutlinePhotoCamera />
-                    <input className="input" type="file" onChange={changeImage}></input>
-                </label>
 
                 <div className="form">
                 <div>
