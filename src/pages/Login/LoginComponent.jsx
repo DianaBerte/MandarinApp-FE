@@ -66,7 +66,9 @@ const LoginComponent = () => {
             <img className="dragon" src={ChineseDragon} alt="Chinese dragon" />
         </Col>
         <Col col="4" md="6">
+
           <Form onSubmit={(e) => {e.preventDefault(); userLogin()}}>
+
             <Form.Group className="mb-3">
               <Form.Label>Email address</Form.Label>
               <Form.Control
@@ -76,6 +78,7 @@ const LoginComponent = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Group>
+            
             <Form.Group className="mb-3">
               <Form.Label>Password</Form.Label>
               <Form.Control

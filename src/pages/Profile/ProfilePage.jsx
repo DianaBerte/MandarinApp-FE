@@ -95,9 +95,82 @@ const UserProfile = (  ) => {
     return(
         <>
         <Container>
-            <h1>Nihao, {currentUserInfo.firstName} {currentUserInfo.lastName}!</h1>
             <Col>
+            <Row>
+            <h1>Nihao, {currentUserInfo.firstName}!</h1>
+            </Row>
+            <Row>
+                <div className="profile-img-wrapper">
+                    <img className="profile-img" src={currentUserInfo.image} alt="User Profile Image" />
+                </div>
+                <div className="form">
+                <div className="title-wrapper">
+                <h3>Edit Profile</h3>
+                </div>
+
+                <div>
+                    <Form>
+
+                        <Form.Group className="mb-3">
+                        <Form.Label>aaaaaa</Form.Label>
+                        <Form.Control
+                            type=""
+                            placeholder="Enter email"
+                            value={""}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3">
+                        <Form.Label>aaaaaa</Form.Label>
+                        <Form.Control
+                            type=""
+                            placeholder="Enter email"
+                            value={""}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3">
+                        <Form.Label>aaaaaa</Form.Label>
+                        <Form.Control
+                            type=""
+                            placeholder="Enter email"
+                            value={""}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3">
+                        <Form.Label>aaaaaa</Form.Label>
+                        <Form.Control
+                            type=""
+                            placeholder="Enter email"
+                            value={""}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        </Form.Group>
+
+                        <Form.Group className="mb-3">
+                        <Form.Label>aaaaaa</Form.Label>
+                        <Form.Control
+                            type=""
+                            placeholder="Enter email"
+                            value={""}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        </Form.Group>
+
+                    </Form>
+                </div>
+                </div>
+            </Row>
+            </Col>
+            
+            <Col>
+            <Row>
             <button onClick={logout}>Log out < FiLogOut/> </button>
+            </Row>
             </Col>
         </Container>
         </>
