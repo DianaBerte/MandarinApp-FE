@@ -1,5 +1,6 @@
 import { Col, Container, Row, Form, Button, Modal, ListGroup } from "react-bootstrap";
 import { FiLogOut } from "react-icons/fi"
+import { MdOutlinePhotoCamera } from "react-icons/md";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,6 +30,7 @@ const UserProfile = (  ) => {
 
     const changeImage = async (event) => {
         try {
+            console.log("hello")
             const file = event.target.files?.[0];
             const formData = new FormData();
             formData.append("image", file);
@@ -145,14 +147,17 @@ const UserProfile = (  ) => {
             <h1>Nihao, {currentUserInfo.firstName}!</h1>
             </Row>
             <Row>
+
                 <div className="profile-img-wrapper">
                     <img className="profile-img" src={currentUserInfo.image} alt="User Profile Image" />
                 </div>
+                <label className="change-user-image">
+                    {""}
+                    <MdOutlinePhotoCamera />
+                    <input className="input" type="file" onChange={changeImage}></input>
+                </label>
+
                 <div className="form">
-                <div className="title-wrapper">
-
-                </div>
-
                 <div>
                     <ListGroup variant="flush">
                         <ListGroup.Item className="listgroup-text">{currentUserInfo.firstName} {currentUserInfo.lastName}</ListGroup.Item>
