@@ -1,106 +1,104 @@
-import { Col, Container, Row, Form, Button } from "react-bootstrap";
+import { Col, Container, Row, Form, Button, Modal } from "react-bootstrap";
+import { FiLogOut } from "react-icons/fi"
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "../../redux/actions/index.js";
 import { getUsers } from "../../redux/actions/index.js";
+import { useNavigate } from "react-router-dom";
 
 const UserProfile = (  ) => {
 
-   
+    let currentUserInfo = useSelector((state) => state.currentUser.currentUser)
 
-    let currentUserInfo = useSelector((state) => state.currentUser)
+    const [newFirstName, setNewFirstName] = useState(currentUserInfo.firstName);
+    const [newLastName, setNewLastName] = useState(currentUserInfo.lastName);
+    const [newImage, setNewImage] = useState(currentUserInfo.image);
+    const [newEmail, setNewEmail] = useState(currentUserInfo.email);
+    const [newPW, setNewPW] = useState(currentUserInfo.password);
 
-    const [newUsername, setNewUsername] = useState(currentUserInfo.firstName);
-
-    // const [name, setName] = useState('');
-    // const [email, setEmail] = useState('');
-    // const [imageUrl, setImageUrl] = useState('');
+    const [show, setShow] = useState(false)
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     // Here I can send the updated details to the server
-    // }
+    const handleClose = () => setShow(false)
+    const handleShow = () => setShow(true)
 
-    // const handleImageChange = (event) => {
-    //     const { value } = event.target;
-    //     setImageUrl(value);
-    //   };
+    const accessToken = localStorage.getItem("accessToken");
 
-    useEffect(() => {
-        dispatch(getUsers());
-    }, [])
+    const changeImage = async (event) => {
+        try {
+            const file = event.target.files?.[0];
+            const formData = new FormData();
+            formData.append("image", file);
+            let res = await fetch(`${process.env.REACT_APP_BE_URL}/users/me/image`, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                }
+            });
+            if (res.ok) {
+                const updatedUser = await res.json();
+                dispatch(setCurrentUser(updatedUser.user))
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const updateUserInfo = async () => {
+        const updatedUser = {
+            firstName: newFirstName,
+            lastName: newLastName,
+            email: newEmail,
+            password: newPW,
+        };
+        try {
+            let res = await fetch(`${process.env.REACT_APP_BE_URL}/users/me`, {
+                method: "PUT",
+                body: JSON.stringify(updatedUser),
+                headers:
+                {
+                    Authorization: `Bearer ${accessToken}`,
+                    "Content-Type": "application/json",
+                  },
+            });
+            if (res.ok) {
+                const response = await res.json()
+                dispatch(setCurrentUser(response))
+                handleClose()
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    };
+
+    const logout = () => {
+        const emptyUser = {
+            _id: "",
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: "",
+            role: "",
+            googleId: "",
+            quizAnswers: "",
+            image: "",
+        };
+        localStorage.removeItem("accessToken");
+        dispatch(setCurrentUser(emptyUser));
+        navigate("/")
+    }
 
     return(
         <>
         <Container>
-            <h1>hello, {currentUserInfo.firstName}</h1>
-            {/* <Row>
-                <Col>
-                    <div>
-                        <h1>你好! Nihao!</h1>
-                    </div>
-                    <div className="profile-img-wrapper">
-                        <img
-                            src={"https://res.cloudinary.com/degg5zebq/image/upload/v1683820402/UserImgPlaceholder_b9lgbn.png"}
-                            className="h-50 rounded-circle profile-img"
-                            alt="Profile img"
-                            // onClick={() => {
-                            // setShowPPModal(true);
-                            // }}
-                        />
-                    </div>            
-
-                        <Form onSubmit={handleSubmit}>
-                            <Form.Group controlId="image">
-                            <Form.Control
-                                type="text"
-                                placeholder="Enter image URL"
-                                value={imageUrl}
-                                onChange={handleImageChange}
-                            />
-                            </Form.Group>
-                        </Form>
-                
-                    <div>
-                    <h5>Edit Profile</h5>
-                        <Form onSubmit={handleSubmit}>
-                            <Form.Group controlId="formName">
-                            <Form.Label>First Name</Form.Label>
-                            <Form.Control 
-                                type="text" 
-                                value={""} 
-                                onChange={(event) => setName(event.target.value)}
-                            />
-                            </Form.Group>
-
-                            <Form.Group controlId="formSurname">
-                            <Form.Label>Last Name</Form.Label>
-                            <Form.Control 
-                                type="text" 
-                                value={""} 
-                                onChange={(event) => setSurname(event.target.value)}
-                            />
-                            </Form.Group>
-
-                            <Form.Group controlId="formEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control 
-                                type="email" 
-                                value={email} 
-                                onChange={(event) => setEmail(event.target.value)}
-                            />
-                            </Form.Group>
-
-                            <Button className="check-btn" type="submit">
-                            Save
-                            </Button>
-                        </Form>
-                    </div>
-                </Col>
-            </Row> */}
+            <h1>Nihao, {currentUserInfo.firstName} {currentUserInfo.lastName}!</h1>
+            <Col>
+            <button onClick={logout}>Log out < FiLogOut/> </button>
+            </Col>
         </Container>
         </>
     )
