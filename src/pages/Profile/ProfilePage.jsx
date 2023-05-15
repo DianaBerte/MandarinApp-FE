@@ -1,14 +1,12 @@
 import { Col, Container, Row, Form, Button, Modal, ListGroup } from "react-bootstrap";
 import { FiLogOut } from "react-icons/fi"
 import { MdOutlinePhotoCamera } from "react-icons/md";
-import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "../../redux/actions/index.js";
-import { getUsers } from "../../redux/actions/index.js";
 import { useNavigate } from "react-router-dom";
 
-const UserProfile = (  ) => {
+const UserProfile = () => {
 
     let currentUserInfo = useSelector((state) => state.currentUser.currentUser)
 

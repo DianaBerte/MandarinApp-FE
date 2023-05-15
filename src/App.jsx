@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../src/assets/global.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage/Homepage.jsx";
+import AdminsOnly from "./pages/Admins/AdminsOnly.jsx";
 import GameOne from "./pages/Games/Beginner/gameOne.jsx";
 import ChooseYourLevel from "./pages/Homepage/ChooseYourLevel.jsx";
 import StartPage from "./pages/Homepage/StartPage.jsx";
@@ -34,6 +35,7 @@ function App() {
                 <Route path="/games/advanced/third" element={< GameSeven />} /> */}
 
                 <Route path="/users/me" element={ <UserProfile /> } />
+                <Route path="/admin" element={<AdminsOnly />} />
             </Routes>
         </BrowserRouter>
     );
