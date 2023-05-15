@@ -27,7 +27,6 @@ const UserProfile = () => {
 
     const changeImage = async (event) => {
         try {
-            console.log("hello")
             const file = event.target.files?.[0];
             const formData = new FormData();
             formData.append("image", file);
@@ -159,8 +158,9 @@ const UserProfile = () => {
                 <div className="form">
                 <div>
                     <ListGroup variant="flush">
-                        <ListGroup.Item className="listgroup-text">{currentUserInfo.firstName} {currentUserInfo.lastName}</ListGroup.Item>
-                        <ListGroup.Item className="listgroup-text">{currentUserInfo.email}</ListGroup.Item>
+                        <ListGroup.Item className="listgroup-text">Name: {currentUserInfo.firstName} {currentUserInfo.lastName}</ListGroup.Item>
+                        <ListGroup.Item className="listgroup-text">Email Address: {currentUserInfo.email}</ListGroup.Item>
+                        <ListGroup.Item className="listgroup-text">Role: {currentUserInfo.role}</ListGroup.Item>
                     </ListGroup>
                     <button onClick={handleShow}>
                     <h3>Edit Profile</h3>

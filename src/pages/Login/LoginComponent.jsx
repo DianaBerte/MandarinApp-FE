@@ -39,22 +39,6 @@ const LoginComponent = () => {
     }
   }
 
-  // const handleSubmit = async e => {
-  //   try {
-  //     e.preventDefault()
-  //     const { data } = await axios.post(`${process.env.REACT_APP_BE_URL}/users/login`, {
-  //       email,
-  //       password,
-  //     })
-  //     toast("Login successful! 💪", { autoClose: 1000 })
-  //     localStorage.setItem("accessToken", data.accessToken);
-  //     navigate("/")
-  //   } catch (error) {
-  //     setError(error.response.data.message)
-  //   }
-  // }
-
-
   return (
     <>
     {localStorage.getItem("accessToken") ? (

@@ -4,6 +4,8 @@ import "../src/assets/global.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage/Homepage.jsx";
 import AdminsOnly from "./pages/Admins/AdminsOnly.jsx";
+import HandleGames from "./pages/Admins/HandleGames.jsx";
+import HandleUsers from "./pages/Admins/HandleUsers.jsx";
 import GameOne from "./pages/Games/Beginner/gameOne.jsx";
 import ChooseYourLevel from "./pages/Homepage/ChooseYourLevel.jsx";
 import StartPage from "./pages/Homepage/StartPage.jsx";
@@ -36,6 +38,8 @@ function App() {
 
                 <Route path="/users/me" element={ <UserProfile /> } />
                 <Route path="/admin" element={<AdminsOnly />} />
+                <Route path="/admin/handleGames" element={<HandleGames />} />
+                <Route path="/admin/handleUsers" element={<HandleUsers />} />
             </Routes>
         </BrowserRouter>
     );
