@@ -3,14 +3,15 @@ import { getUsers } from "../../redux/actions/index.js"
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux";
 
-const HandleUsers = () => {
+const HandleUsers = (user) => {
 
     const [users, setUsers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await getUsers();
+            const accessToken = localStorage.getItem("accessToken");
+            const response = await getUsers(accessToken);
             if (response) {
                 setUsers(response);
                 setIsLoading(false);
@@ -18,6 +19,26 @@ const HandleUsers = () => {
         };
         fetchData();
     }, []);
+
+    const [newFirstName, setNewFirstName] = useState(user.firstName);
+    const [newLastName, setNewLastName] = useState(user.lastName);
+    const [newImage, setNewImage] = useState(user.image);
+    const [newEmail, setNewEmail] = useState(user.email);
+    const [newRole, setNewRole] = useState(user.role)
+
+    const updateUser = async () => {
+        const updatedUser = {
+            firstName: newFirstName,
+            lastName: newLastName,
+            email: newEmail,
+            role: newRole,
+        };
+        try {
+            let res = await fetch(`${process.env.REACT_APP_BE_URL}/users/${id}`)
+        } catch (error) {
+            
+        }
+    }
 
     return(
         <Container>

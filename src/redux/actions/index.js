@@ -123,10 +123,16 @@ export const setCurrentUser = (currentUser) => {
     }
 }
 
-export const getUsers = async () => {
+export const getUsers = async (accessToken) => {
     console.log("Entering: getUsers()")
     try {
-        const res = await fetch(`${process.env.REACT_APP_BE_URL}/users`)
+        const res = await fetch(`${process.env.REACT_APP_BE_URL}/users`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+                "Content-Type": "application/json",
+            },
+        })
         if (!res.ok) {
             console.log("FE: error fetching users in getUsers().")
         };
