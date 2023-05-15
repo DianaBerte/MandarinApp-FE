@@ -123,25 +123,20 @@ export const setCurrentUser = (currentUser) => {
     }
 }
 
-export const getUsers = () => {
-    return async (dispatch) => {
-        console.log("Entering: getUsers()")
-        try {
-            const res = await fetch(`${process.env.REACT_APP_BE_URL}/users`)
-            if (res.ok) {
-                const data = await res.json();
-                dispatch({
-                    type: SET_USER_INFO,
-                    payload: data,
-                }); console.log("Working ok: getUsers()")
-            } else {
-                console.log("FE: error fetching users in getUsers().")
-            }
-        } catch (error) {
-            console.log(error)
-        }
+export const getUsers = async () => {
+    console.log("Entering: getUsers()")
+    try {
+        const res = await fetch(`${process.env.REACT_APP_BE_URL}/users`)
+        if (!res.ok) {
+            console.log("FE: error fetching users in getUsers().")
+        };
+        const data = await res.json();
+        console.log("Working ok: getUsers()");
+        return data;
+    } catch (error) {
+        console.log(error)
     }
-}
+};
 
 // export const setUserInfo = () => {
 //     return async (dispatch) => {
