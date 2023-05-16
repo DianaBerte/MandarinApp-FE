@@ -42,6 +42,11 @@ Form {
   color: #3c950d;
 }
 
+.modal-text {
+  font-family: 'Indie Flower', cursive;
+  font-size: 1rem;
+}
+
 .container-div {
     margin-top: 3rem; 
     height: 30rem;

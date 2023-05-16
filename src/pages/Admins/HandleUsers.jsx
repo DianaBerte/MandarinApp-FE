@@ -49,20 +49,21 @@ const HandleUsers = ({ user }) => {
             role: newRole,
             _id: selectedUser._id,
         };
-        try { console.log("Hellooo")
+        try { console.log("access token: ", accessToken)
             let res = await fetch(`${process.env.REACT_APP_BE_URL}/users/${selectedUser._id}`, {
                 method: "PUT",
                 body: JSON.stringify(updatedUser),
                 headers:
                 {
-                    Authorization: `Bearer ${accessToken}`,
+                    Authorization: "Bearer " + accessToken,
                     "Content-Type": "application/json",
                   },
             });
             if (res.ok) {
                 const response = await res.json();
-                dispatch(getUsers(response))
-                localStorage.setItem("accessToken", response.accessToken)
+                const newUsers = await getUsers(accessToken) 
+                setUsers(newUsers)               
+                // localStorage.setItem("accessToken", response.accessToken)
                 handleClose()
             }
         } catch (error) {
@@ -72,7 +73,7 @@ const HandleUsers = ({ user }) => {
 
     return(
         <>
-        <Modal show={show} onHide={handleClose}>
+        <Modal className="modal-text" show={show} onHide={handleClose}>
             <Modal.Header closeButton>
             <Modal.Title className="modal-title" ><h1>Update User</h1></Modal.Title>
             </Modal.Header>
