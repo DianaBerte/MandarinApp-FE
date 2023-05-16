@@ -72,16 +72,17 @@ const GameOne = () => {
         setCurrentGame(games[currentGameIndex]);
     }, [games, currentGameIndex]);
 
-    useEffect(() => {
-        let currentUser = JSON.parse(localStorage.getItem("currentUser"));
-        if (!currentUser) {
-          currentUser = {quizAnswers: []};
-        }
-        currentUser.quizAnswers = []; // set quizAnswers to an empty array
-        localStorage.setItem("currentUser", JSON.stringify(currentUser));
-      }, []);
+    // MAYBE OKAY:
+    // useEffect(() => {
+    //     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    //     if (!currentUser) {
+    //       currentUser = {quizAnswers: []};
+    //     }
+    //     currentUser.quizAnswers = []; // set quizAnswers to an empty array
+    //     localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    //   }, []);
     
-    // clears the quizAnswers array of the currentUser object in the local storage when the component unmounts:
+    // NOT OKAY - clears the quizAnswers array of the currentUser object in the local storage when the component unmounts:
 
     //   useEffect(() => {
     //     return () => {

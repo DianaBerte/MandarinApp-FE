@@ -15,6 +15,7 @@ import LoginComponent from "./pages/Login/LoginComponent.jsx";
 import GameTwo from "./pages/Games/Beginner/gameTwo";
 import GameFour from "./pages/Games/Intermediate/gameFour";
 import GameFive from "./pages/Games/Intermediate/gameFive";
+import GamesCompleted from "./pages/Games/gamesCompleted.jsx"
 
 function App() {
     return (
@@ -36,7 +37,7 @@ function App() {
                 {/* <Route path="/games/advanced/second" element={< GameSix />} />
                 <Route path="/games/advanced/third" element={< GameSeven />} /> */}
 
-                {/* <Route path="/games/completed" element={ <GamesCompleted /> }/> */}
+                <Route path="/games/completed" element={<GamesCompleted />} />
 
                 <Route path="/users/me" element={ <UserProfile /> } />
                 <Route path="/admin" element={<AdminsOnly />} />
