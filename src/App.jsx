@@ -36,6 +36,8 @@ function App() {
                 {/* <Route path="/games/advanced/second" element={< GameSix />} />
                 <Route path="/games/advanced/third" element={< GameSeven />} /> */}
 
+                {/* <Route path="/games/completed" element={ <GamesCompleted /> }/> */}
+
                 <Route path="/users/me" element={ <UserProfile /> } />
                 <Route path="/admin" element={<AdminsOnly />} />
                 <Route path="/admin/handleGames" element={<HandleGames />} />

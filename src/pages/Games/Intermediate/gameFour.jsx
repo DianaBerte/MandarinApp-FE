@@ -14,7 +14,8 @@ const GameFour = () => {
     let [currentGame, setCurrentGame] = useState({}); //stores the game object
     let [showRightAnsModal, setShowRightAnsModal] = useState(false);
     let [showWrongAns, setShowWrongAns] = useState(false);
-    let [selectedAnswer, setSelectedAnswer] = useState(null)
+    let [selectedAnswer, setSelectedAnswer] = useState(null);
+    const [showNextBtn, setShowNextBtn] = useState(false);
 
     const games = useSelector((state) => {
         console.log("Working: return state.currentGame in gameFour")
@@ -36,7 +37,9 @@ const GameFour = () => {
                 setCurrentGame(games[currentGameIndex + 1]);
                 console.log("Working: nextExercise() in gameFour")   
             } else {
-                navigate(`/games/intermediate/third`)
+                setTimeout(() => {
+                    navigate(`/games/intermediate/third`);
+                }, 2000);
             }
         } catch (error) {
             console.log(error)  
@@ -73,19 +76,31 @@ const GameFour = () => {
                 <div className="btn-wrapper">                                
                     <Button className="check-btn" onClick={() => {
                         if(selectedAnswer === currentGame.answers[0].correctAnswer) {
-                             setShowRightAnsModal(true)
+                             setShowRightAnsModal(true);
+                             setTimeout(() => {
+                                setShowRightAnsModal(false);
+                            }, 2000);
+                            nextExercise()
                         } else {
-                             setShowWrongAns(true)
+                            setShowWrongAns(true);
+                            setTimeout(() => {
+                                setShowWrongAns(false);
+                            }, 2000);
+                            nextExercise()
                         }
                         }}key={selectedAnswer}>Check
                     </ Button>
                 </div>
 
+                {/* {showNextBtn && (
                 <div className="btn-wrapper">
                     <Button className="next-btn" onClick={nextExercise}> 
                       Next
                     </Button>
                 </div>
+                )} */}
+
+
             </div>
         </Container>
         <RightAnswerModal show={showRightAnsModal} onHide={() => setShowRightAnsModal(false)} />

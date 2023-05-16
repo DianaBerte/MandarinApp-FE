@@ -36,7 +36,9 @@ const GameTwo = () => {
                 setCurrentGame(games[currentGameIndex + 1]);
                 console.log("Working: nextExercise() in gameTwo")   
             } else {
-                navigate(`/games/beginner/third`)
+                setTimeout(() => {
+                    navigate(`/games/beginner/third`);
+                }, 2000);
             }
         } catch (error) {
             console.log(error)  
@@ -71,19 +73,27 @@ const GameTwo = () => {
                 <div className="btn-wrapper">                                
                     <Button className="check-btn" onClick={() => {
                         if(selectedAnswer === currentGame.answers[0].correctAnswer) {
-                             setShowRightAnsModal(true)
+                             setShowRightAnsModal(true);
+                             setTimeout(() => {
+                                setShowRightAnsModal(false);
+                            }, 2000);
+                            nextExercise()
                         } else {
-                             setShowWrongAns(true)
+                            setShowWrongAns(true);
+                            setTimeout(() => {
+                                setShowWrongAns(false);
+                            }, 2000);
+                            nextExercise()
                         }
                         }}key={selectedAnswer}>Check
                     </ Button>
                 </div>
 
-                <div className="btn-wrapper">
+                {/* <div className="btn-wrapper">
                     <Button className="next-btn" onClick={nextExercise}> 
                       Next
                     </Button>
-                </div>
+                </div> */}
             </div>
         </Container>
         <RightAnswerModal show={showRightAnsModal} onHide={() => setShowRightAnsModal(false)} />

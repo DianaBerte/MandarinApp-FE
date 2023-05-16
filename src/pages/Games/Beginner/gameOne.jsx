@@ -37,11 +37,23 @@ const GameOne = () => {
                 console.log("Working: nextExercise() in gameOne")     
             } else {
                 if (level === "beginner") {
-                    navigate(`/games/beginner/second`)}
+                    // navigate(`/games/beginner/second`)
+                    setTimeout(() => {
+                        navigate(`/games/beginner/second`);
+                    }, 2000);
+                }
                 if (level === "intermediate") {
-                    navigate(`/games/intermediate/second`)}
+                    // navigate(`/games/intermediate/second`)
+                    setTimeout(() => {
+                        navigate(`/games/intermediate/second`);
+                    }, 2000);
+                }
                 if (level === "advanced") {
-                    navigate(`/games/advanced/second`)}
+                    // navigate(`/games/advanced/second`)
+                    setTimeout(() => {
+                        navigate(`/games/advanced/second`);
+                    }, 2000);
+                }
             }
         } catch (error) {
             console.log(error)  
@@ -76,19 +88,27 @@ const GameOne = () => {
                 <div className="btn-wrapper">                                
                     <Button className="check-btn" onClick={() => {
                         if(selectedAnswer === currentGame.answers[0].correctAnswer) {
-                             setShowRightAnsModal(true)
+                             setShowRightAnsModal(true);
+                             setTimeout(() => {
+                                setShowRightAnsModal(false);
+                            }, 2000);
+                            nextExercise()
                         } else {
-                             setShowWrongAns(true)
+                            setShowWrongAns(true);
+                            setTimeout(() => {
+                                setShowWrongAns(false);
+                            }, 2000);
+                            nextExercise()
                         }
                         }}key={selectedAnswer}>Check
                     </ Button>
                 </div>
 
-                <div className="btn-wrapper">
+                {/* <div className="btn-wrapper">
                     <Button className="next-btn" onClick={nextExercise}> 
                       Next
                     </Button>
-                </div>
+                </div> */}
             </div>
         </Container>
         <RightAnswerModal show={showRightAnsModal} onHide={() => setShowRightAnsModal(false)} />
