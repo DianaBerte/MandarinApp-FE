@@ -37,19 +37,16 @@ const GameOne = () => {
                 console.log("Working: nextExercise() in gameOne")     
             } else {
                 if (level === "beginner") {
-                    // navigate(`/games/beginner/second`)
                     setTimeout(() => {
                         navigate(`/games/beginner/second`);
                     }, 2000);
                 }
                 if (level === "intermediate") {
-                    // navigate(`/games/intermediate/second`)
                     setTimeout(() => {
                         navigate(`/games/intermediate/second`);
                     }, 2000);
                 }
                 if (level === "advanced") {
-                    // navigate(`/games/advanced/second`)
                     setTimeout(() => {
                         navigate(`/games/advanced/second`);
                     }, 2000);
@@ -104,11 +101,6 @@ const GameOne = () => {
                     </ Button>
                 </div>
 
-                {/* <div className="btn-wrapper">
-                    <Button className="next-btn" onClick={nextExercise}> 
-                      Next
-                    </Button>
-                </div> */}
             </div>
         </Container>
         <RightAnswerModal show={showRightAnsModal} onHide={() => setShowRightAnsModal(false)} />
