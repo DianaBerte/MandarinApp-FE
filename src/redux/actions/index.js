@@ -2,6 +2,8 @@ export const SET_USER_INFO = "SET_USER_INFO";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
 export const FETCH_GAME = "FETCH_GAME";
 
+const accessToken = localStorage.getItem("accessToken");
+
 export const fetchGames = (level) => {
     return async (dispatch) => {
         try {

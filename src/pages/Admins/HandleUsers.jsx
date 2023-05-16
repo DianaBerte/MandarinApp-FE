@@ -29,9 +29,14 @@ const HandleUsers = ({ user }) => {
     const [newEmail, setNewEmail] = useState(user?.email || '');
     const [newRole, setNewRole] = useState(user?.role || '')
 
+    const [selectedUser, setSelectedUser] = useState(null);
+
     const [show, setShow] = useState(false)
     const handleClose = () => setShow(false)
-    const handleShow = () => setShow(true)
+    const handleShow = (user) => {
+        setSelectedUser(user);
+        setShow(true);
+    }
 
     const accessToken = localStorage.getItem("accessToken");
     const _id = localStorage.getItem("_id");
@@ -42,10 +47,10 @@ const HandleUsers = ({ user }) => {
             lastName: newLastName,
             email: newEmail,
             role: newRole,
-            _id: user._id,
+            _id: selectedUser._id,
         };
         try { console.log("Hellooo")
-            let res = await fetch(`${process.env.REACT_APP_BE_URL}/users/${user._id}`, {
+            let res = await fetch(`${process.env.REACT_APP_BE_URL}/users/${selectedUser._id}`, {
                 method: "PUT",
                 body: JSON.stringify(updatedUser),
                 headers:
@@ -57,6 +62,7 @@ const HandleUsers = ({ user }) => {
             if (res.ok) {
                 const response = await res.json();
                 dispatch(getUsers(response))
+                localStorage.setItem("accessToken", response.accessToken)
                 handleClose()
             }
         } catch (error) {
@@ -118,9 +124,9 @@ const HandleUsers = ({ user }) => {
             <Button variant="secondary" onClick={handleClose}>
                 Close
             </Button>
-            {/* <Button variant="primary" onClick={() => updateUser({_id: user._id})}>
+            <Button variant="primary" onClick={() => updateUser()}>
                 Save Changes
-            </Button> */}
+            </Button>
             </Modal.Footer>
         </Modal>
 
@@ -139,7 +145,7 @@ const HandleUsers = ({ user }) => {
                     <ListGroup.Item className="listgroup-text">{user.firstName} {user.lastName}</ListGroup.Item>
                     <ListGroup.Item className="listgroup-text">{user.email}</ListGroup.Item>
                     <ListGroup.Item className="listgroup-text">Role: {user.role}</ListGroup.Item>
-                    <Button onClick={handleShow}>Action</Button>
+                    <Button onClick={() => handleShow(user)}>Action</Button>
                     </Row>
                     </ListGroup>
                 </Col>
