@@ -32,6 +32,16 @@ const GameFour = () => {
 
     const nextExercise = async () => {     
         try {
+
+            let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+            if (!currentUser) {
+                currentUser = {quizAnswers: []};
+            }
+            if (selectedAnswer === currentGame.answers[0].correctAnswer) {
+                currentUser.quizAnswers.push(selectedAnswer);
+                localStorage.setItem("currentUser", JSON.stringify(currentUser));
+            }
+            
             if (currentGameIndex <= 8) { //checking if there are more games in the list (max. 5) and updating the state accordingly 
                 setCurrentGameIndex(currentGameIndex + 1);
                 setCurrentGame(games[currentGameIndex + 1]);

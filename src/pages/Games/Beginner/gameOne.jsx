@@ -31,6 +31,17 @@ const GameOne = () => {
 
     const nextExercise = async () => {     
         try {
+
+            ///////// currentUser:
+            let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+            if (!currentUser) {
+                currentUser = {quizAnswers: []};
+            }
+            if (selectedAnswer === currentGame.answers[0].correctAnswer) {
+                currentUser.quizAnswers.push(selectedAnswer);
+                localStorage.setItem("currentUser", JSON.stringify(currentUser));
+            }
+
             if (currentGameIndex <= 3) { //checking if there are more games (max. 5) in the list and updating the state accordingly 
                 setCurrentGameIndex(currentGameIndex + 1);
                 setCurrentGame(games[currentGameIndex + 1]);
@@ -59,7 +70,29 @@ const GameOne = () => {
 
     useEffect(() => { //runs every time the "games" or "currentGameIndex" state changes, and updates the "currentGame" state to be the correct object based on the current index
         setCurrentGame(games[currentGameIndex]);
-    }, [games, currentGameIndex]);  
+    }, [games, currentGameIndex]);
+
+    useEffect(() => {
+        let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        if (!currentUser) {
+          currentUser = {quizAnswers: []};
+        }
+        currentUser.quizAnswers = []; // set quizAnswers to an empty array
+        localStorage.setItem("currentUser", JSON.stringify(currentUser));
+      }, []);
+    
+    // clears the quizAnswers array of the currentUser object in the local storage when the component unmounts:
+
+    //   useEffect(() => {
+    //     return () => {
+    //       let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    //       if (!currentUser) {
+    //         currentUser = {quizAnswers: []};
+    //       }
+    //       currentUser.quizAnswers = []; // set quizAnswers to an empty array
+    //       localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    //     };
+    //   }, []);
 
     return(
         <>
