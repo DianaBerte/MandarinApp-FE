@@ -9,6 +9,8 @@ const HandleUsers = ({ user }) => {
     const [users, setUsers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
+    const dispatch = useDispatch();
+
     useEffect(() => {
         const fetchData = async () => {
             const accessToken = localStorage.getItem("accessToken");
@@ -32,34 +34,35 @@ const HandleUsers = ({ user }) => {
     const handleShow = () => setShow(true)
 
     const accessToken = localStorage.getItem("accessToken");
+    const _id = localStorage.getItem("_id");
 
-    // const updateUser = async () => {
-    //     const updatedUser = {
-    //         firstName: newFirstName,
-    //         lastName: newLastName,
-    //         email: newEmail,
-    //         role: newRole,
-    //         _id: user._id,
-    //     };
-    //     try { console.log("Hellooo")
-    //         let res = await fetch(`${process.env.REACT_APP_BE_URL}/users/${user._id}`, {
-    //             method: "PUT",
-    //             body: JSON.stringify(updatedUser),
-    //             headers:
-    //             {
-    //                 Authorization: `Bearer ${accessToken}`,
-    //                 "Content-Type": "application/json",
-    //               },
-    //         });
-    //         if (res.ok) {
-    //             const response = await res.json();
-    //             dispatch(getUsers(response))
-    //             handleClose()
-    //         }
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }
+    const updateUser = async () => {
+        const updatedUser = {
+            firstName: newFirstName,
+            lastName: newLastName,
+            email: newEmail,
+            role: newRole,
+            _id: user._id,
+        };
+        try { console.log("Hellooo")
+            let res = await fetch(`${process.env.REACT_APP_BE_URL}/users/${user._id}`, {
+                method: "PUT",
+                body: JSON.stringify(updatedUser),
+                headers:
+                {
+                    Authorization: `Bearer ${accessToken}`,
+                    "Content-Type": "application/json",
+                  },
+            });
+            if (res.ok) {
+                const response = await res.json();
+                dispatch(getUsers(response))
+                handleClose()
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return(
         <>
@@ -125,7 +128,6 @@ const HandleUsers = ({ user }) => {
         <Container>
             <div>
             <h1>Handle Users</h1>
-            < HandleUsers user={user} />
             {isLoading && <p>Loading...</p>}
             <h2>List of users:</h2>
             </div>
