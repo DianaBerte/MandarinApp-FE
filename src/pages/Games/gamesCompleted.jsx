@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-localStorage.setItem("currentUser", JSON.stringify(currentUser));
+// const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+// localStorage.setItem("currentUser", JSON.stringify(currentUser));
 
-const myArray = currentUser.quizAnswers;
 
 const countAnswers = (arr) => {
     let count = 0;
@@ -19,7 +18,9 @@ const countAnswers = (arr) => {
 const GamesCompleted = () => {
 
     const [stringCount, setStringCount] = useState(0);
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     let currentUserInfo = useSelector((state) => state.currentUser.currentUser)
+    const myArray = currentUser.quizAnswers || [];
 
     useEffect(() => {
         const count = countAnswers(myArray);

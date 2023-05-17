@@ -84,7 +84,7 @@ const UserProfile = () => {
             password: "",
             role: "",
             googleId: "",
-            quizAnswers: "",
+            quizAnswers: [],
             image: "",
         };
         localStorage.removeItem("accessToken");
