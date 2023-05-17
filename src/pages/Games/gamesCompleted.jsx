@@ -1,9 +1,20 @@
+import { Container, Col, Row } from "react-bootstrap";
+
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-localStorage.setItem("currentUser", JSON.stringify(currentUser));
+// console.log("currentUser in gamesCompleted: ", currentUser)
 
 const GamesCompleted = () => {
     return(
-        <h1>Score: {currentUser.quizAnswers}</h1>
+        <>
+        <Container>
+            <Col>
+            <Row>
+                <h1>Nihao, {currentUser.firstName}!</h1>
+                <h1>Score: {currentUser.quizAnswers}</h1>
+            </Row>
+            </Col>
+        </Container>
+        </>
     )
 }
 

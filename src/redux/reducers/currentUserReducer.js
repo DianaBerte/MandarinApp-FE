@@ -1,7 +1,7 @@
 import { SET_CURRENT_USER } from "../actions/index.js";
 
 const initialState = {
-    currentUser: {},
+    currentUser: null
 }
 
 const currentUserReducer = (state = initialState, action) => {

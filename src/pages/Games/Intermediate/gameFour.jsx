@@ -1,12 +1,20 @@
 import { Container, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { fetchInterSecond } from "../../../redux/actions/index.js";
 import RightAnswerModal from "../../../components/RightAnswerModal.jsx";
 import WrongAnswerModal from "../../../components/WrongAnswerModal.jsx";
 
-const GameFour = () => {
+const GameFour = ({quizAnswers}) => {
+
+    // useEffect(() => {
+    //     const currentUserInfo = {
+    //     ...localStorage.getItem("currentUser"),
+    //     quizAnswers,
+    //     };
+    // //     localStorage.setItem("currentUser", JSON.stringify(currentUserInfo));
+    //     }, [quizAnswers]);
 
     const navigate = useNavigate();
 
@@ -16,6 +24,10 @@ const GameFour = () => {
     let [showWrongAns, setShowWrongAns] = useState(false);
     let [selectedAnswer, setSelectedAnswer] = useState(null);
     const [showNextBtn, setShowNextBtn] = useState(false);
+
+    // const newQuizAnswers = [...currentUserInfo.quizAnswers, selectedAnswer];
+    // const newCurrentUserInfo = {...currentUserInfo, quizAnswers: newQuizAnswers};
+    // localStorage.setItem("currentUser", JSON.stringify(newCurrentUserInfo));
 
     const games = useSelector((state) => {
         console.log("Working: return state.currentGame in gameFour")
@@ -30,17 +42,35 @@ const GameFour = () => {
         console.log("Working: dispatch(fetchInterSecond) in gameFour")  
     }, [])
 
+    const newCurrentUserInfo = useSelector((state) => state.currentUser.currentUser)
+    
+    const quizAnswersState = [quizAnswersState, setQuizAnswersState] = useState(quizAnswers)
+ 
+
+
     const nextExercise = async () => {     
         try {
 
-            let currentUser = JSON.parse(localStorage.getItem("currentUser"));
-            if (!currentUser) {
-                currentUser = {quizAnswers: []};
-            }
+            // let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+            // if (!currentUser) {
+            //     currentUser = {quizAnswers: []};
+            // }
+            // if (selectedAnswer === currentGame.answers[0].correctAnswer) {
+            //     currentUser.quizAnswers.push(selectedAnswer);
+            //     localStorage.setItem("currentUser", JSON.stringify(currentUser));
+            // }
+            
+            // create a copy of the quizAnswers array:
+            
+
             if (selectedAnswer === currentGame.answers[0].correctAnswer) {
-                currentUser.quizAnswers.push(selectedAnswer);
-                localStorage.setItem("currentUser", JSON.stringify(currentUser));
+                const newQuizAnswers = [quizAnswersState];
+                newQuizAnswers.push(selectedAnswer);
+                setQuizAnswersState(newQuizAnswers);
+                localStorage.setItem("currentUser", JSON.stringify(newCurrentUserInfo));
+                console.log("current user in gameFOUR: ", newCurrentUserInfo)
             }
+
             
             if (currentGameIndex <= 8) { //checking if there are more games in the list (max. 5) and updating the state accordingly 
                 setCurrentGameIndex(currentGameIndex + 1);
@@ -48,7 +78,7 @@ const GameFour = () => {
                 console.log("Working: nextExercise() in gameFour")   
             } else {
                 setTimeout(() => {
-                    navigate(`/games/intermediate/third`);
+                    navigate(`/games/intermediate/third`, {quizAnswers: quizAnswers});
                 }, 2000);
             }
         } catch (error) {

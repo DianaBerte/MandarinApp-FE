@@ -125,6 +125,13 @@ export const setCurrentUser = (currentUser) => {
     }
 }
 
+export const updateCurrentUser = (newUserInfo) => {
+    return {
+        type: "UPDATE_CURRENT_USER",
+        payload: newUserInfo,
+    };
+};
+
 
 export const getUsers = async (accessToken) => {
     console.log("Entering: getUsers()")

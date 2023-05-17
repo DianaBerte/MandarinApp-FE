@@ -17,10 +17,9 @@ const GameOne = () => {
     let [showRightAnsModal, setShowRightAnsModal] = useState(false);
     let [showWrongAns, setShowWrongAns] = useState(false);
     let [selectedAnswer, setSelectedAnswer] = useState(null)
+    const [quizAnswers, setQuizAnswers] = useState([])
 
-    const games = useSelector((state) => {
-        return state.currentGame;
-    });
+    const games = useSelector((state) => {return state.currentGame});
  
     const dispatch = useDispatch();
 
@@ -29,17 +28,20 @@ const GameOne = () => {
         setCurrentGame(games[currentGameIndex]) //setting the initial value of "game" to the first game in the list
     }, [])
 
-    const nextExercise = async () => {     
+    useEffect(() => {
+        const newCurrentUserInfo = {
+            ...currentUserInfo,
+            quizAnswers: quizAnswers,
+        }
+        localStorage.setItem("currentUser", JSON.stringify(newCurrentUserInfo))
+        console.log("current user in gameOne: ", newCurrentUserInfo)
+    })
+
+    const nextExercise = async () => {  
         try {
 
-            ///////// currentUser:
-            let currentUser = JSON.parse(localStorage.getItem("currentUser"));
-            if (!currentUser) {
-                currentUser = {quizAnswers: []};
-            }
             if (selectedAnswer === currentGame.answers[0].correctAnswer) {
-                currentUser.quizAnswers.push(selectedAnswer);
-                localStorage.setItem("currentUser", JSON.stringify(currentUser));
+                setQuizAnswers([...quizAnswers, selectedAnswer])
             }
 
             if (currentGameIndex <= 3) { //checking if there are more games (max. 5) in the list and updating the state accordingly 
@@ -49,17 +51,17 @@ const GameOne = () => {
             } else {
                 if (level === "beginner") {
                     setTimeout(() => {
-                        navigate(`/games/beginner/second`);
+                        navigate(`/games/beginner/second`, {quizAnswers: quizAnswers});
                     }, 2000);
                 }
                 if (level === "intermediate") {
                     setTimeout(() => {
-                        navigate(`/games/intermediate/second`);
+                        navigate(`/games/intermediate/second`, {quizAnswers: quizAnswers});
                     }, 2000);
                 }
                 if (level === "advanced") {
                     setTimeout(() => {
-                        navigate(`/games/advanced/second`);
+                        navigate(`/games/advanced/second`, {quizAnswers: quizAnswers});
                     }, 2000);
                 }
             }
@@ -67,6 +69,9 @@ const GameOne = () => {
             console.log(error)  
         }
     };
+
+    const currentUserInfo = useSelector((state) => state.currentUser.currentUser)
+
 
     useEffect(() => { //runs every time the "games" or "currentGameIndex" state changes, and updates the "currentGame" state to be the correct object based on the current index
         setCurrentGame(games[currentGameIndex]);
@@ -83,7 +88,6 @@ const GameOne = () => {
     //   }, []);
     
     // NOT OKAY - clears the quizAnswers array of the currentUser object in the local storage when the component unmounts:
-
     //   useEffect(() => {
     //     return () => {
     //       let currentUser = JSON.parse(localStorage.getItem("currentUser"));
