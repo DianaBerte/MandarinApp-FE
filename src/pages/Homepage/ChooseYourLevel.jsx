@@ -1,5 +1,6 @@
-import { Button } from "react-bootstrap"
+import { Button, Col, Row, Container } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
+import NavbarComponent from "../../components/NavbarComponent"
 
 const ChooseYourLevel = () => {
 
@@ -7,6 +8,10 @@ const ChooseYourLevel = () => {
 
     return(
         <>
+        <NavbarComponent />
+        <Container>
+            <Col>
+            <div>
         <h1>Choose Your Level</h1>
         <Button onClick={() => navigate("/start/beginner")}>
             Beginner</Button>
@@ -14,6 +19,9 @@ const ChooseYourLevel = () => {
             Intermediate</Button>
         <Button onClick={() => navigate("/start/advanced")}>
             Advanced</Button>
+            </div>
+            </Col>
+            </Container>
         </>
     )
 }

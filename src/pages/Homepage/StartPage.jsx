@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Button, Container } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useParams } from "react-router-dom";
+import NavbarComponent from "../../components/NavbarComponent";
 
 const StartPage = () => {
     
@@ -64,6 +65,7 @@ const StartPage = () => {
 
     return(
         <>
+        <NavbarComponent />
         <Container>
         <Button onClick={ready}>Ready?</Button>
         <h2>{timer}</h2>

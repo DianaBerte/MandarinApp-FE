@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "../../redux/actions/index.js";
 import { useNavigate } from "react-router-dom";
+import NavbarComponent from "../../components/NavbarComponent.jsx";
 
 const UserProfile = () => {
 
@@ -94,6 +95,7 @@ const UserProfile = () => {
 
     return(
         <>
+        <NavbarComponent />
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
             <Modal.Title className="modal-title" ><h1>Update profile</h1></Modal.Title>

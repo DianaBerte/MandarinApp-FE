@@ -2,6 +2,7 @@ import { Container, Col,Row } from "react-bootstrap"
 import { useState } from "react"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router"
+import NavbarComponent from "../../components/NavbarComponent"
 
 const AdminsOnly = (props) => {
 
@@ -13,6 +14,7 @@ const AdminsOnly = (props) => {
 
     return(
         <>
+        <NavbarComponent />
         <Container>
             {isAdmin ? (
             <>
