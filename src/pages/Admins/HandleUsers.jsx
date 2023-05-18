@@ -3,6 +3,7 @@ import { getUsers } from "../../redux/actions/index.js"
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux";
 import { MdOutlinePhotoCamera } from "react-icons/md";
+import NavbarComponent from "../../components/NavbarComponent.jsx";
 
 const HandleUsers = ({ user }) => {
 
@@ -73,6 +74,7 @@ const HandleUsers = ({ user }) => {
 
     return(
         <>
+        <NavbarComponent />
         <Modal className="modal-text" show={show} onHide={handleClose}>
             <Modal.Header closeButton>
             <Modal.Title className="modal-title" ><h1>Update User</h1></Modal.Title>
