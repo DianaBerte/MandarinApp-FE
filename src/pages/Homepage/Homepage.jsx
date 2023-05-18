@@ -1,6 +1,7 @@
 import { Button, Col, Container, Row } from "react-bootstrap"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { useEffect } from "react"
+import NavbarComponent from "../../components/NavbarComponent.jsx"
 import RiverLi from "../../assets/img/RiverLi.png"
 
 
@@ -19,6 +20,7 @@ const Homepage = () => {
 
     return(
         <>
+        <NavbarComponent />
         <Container fluid className="p-5 my-5">
             <Row>
                 <Col col="10" md="6">
