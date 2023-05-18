@@ -1,0 +1,52 @@
+
+.cloud-wrapper {
+    /* border: 3px solid red; */
+    width: 100%;
+    margin-top: 2rem;
+    margin-left: 3rem;
+}
+
+.cloud {
+    width: 100%;
+}
+
+.riverli-wrapper {
+    /* border: 3px solid red; */
+    width: 100%;
+    margin-left: 6rem;
+}
+
+.riverLi {
+    width: 100%;
+}
+
+.home-container {
+    /* padding-right: 3rem; */
+    padding-left: 3rem; 
+    /* padding-top: 3rem; */
+    /* margin-top: 3rem; */
+    /* border: 3px solid azure; */
+}
+
+.choose-n-start-btn {
+    font-family: 'Indie Flower', cursive;
+    color: rgba(39, 93, 8, 1);
+    font-size: 30px;
+    font-weight: 1000;
+    background-color: #d2e5ed;
+    border-radius: 12px;
+    border: 1px solid rgb(0, 45, 45);
+    height: 5rem;
+    width: 30rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    box-shadow: rgb(0, 45, 45) 2px 8px 8px -8px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.choose-n-start-btn:hover {
+    box-shadow: rgb(0, 45, 45) 1px 6px 6px -2px;
+    transform: translate3d(1px, 1px, 0);
+    background-color: #effaff;
+    color: rgba(39, 93, 8, 1);
+}

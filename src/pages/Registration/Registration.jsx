@@ -1,9 +1,10 @@
 import { useState } from "react"
-import { Form, Button, Alert, Container, Row, Col } from "react-bootstrap"
+import { Form, Button, Alert, Container, Row, Col, Navbar } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { setCurrentUser } from "../../redux/actions/index.js"
 import { useDispatch } from "react-redux"
-import ChineseDragon from "../../assets/img/ChineseDragon.png"
+import "../../assets/navbar.css"
+import "../../assets/login&reg.css"
 
 const Registration = () => {
     
@@ -46,18 +47,23 @@ const Registration = () => {
 
   return (
     <>
-    <Container fluid className="p-5 my-5">
-        <h2>REGISTER TO MANDARINAPP</h2>
+    <Container className="login-container">
+        <div className="reg-title-wrapper">
+        <h2 className="navbar-brand text-center">Register to  <span className="putonghua">普通话</span>MandarinApp!</h2>
+        </div>
       <Row>
         <Col col="10" md="6">
-            <img className="dragon" src={ChineseDragon} alt="Chinese dragon" />
+            <div className="dragon-wrapper">
+            <img className="dragon" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684417100/Untitled_design_munqlw.png" alt="Chinese dragon" />
+            </div>
         </Col>
+
         <Col col="4" md="6">
           <Form onSubmit={(e) => {e.preventDefault(); userRegistration()}}>
 
           <Form.Group className="mb-3">
-              <Form.Label>First Name</Form.Label>
-              <Form.Control
+              <Form.Label className="login-form-label">First Name</Form.Label>
+              <Form.Control className="login-form-ctrl"
                 type="firstName"
                 placeholder="Enter name"
                 value={firstName}
@@ -67,8 +73,8 @@ const Registration = () => {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Last Name</Form.Label>
-              <Form.Control
+              <Form.Label className="login-form-label">Last Name</Form.Label>
+              <Form.Control className="login-form-ctrl"
                 type="lastName"
                 placeholder="Enter last name"
                 value={lastName}
@@ -79,8 +85,8 @@ const Registration = () => {
 
 
             <Form.Group className="mb-3">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control
+              <Form.Label className="login-form-label">Email address</Form.Label>
+              <Form.Control className="login-form-ctrl"
                 type="email"
                 placeholder="Enter email"
                 value={email}
@@ -90,8 +96,8 @@ const Registration = () => {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
+              <Form.Label className="login-form-label">Password</Form.Label>
+              <Form.Control className="login-form-ctrl"
                 type="password"
                 placeholder="Password"
                 value={password}
@@ -100,16 +106,16 @@ const Registration = () => {
               />
             </Form.Group>
 
-            <Button className="mb-4 w-100" size="lg" type="submit" onClick={userRegistration}>
+            <Button className="login-btn mb-2 w-100" size="lg" type="submit" onClick={userRegistration}>
               Register
             </Button>
 
             <div className="d-flex justify-content-center my-4">
-              <p className="text-center fw-bold mx-3 mb-0">OR</p>
+              <p className="or text-center fw-bold mx-3 mb-0">OR</p>
             </div>
 
             <a href={`${process.env.REACT_APP_BE_URL}/users/googleLogin`}>
-              <Button className="mb-4 w-100" size="lg" style={{ backgroundColor: "#55acee" }}>
+              <Button className="google-btn mb-4 w-100" size="lg" style={{ backgroundColor: "#8CAE6D" }}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
