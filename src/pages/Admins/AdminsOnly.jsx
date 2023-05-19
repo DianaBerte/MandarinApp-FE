@@ -3,6 +3,7 @@ import { useState } from "react"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router"
 import NavbarComponent from "../../components/NavbarComponent"
+import "../../assets/adminsOnly.css"
 
 const AdminsOnly = (props) => {
 
@@ -18,14 +19,16 @@ const AdminsOnly = (props) => {
         <Container>
             {isAdmin ? (
             <>
-            <Col>
+            <div className="nihao-admin">
+            <Col >
                 <h1>Nihao, Admin {currentUserInfo.firstName}!</h1>
                 <h2>What would you like to do?</h2>
             </Col>
+            </div>
 
             <Col>
             <Row>
-                <a className="mb-3" href="/admin/handleUsers">
+                <a className="handle-users" href="/admin/handleUsers">
                 Handle Users
                 </a>
             </Row>
@@ -33,7 +36,7 @@ const AdminsOnly = (props) => {
 
             <Col>
             <Row>
-                <a className="mb-3" href="/admin/handleGames">
+                <a className="handle-games" href="/admin/handleGames">
                 Handle Games
                 </a>
             </Row>
