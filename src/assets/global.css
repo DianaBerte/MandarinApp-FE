@@ -5,27 +5,27 @@ body {
 }
 
 /* ****************************profile ********************************** */
-.profile-img {
+/* .profile-img {
   width: 100%;
   margin-top: 2rem;
   margin-right: 4rem;
-}
+} */
 
-.profile-img-wrapper {
+/* .profile-img-wrapper { */
   /* display: flex; */
-  padding: 1rem;
+  /* padding: 1rem;
   max-width: 20%;
-  max-height: max-content;
+  max-height: max-content; */
   /* border: 1px solid red; */
-}
+/* } */
 
-.form {
+/* .form {
   /* display: flex; */
-  padding: 2rem;
+  /* padding: 2rem;
   width: fit-content;
-  max-width: 100%;
+  max-width: 100%; */
   /* border: 1px solid lightblue; */
-}
+/* } */ */
 
 .listgroup-text {
   color: #3c950d;

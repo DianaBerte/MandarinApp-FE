@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "../../redux/actions/index.js";
 import { useNavigate } from "react-router-dom";
 import NavbarComponent from "../../components/NavbarComponent.jsx";
+import "../../assets/account.css"
 
 const UserProfile = () => {
 
@@ -146,36 +147,42 @@ const UserProfile = () => {
             </Modal.Footer>
         </Modal>
 
-        <Container>
-            <Col>
-            <Row>
-            <h1>Nihao, {currentUserInfo.firstName}!</h1>
-            </Row>
-            <Row>
+        <Container className="profile-container">
 
+            <Col>
+                <div className="profile-title-wrapper">
+                <h1>Nihao, {currentUserInfo.firstName}!</h1>
+                </div>
+            
+        <Row className="profile-info-container">
+
+            <Col col="10" md="4">
                 <div className="profile-img-wrapper">
                     <img className="profile-img" src={currentUserInfo.image} alt="User Profile Image" />
                 </div>
+            </Col>
 
-                <div className="form">
+            <Col>
+                <div className="profile-form">
                 <div>
                     <ListGroup variant="flush">
-                        <ListGroup.Item className="listgroup-text">Name: {currentUserInfo.firstName} {currentUserInfo.lastName}</ListGroup.Item>
-                        <ListGroup.Item className="listgroup-text">Email Address: {currentUserInfo.email}</ListGroup.Item>
-                        <ListGroup.Item className="listgroup-text">Role: {currentUserInfo.role}</ListGroup.Item>
+                        <ListGroup.Item className="profile-listgroup-text">Name: {currentUserInfo.firstName} {currentUserInfo.lastName}</ListGroup.Item>
+                        <ListGroup.Item className="profile-listgroup-text">Email Address: {currentUserInfo.email}</ListGroup.Item>
+                        <ListGroup.Item className="profile-listgroup-text">Role: {currentUserInfo.role}</ListGroup.Item>
                     </ListGroup>
-                    <button onClick={handleShow}>
+                    <button className="edit-profile-btn" onClick={handleShow}>
                     <h3>Edit Profile</h3>
                     </button>
                 </div>
                 </div>
-            </Row>
             </Col>
-            
-            <Col>
-            <Row>
-            <button onClick={logout}>Log out < FiLogOut/> </button>
+
             </Row>
+
+            <div className="logout-btn-wrapper">
+            <button className="logout-btn" onClick={logout}>Log out < FiLogOut/> </button>
+            </div>
+
             </Col>
         </Container>
         </>
