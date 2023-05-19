@@ -70,3 +70,22 @@
     background-color: #effaff;
     color: rgba(39, 93, 8, 1);
 }
+
+/* *********************deactivated button****************** */
+
+.advanced-level-btn {
+    font-family: 'Indie Flower', cursive;
+    color: rgb(134, 143, 128);
+    font-size: 27px;
+    font-weight: 200;
+    background-color: #d4d4d4;
+    border-radius: 12px;
+    border: 1px solid rgb(0, 45, 45);
+    height: fit-content;
+    width: 20rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    padding: 0.5rem;
+    /* box-shadow: rgb(0, 45, 45) 2px 8px 8px -8px; */
+    /* transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out; */
+}

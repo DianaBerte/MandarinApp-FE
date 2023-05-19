@@ -12,7 +12,7 @@
     font-family: 'Indie Flower', cursive;
     color: rgba(39, 93, 8, 1);
     font-size: 30px;
-    font-weight: 200;
+    font-weight:1000;
     background-color: #d2e5ed;
     border-radius: 12px;
     border: 1px solid rgb(0, 45, 45);
@@ -32,25 +32,26 @@
 
 .handle-games {
     font-family: 'Indie Flower', cursive;
-    color: rgba(39, 93, 8, 1);
+    color: rgb(134, 143, 128);
     font-size: 30px;
     font-weight: 200;
-    background-color: #d2e5ed;
+    background-color: #d4d4d4;
     border-radius: 12px;
     border: 1px solid rgb(0, 45, 45);
     padding: 0.75rem;
     margin-top: 2rem;
-    box-shadow: rgb(0, 45, 45) 2px 8px 8px -8px;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    text-decoration: none;
+    /* box-shadow: rgb(0, 45, 45) 2px 8px 8px -8px; */
+    /* transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out; */
 }
 
-.handle-games:hover {
+/* .handle-games:hover {
     box-shadow: rgb(0, 45, 45) 1px 6px 6px -2px;
     transform: translate3d(1px, 1px, 0);
     background-color: #effaff;
     color:rgba(39, 93, 8, 1);
     text-decoration: none;
-}
+} */
 
 .admin-dragon-wrapper {
     width: 100%;

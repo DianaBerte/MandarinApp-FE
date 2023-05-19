@@ -42,9 +42,11 @@ const AdminsOnly = (props) => {
             </Row>
 
             <Row>
-                <a className="handle-games" href="/admin/handleGames">
-                Handle Games
-                </a>
+                <div className="handle-games"
+                // href="/admin/handleGames"
+                >
+                Handle Games <span>(coming soon)</span>
+                </div>
             </Row>
             </Col>      
 
