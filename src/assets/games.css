@@ -3,7 +3,7 @@ font-family: 'Indie Flower', cursive;
 font-family: 'Ma Shan Zheng', cursive; */
 
 .container-div {
-    margin-top: -25rem; 
+    margin-top: -20rem; 
     height: 30rem;
     /* padding-top: 3rem; */
     padding-left: 3rem;
@@ -185,6 +185,18 @@ font-family: 'Ma Shan Zheng', cursive; */
 .frameRight {
     width: 100%;
     /* border: 3px solid red; */
+}
+
+.bamboo-wrapper {
+    width: 20%;
+    float: right;
+    margin-top: -30rem;
+    position: sticky;
+    z-index: -1;
+}
+
+.bamboo {
+    width: 100%;
 }
 
 

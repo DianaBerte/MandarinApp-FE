@@ -149,7 +149,7 @@ const GameOne = () => {
 
         <Col >
             <div className="bamboo-wrapper">
-                <img className="bamboo" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684511664/Bamboo_a3mial.png" alt="" />
+                <img className="bamboo" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684511851/Bamboo_1_s5isiv.png" alt="" />
             </div>
         </Col>
 
