@@ -166,15 +166,20 @@ font-family: 'Ma Shan Zheng', cursive; */
 }
 
 /* ********************MODALS****************** */
-.gmodal-title {
-    color: #3c950d;
+.gmodal-header {
+    display: flex;
+    justify-content: center;
+}
+
+/* .gmodal-title {
+    color: #930d95;
     font-size: 2.5rem;
     font-weight: 700;
-    align-content: center;
-  }
+  } */
   
-  .gmodal-title p {
-    font-family: Neucha, sans-serif;
+  .gmodal-title h1 {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 100px;
   } 
   
   .gmodal-text {
@@ -182,6 +187,13 @@ font-family: 'Ma Shan Zheng', cursive; */
     font-size: 2.5rem;
     font-weight: 600;
     align-self: center;
+  }
+
+  .fu {
+    margin-top: -5rem;
+    float: right;
+    width: 20%;
+    z-index: -1;
   }
   
   .rmodal-title {
