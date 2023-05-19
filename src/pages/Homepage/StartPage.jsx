@@ -75,13 +75,12 @@ const StartPage = () => {
             <Row className="timer-container">
                 <Col col="10" md="4">
                     <div className="timer"><h1>{timer}</h1></div>
-                    {timerEnded && <h1>Go!</h1> }
+                    {/* {timerEnded && <h1 className="go">Go!</h1> } */}
+                    
                 </Col>
             </Row>
-        
-            {/* <Row > */}
+            {timerEnded &&<h1 className="go">开始!</h1>}
 
-            {/* </Row> */}           
         </Container>  
         <Container className="ready-container" >
                 <img className="chineseArt" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684501360/ChineseArt_wsm6fm.png" alt="" />
