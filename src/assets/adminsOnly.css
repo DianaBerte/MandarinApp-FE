@@ -3,6 +3,11 @@
     /* border: 3px solid red; */
 }
 
+.adminsOnly-container {
+    /* border: 3px solid red; */
+    margin-top: 0;
+}
+
 .handle-users {
     font-family: 'Indie Flower', cursive;
     color: rgba(39, 93, 8, 1);
@@ -45,4 +50,15 @@
     background-color: #effaff;
     color:rgba(39, 93, 8, 1);
     text-decoration: none;
+}
+
+.admin-dragon-wrapper {
+    width: 10%;
+    /* border: 3px solid red; */
+    margin-left: 10rem;
+    margin-top: 1rem;
+}
+
+.admin-dragon {
+    width: 100%;
 }

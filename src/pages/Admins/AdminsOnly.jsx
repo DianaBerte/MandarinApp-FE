@@ -16,15 +16,25 @@ const AdminsOnly = (props) => {
     return(
         <>
         <NavbarComponent />
-        <Container>
+        <Col>
+            <div className="admin-dragon-wrapper">
+            <img className="admin-dragon" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684417100/Untitled_design_munqlw.png" alt="Chinese dragon" />
+            </div>
+            </Col>
+        <Container className="adminsOnly-container">
             {isAdmin ? (
             <>
+
+
             <div className="nihao-admin">
-            <Col >
+            <Col>
+            
                 <h1>Nihao, Admin {currentUserInfo.firstName}!</h1>
                 <h2>What would you like to do?</h2>
             </Col>
+
             </div>
+            
 
             <Col>
             <Row>
@@ -41,6 +51,7 @@ const AdminsOnly = (props) => {
                 </a>
             </Row>
             </Col>
+
             </>
         ) : (
             <>
