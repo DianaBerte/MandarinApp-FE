@@ -106,31 +106,31 @@ const UserProfile = () => {
 
             <Form>
                 <Form.Group>
-                <Form.Label><h4>Your new name:</h4></Form.Label>
-                <Form.Control
+                <Form.Label className="listgroup-text"><h4>Your new name:</h4></Form.Label>
+                <Form.Control className="listgroup-text"
                     value={newFirstName}
                     onChange={(e) => setNewFirstName(e.target.value)}
                 />
                 </Form.Group>
 
                 <Form.Group>
-                <Form.Label><h4>Your new last name:</h4></Form.Label>
-                <Form.Control
+                <Form.Label className="listgroup-text"><h4>Your new last name:</h4></Form.Label>
+                <Form.Control className="listgroup-text"
                     value={newLastName}
                     onChange={(e) => setNewLastName(e.target.value)}
                 />
                 </Form.Group>
 
                 <Form.Group>
-                <Form.Label><h4>Your new email address:</h4></Form.Label>
-                <Form.Control
+                <Form.Label className="listgroup-text"><h4>Your new email address:</h4></Form.Label>
+                <Form.Control className="listgroup-text"
                     value={newEmail}
                     onChange={(e) => setNewEmail(e.target.value)}
                 />
                 </Form.Group>
 
                 <Form.Group>
-                <Form.Label><h4>Your new image:</h4></Form.Label>
+                <Form.Label className="listgroup-text"><h4>Your new image:</h4></Form.Label>
                 <MdOutlinePhotoCamera /><input className="input" type="file" onChange={changeImage}></input>
                 </Form.Group>
             </Form>
@@ -138,10 +138,10 @@ const UserProfile = () => {
             </Modal.Body>
 
             <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button className="close-modal-btn" variant="secondary" onClick={handleClose}>
                 Close
             </Button>
-            <Button variant="primary" onClick={updateUserInfo}>
+            <Button className="saveChanges-btn" variant="primary" onClick={updateUserInfo}>
                 Save Changes
             </Button>
             </Modal.Footer>
@@ -163,9 +163,8 @@ const UserProfile = () => {
             </Col>
 
             <Col>
-                <div className="profile-form">
-                <div>
-                    <ListGroup variant="flush">
+                <div className="profile-form-wrapper">
+                    <ListGroup className="profile-form" variant="flush">
                         <ListGroup.Item className="profile-listgroup-text">Name: {currentUserInfo.firstName} {currentUserInfo.lastName}</ListGroup.Item>
                         <ListGroup.Item className="profile-listgroup-text">Email Address: {currentUserInfo.email}</ListGroup.Item>
                         <ListGroup.Item className="profile-listgroup-text">Role: {currentUserInfo.role}</ListGroup.Item>
@@ -173,7 +172,6 @@ const UserProfile = () => {
                     <button className="edit-profile-btn" onClick={handleShow}>
                     <h3>Edit Profile</h3>
                     </button>
-                </div>
                 </div>
             </Col>
 
