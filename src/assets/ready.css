@@ -1,7 +1,53 @@
 .ready-container {
-
+    /* padding-top: 3rem; */
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    /* border: 2px solid azure;  */
 }
 
 .ready-btn {
-    
+    align-self: center;
+    font-family: 'Indie Flower', cursive;
+    color: rgba(39, 93, 8, 1);
+    font-size: 30px;
+    font-weight: 1000;
+    background-color: #d2e5ed;
+    border-radius: 12px;
+    border: 1px solid rgb(0, 45, 45);
+    height: 5rem;
+    width: 30rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    box-shadow: rgb(0, 45, 45) 2px 8px 8px -8px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    /* border: 3px solid red; */
+}
+
+.ready-btn:hover {
+    box-shadow: rgb(0, 45, 45) 1px 6px 6px -2px;
+    transform: translate3d(1px, 1px, 0);
+    background-color: #effaff;
+    color: rgba(39, 93, 8, 1);
+}
+
+.timer {
+    /* border: 3px solid red; */
+    width: 20rem;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.art-container {
+    width: 50%;
+    /* margin-left: 5rem; */
+    display: flex;
+    justify-content: center;
+}
+
+.chineseArt {
+    /* border: 3px solid azure; */
+    width: 100%;
 }

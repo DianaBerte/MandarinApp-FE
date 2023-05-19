@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from "react";
-import { Button, Container } from "react-bootstrap";
+import { Button, Container, Col, Row } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useParams } from "react-router-dom";
 import NavbarComponent from "../../components/NavbarComponent";
+import "../../assets/ready.css"
 
 const StartPage = () => {
     
@@ -67,10 +68,24 @@ const StartPage = () => {
         <>
         <NavbarComponent />
         <Container className="ready-container">
-        <Button className="ready-btn" onClick={ready}>Ready?</Button>
-        <h2>{timer}</h2>
-        {timerEnded && <h1>Go!</h1> }
-        </Container>
+           
+            <Button className="ready-btn" onClick={ready}>Ready?</Button>
+
+
+            <Row className="timer-container">
+                <Col col="10" md="4">
+                    <div className="timer"><h1>{timer}</h1></div>
+                    {timerEnded && <h1>Go!</h1> }
+                </Col>
+            </Row>
+        
+            {/* <Row > */}
+
+            {/* </Row> */}           
+        </Container>  
+        <Container className="ready-container" >
+                <img className="chineseArt" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684501360/ChineseArt_wsm6fm.png" alt="" />
+        </Container>      
         </>
     )
 }
