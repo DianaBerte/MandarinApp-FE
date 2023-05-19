@@ -1,10 +1,12 @@
-import { Container, Button } from "react-bootstrap";
+import { Container, Button, Col, Row } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchGames } from "../../../redux/actions/index.js";
 import RightAnswerModal from "../../../components/RightAnswerModal.jsx";
 import WrongAnswerModal from "../../../components/WrongAnswerModal.jsx";
+import "../../../assets/games.css"
+import NavbarComponent from "../../../components/NavbarComponent.jsx";
 
 const GameOne = () => {
 
@@ -96,6 +98,14 @@ const GameOne = () => {
 
     return(
         <>
+        <NavbarComponent />
+
+        <Col col="2" md="4" sm="10">
+            <div className="frame-wrapper">
+                <img className="frameRight" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684510098/Frame_left_l2sqav.png" alt="" />
+            </div>
+        </Col>
+
         <Container>
             <div className="container-div">
                 <div><h1>Match the pairs!</h1></div>
@@ -136,6 +146,13 @@ const GameOne = () => {
 
             </div>
         </Container>
+
+        <Col >
+            <div className="bamboo-wrapper">
+                <img className="bamboo" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684511664/Bamboo_a3mial.png" alt="" />
+            </div>
+        </Col>
+
         <RightAnswerModal show={showRightAnsModal} onHide={() => setShowRightAnsModal(false)} />
         <WrongAnswerModal show={showWrongAns} onHide={() => setShowWrongAns(false)}/>
         </>

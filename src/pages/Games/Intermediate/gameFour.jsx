@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { fetchInterSecond } from "../../../redux/actions/index.js";
 import RightAnswerModal from "../../../components/RightAnswerModal.jsx";
 import WrongAnswerModal from "../../../components/WrongAnswerModal.jsx";
+import NavbarComponent from "../../../components/NavbarComponent.jsx";
+import "../../../assets/games.css"
 
 const GameFour = () => {
 
@@ -63,6 +65,7 @@ const GameFour = () => {
 
     return(
         <>
+        <NavbarComponent />
         <Container>
             <div className="container-div">
                 <div><h1>Match the pairs!</h1></div>

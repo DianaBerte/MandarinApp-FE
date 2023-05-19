@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import NavbarComponent from "../../components/NavbarComponent.jsx";
 
 // const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 // localStorage.setItem("currentUser", JSON.stringify(currentUser));
@@ -28,7 +29,10 @@ const GamesCompleted = () => {
     }, []);
 
     return(
+        <>
+        <NavbarComponent />
         <h1>{currentUserInfo.firstName}, your final score: <span>{stringCount}</span> correct answers out of 15!</h1>
+        </>
     )
 }
 
