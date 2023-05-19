@@ -66,8 +66,8 @@ const StartPage = () => {
     return(
         <>
         <NavbarComponent />
-        <Container>
-        <Button onClick={ready}>Ready?</Button>
+        <Container className="ready-container">
+        <Button className="ready-btn" onClick={ready}>Ready?</Button>
         <h2>{timer}</h2>
         {timerEnded && <h1>Go!</h1> }
         </Container>

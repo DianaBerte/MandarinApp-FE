@@ -16,52 +16,49 @@ const AdminsOnly = (props) => {
     return(
         <>
         <NavbarComponent />
-        <Col>
+        <Col col="4" md="2" sm="3">
             <div className="admin-dragon-wrapper">
             <img className="admin-dragon" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684417100/Untitled_design_munqlw.png" alt="Chinese dragon" />
             </div>
-            </Col>
+        </Col>
+
         <Container className="adminsOnly-container">
             {isAdmin ? (
             <>
 
-
-            <div className="nihao-admin">
-            <Col>
-            
+            <Row>
+            <Col col="10" md="6" >
+                <div className="nihao-admin">
                 <h1>Nihao, Admin {currentUserInfo.firstName}!</h1>
                 <h2>What would you like to do?</h2>
-            </Col>
-
-            </div>
+                </div>
+            </Col> 
             
-
             <Col>
-            <Row>
+                <Row>
                 <a className="handle-users" href="/admin/handleUsers">
                 Handle Users
                 </a>
             </Row>
-            </Col>
 
-            <Col>
             <Row>
                 <a className="handle-games" href="/admin/handleGames">
                 Handle Games
                 </a>
             </Row>
-            </Col>
+            </Col>      
 
+            </Row>
             </>
         ) : (
             <>
-            <Col>
+            <Col col="10" md="6" >
                 <h1>Nihao, {currentUserInfo.firstName}.</h1>
                 <h2>This entry is for Admins only.</h2>
             </Col>
             <Col>
             <Row>
-                <a className="mb-3" href="/">
+                <a className="handle-users" href="/">
                 Go Back
                 </a>
             </Row>
