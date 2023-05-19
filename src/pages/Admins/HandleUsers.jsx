@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux";
 import { MdOutlinePhotoCamera } from "react-icons/md";
 import NavbarComponent from "../../components/NavbarComponent.jsx";
+import "../../assets/handleUsers.css"
 
 const HandleUsers = ({ user }) => {
 
@@ -84,32 +85,32 @@ const HandleUsers = ({ user }) => {
 
             <Form>
                 <Form.Group>
-                <Form.Label><h4>User's new name:</h4></Form.Label>
-                <Form.Control
+                <Form.Label className="listgroup-text"><h4>User's new name:</h4></Form.Label>
+                <Form.Control className="listgroup-text"
                     value={newFirstName}
                     onChange={(e) => setNewFirstName(e.target.value)}
                 />
                 </Form.Group>
 
                 <Form.Group>
-                <Form.Label><h4>User's new last name:</h4></Form.Label>
-                <Form.Control
+                <Form.Label className="listgroup-text"><h4>User's new last name:</h4></Form.Label>
+                <Form.Control className="listgroup-text"
                     value={newLastName}
                     onChange={(e) => setNewLastName(e.target.value)}
                 />
                 </Form.Group>
 
                 <Form.Group>
-                <Form.Label><h4>User's new email address:</h4></Form.Label>
-                <Form.Control
+                <Form.Label className="listgroup-text"><h4>User's new email address:</h4></Form.Label>
+                <Form.Control className="listgroup-text"
                     value={newEmail}
                     onChange={(e) => setNewEmail(e.target.value)}
                 />
                 </Form.Group>
 
                 <Form.Group>
-                <Form.Label><h4>User's new role:</h4></Form.Label>
-                <Form.Control
+                <Form.Label className="listgroup-text"><h4>User's new role:</h4></Form.Label>
+                <Form.Control className="listgroup-text"
                     value={newRole}
                     onChange={(e) => setNewRole(e.target.value)}
                 />
@@ -124,10 +125,10 @@ const HandleUsers = ({ user }) => {
             </Modal.Body>
 
             <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button className="close-modal-btn" onClick={handleClose}>
                 Close
             </Button>
-            <Button variant="primary" onClick={() => updateUser()}>
+            <Button className="saveChanges-btn" onClick={() => updateUser()}>
                 Save Changes
             </Button>
             </Modal.Footer>
@@ -135,7 +136,7 @@ const HandleUsers = ({ user }) => {
 
 
         <Container>
-            <div>
+            <div className="handleUsers-title">
             <h1>Handle Users</h1>
             {isLoading && <p>Loading...</p>}
             <h2>List of users:</h2>
@@ -143,12 +144,12 @@ const HandleUsers = ({ user }) => {
             {!isLoading && users.length > 0 ? (
                 users.map(user => (
                 <Col key={user._id}>
-                    <ListGroup variant="flush">
-                    <Row>
-                    <ListGroup.Item className="listgroup-text">{user.firstName} {user.lastName}</ListGroup.Item>
-                    <ListGroup.Item className="listgroup-text">{user.email}</ListGroup.Item>
-                    <ListGroup.Item className="listgroup-text">Role: {user.role}</ListGroup.Item>
-                    <Button onClick={() => handleShow(user)}>Action</Button>
+                    <ListGroup  variant="flush">
+                    <Row className="list-of-users-wrapper">
+                    <ListGroup.Item className="list-of-users listgroup-text">{user.firstName} {user.lastName}</ListGroup.Item>
+                    <ListGroup.Item className="list-of-users listgroup-text">{user.email}</ListGroup.Item>
+                    <ListGroup.Item className="list-of-users listgroup-text">Role: {user.role}</ListGroup.Item>
+                    <Button className="action-btn" onClick={() => handleShow(user)}>Action</Button>
                     </Row>
                     </ListGroup>
                 </Col>
