@@ -138,6 +138,20 @@ font-family: 'Ma Shan Zheng', cursive; */
     color:rgba(39, 93, 8, 1);
   }
 
+  .check-btn:active {
+    box-shadow: rgb(0, 45, 45) 1px 6px 6px -2px;
+    transform: translate3d(1px, 1px, 0);
+    background-color: #effaff;
+    color:rgba(39, 93, 8, 1);
+  }
+
+  .check-btn:focus {
+    box-shadow: rgb(0, 45, 45) 1px 6px 6px -2px;
+    transform: translate3d(1px, 1px, 0);
+    background-color: #effaff;
+    color:rgba(39, 93, 8, 1);
+  }
+
 /* ************************************************************* */
 
 .frame-wrapper {
@@ -170,12 +184,6 @@ font-family: 'Ma Shan Zheng', cursive; */
     display: flex;
     justify-content: center;
 }
-
-/* .gmodal-title {
-    color: #930d95;
-    font-size: 2.5rem;
-    font-weight: 700;
-  } */
   
   .gmodal-title h1 {
     font-family: 'Ma Shan Zheng', cursive;
@@ -195,16 +203,25 @@ font-family: 'Ma Shan Zheng', cursive; */
     width: 20%;
     z-index: -1;
   }
+
+  /* ******* */
+
+  .rmodal-header {
+    display: flex;
+    justify-content: center;
+  }
   
-  .rmodal-title {
+  /* .rmodal-title {
     color: #9b1515;
     font-size: 2.5rem;
     font-weight: 700;
     align-content: center;
-  }
+  } */
   
-  .rmodal-title p {
-    font-family: Neucha, sans-serif;
+  .rmodal-title h1 {
+    color: #9b1515;
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 100px;
   } 
   
   .rmodal-text {
@@ -212,4 +229,11 @@ font-family: 'Ma Shan Zheng', cursive; */
     font-size: 2.5rem;
     font-weight: 600;
     align-self: center;
+  }
+
+  .si {
+    margin-top: -5rem;
+    float: right;
+    width: 20%;
+    z-index: -1;
   }
