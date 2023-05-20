@@ -42,7 +42,7 @@ const GamesCompleted = () => {
 
         <Container className="finalScore-container">
             <div className="correct-answers-div">   
-                <h1>{currentUserInfo.firstName}, your final score: 
+                <h1>{currentUserInfo.firstName}, your final score is 
                     <span className="correct-answers-span">
                         <img className="score-frame" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684577470/Final_score_frame_xiwg2q.png" /> <span className="stringCount"> {stringCount}</span></span> correct answers out of 15!
                 </h1>
