@@ -183,6 +183,11 @@ const UserProfile = () => {
 
             </Col>
         </Container>
+        
+        <div className="bottom-frame-wrapper">
+                <img className="bottom-frame" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684578846/Frame_bottom_left_ncigql.png" alt="Frame" />
+        </div>
+
         </>
     )
 }
