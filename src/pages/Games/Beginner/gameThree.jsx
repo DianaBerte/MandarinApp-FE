@@ -19,16 +19,16 @@ const GameThree = () => {
     let [selectedAnswer, setSelectedAnswer] = useState(null)
 
     const games = useSelector((state) => {
-        console.log("Working: return state.currentGame in gameFive")
+        console.log("Working: return state.currentGame in gameThree")
         return state.currentGame;
     });
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchInterThird());
+        dispatch(fetchBeginnerThird());
         setCurrentGame(games[currentGameIndex]) //setting the initial value of "game" to the first game in the list
-        console.log("Working: dispatch(fetchInterThird) in gameFive")  
+        console.log("Working: dispatch(fetchBeginnerThird) in gameThree")  
     }, [])
 
     const nextExercise = async () => {     
@@ -46,7 +46,7 @@ const GameThree = () => {
             if (currentGameIndex < games.length - 1) { //checking if there are more games in the list and updating the state accordingly 
                 setCurrentGameIndex(currentGameIndex + 1);
                 setCurrentGame(games[currentGameIndex + 1]);
-                console.log("Working: nextExercise() in gameFive")   
+                console.log("Working: nextExercise() in gameThree")   
             } else {
                 setTimeout(() => {
                     navigate(`/games/completed`);
@@ -78,7 +78,7 @@ const GameThree = () => {
                 <div className="game-container">
                     <div className="left-title"><h5></h5></div>
                     <div className="left-column">
-                           <video src={currentGame.question} controls></video>
+                        <p className="pinyin">{currentGame.question}</p>
                     </div>
                     <div className="right-title"><h5></h5></div>
                     <div className="right-column">
