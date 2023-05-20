@@ -149,6 +149,10 @@ const UserProfile = () => {
 
         <Container className="profile-container">
 
+        <div className="profile-cloud-wrapper">
+            <img className="profile-cloud" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684579607/Cloud_right_gwdrws.png" alt="Cloud" />
+        </div>
+
             <Col>
                 <div className="profile-title-wrapper">
                 <h1>Nihao, {currentUserInfo.firstName}!</h1>

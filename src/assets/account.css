@@ -122,6 +122,22 @@
     width: 100%;
 }
 
+.profile-cloud-wrapper {
+    height: 20%;
+    width: 20%;
+    position: absolute;
+    /* float: right; */
+    margin-left: 60rem;
+    margin-top: 1rem;
+    z-index: 1;
+    /* border: 3px solid red; */
+}
+
+.profile-cloud {
+    height: 100%;
+    width: 100%;
+}
+
 /* ****************MODAL****************** */
 
 .listgroup-text {
