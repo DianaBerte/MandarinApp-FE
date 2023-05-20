@@ -16,6 +16,7 @@ import GameTwo from "./pages/Games/Beginner/gameTwo";
 import GameFour from "./pages/Games/Intermediate/gameFour";
 import GameFive from "./pages/Games/Intermediate/gameFive";
 import GamesCompleted from "./pages/Games/gamesCompleted.jsx"
+import GameThree from "./pages/Games/Beginner/gameThree.jsx";
 
 function App() {
     return (
@@ -29,7 +30,7 @@ function App() {
                 
                 <Route path="/games/:level" element={<GameOne />}  />
                 <Route path="/games/beginner/second" element={< GameTwo />} />
-                {/* <Route path="/games/beginner/third" element={< GameThree />} /> */}
+                <Route path="/games/beginner/third" element={< GameThree />} />
 
                 <Route path="/games/intermediate/second" element={< GameFour />} />
                 <Route path="/games/intermediate/third" element={< GameFive />} />

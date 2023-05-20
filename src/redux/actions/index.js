@@ -111,6 +111,33 @@ export const fetchBegSecond = () => {
     }
 }
 
+export const fetchBeginnerThird = () => {
+    return async (dispatch) => {
+        try {
+            console.log("Entering: fetchBeginnerThird()")
+            const res = await fetch(
+                `${process.env.REACT_APP_BE_URL}/games/beginner/third`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            }
+            );
+            if (res.ok) {
+                const data = await res.json();
+                dispatch({
+                    type: FETCH_GAME,
+                    payload: data,
+                }); console.log("Working: fetchBeginnerThird()");
+            } else {
+                console.log("FE: Error in fetchBeginnerThird()")
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+
 export const setUserInfo = (user) => {
     return {
         type: SET_USER_INFO,
