@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import NavbarComponent from "../../components/NavbarComponent.jsx";
+import { Container, Col } from "react-bootstrap";
+import "../../assets/completedGames.css"
 
 // const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 // localStorage.setItem("currentUser", JSON.stringify(currentUser));
@@ -31,7 +33,28 @@ const GamesCompleted = () => {
     return(
         <>
         <NavbarComponent />
-        <h1>{currentUserInfo.firstName}, your final score: <span>{stringCount}</span> correct answers out of 15!</h1>
+
+        <Col col="2" md="4" sm="10">
+            <div className="gamesCompleted-frame-wrapper">
+                <img className="gamesCompleted-frameRight" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684417100/Untitled_design_munqlw.png" />
+            </div>
+        </Col>
+
+        <Container className="finalScore-container">
+            <div className="correct-answers-div">   
+                <h1>{currentUserInfo.firstName}, your final score: 
+                    <span className="correct-answers-span">
+                        <img className="score-frame" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684577470/Final_score_frame_xiwg2q.png" /> <span className="stringCount"> {stringCount}</span></span> correct answers out of 15!
+                </h1>
+            </div>
+        </Container>
+
+        <Col >
+            <div className="gamesCompleted-bamboo-wrapper">
+                <img className="gamesCompleted-bamboo" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684578213/Lanterns_right_c0qrmp.png" />
+            </div>
+        </Col>
+
         </>
     )
 }
