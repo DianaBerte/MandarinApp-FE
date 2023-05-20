@@ -32,7 +32,7 @@ const Homepage = () => {
         <Container className="first-home-container">
             <Row>
             <div className="temple-wrapper">
-                <img className="temple" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684511664/Temple_yo7kxc.png" />
+                <img className="temple" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684417100/Untitled_design_munqlw.png" />
             </div>
             </Row>
         </Container>
