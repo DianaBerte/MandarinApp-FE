@@ -16,9 +16,10 @@ const AdminsOnly = (props) => {
     return(
         <>
         <NavbarComponent />
-        <Col col="4" md="2" sm="3">
-            <div className="admin-dragon-wrapper">
-            <img className="admin-dragon" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684417100/Untitled_design_munqlw.png" alt="Chinese dragon" />
+
+        <Col col="2" md="4" sm="10">
+            <div className="adminsOnly-frame-wrapper">
+                <img className="adminsOnly-frameRight" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684417100/Untitled_design_munqlw.png" />
             </div>
         </Col>
 
@@ -68,6 +69,13 @@ const AdminsOnly = (props) => {
             </>
         )}
         </Container>
+
+        <Col >
+            <div className="adminsOnly-bamboo-wrapper">
+                <img className="adminsOnly-bamboo" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684578213/Lanterns_right_c0qrmp.png" />
+            </div>
+        </Col>
+
         </>
     )
 }
