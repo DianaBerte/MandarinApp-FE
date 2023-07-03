@@ -28,12 +28,8 @@ font-family: 'Ma Shan Zheng', cursive; */
     font-family: 'Annie Use Your Telescope', cursive;
 }
 
-.navbar-brand {
-    font-family: 'Annie Use Your Telescope', cursive;
-    font-size: 60px;
-    margin-right: 3rem;
-    margin-left: -3rem;
-}
+
+
 .login-btn {
     background-color: #8CAE6D;
     border: 1px solid #8CAE6D;
