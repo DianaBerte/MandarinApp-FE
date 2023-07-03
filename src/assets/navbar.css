@@ -88,6 +88,7 @@ font-family: 'Ma Shan Zheng', cursive; */
 
 /* **************** RESPONSIVENESS ************ */
 
+/* Laptop */
 @media screen and (max-width: 1540px) {
     .navbar {
         /* background-color: rgb(108, 108, 255); */
@@ -103,6 +104,8 @@ font-family: 'Ma Shan Zheng', cursive; */
         /* border: 3px solid white; */
     }
 }
+
+/* Laptop on inspect */
 
 @media screen and (max-width: 1160px) {
     .navbar {
@@ -167,7 +170,7 @@ font-family: 'Ma Shan Zheng', cursive; */
     }
 }
 
-@media screen and (max-width: 740px) {
+@media screen and (max-width: 734px) {
     .navbar {
         max-width: 100%;
     }
