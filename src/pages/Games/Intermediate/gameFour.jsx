@@ -2,6 +2,7 @@ import { Container, Button, Col } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { shuffle } from "lodash";
 import { fetchInterSecond } from "../../../redux/actions/index.js";
 import RightAnswerModal from "../../../components/RightAnswerModal.jsx";
 import WrongAnswerModal from "../../../components/WrongAnswerModal.jsx";
@@ -12,7 +13,7 @@ const GameFour = () => {
 
     const navigate = useNavigate();
 
-    let [currentGameIndex, setCurrentGameIndex] = useState(5); //stores the index of the current game beong displayed
+    let [currentGameIndex, setCurrentGameIndex] = useState(5); //stores the index of the current game being displayed
     let [currentGame, setCurrentGame] = useState({}); //stores the game object
     let [showRightAnsModal, setShowRightAnsModal] = useState(false);
     let [showWrongAns, setShowWrongAns] = useState(false);
@@ -28,6 +29,7 @@ const GameFour = () => {
 
     useEffect(() => {
         dispatch(fetchInterSecond());
+        // const shuffledGames = shuffle(games); //shuffling the games before displaying them;
         setCurrentGame(games[currentGameIndex]) //setting the initial value of "game" to the first game in the list
         console.log("Working: dispatch(fetchInterSecond) in gameFour")  
     }, [])
@@ -39,12 +41,12 @@ const GameFour = () => {
             if (!currentUser) {
                 currentUser = {quizAnswers: []};
             }
-            if (selectedAnswer === currentGame.answers[0].correctAnswer) {
-                currentUser.quizAnswers.push(selectedAnswer);
+            if (selectedAnswer === currentGame.answers[0].correctAnswer) { //if the answer clicked on is correct...
+                currentUser.quizAnswers.push(selectedAnswer); //...push the correct answer into the user's quiz answers.
                 localStorage.setItem("currentUser", JSON.stringify(currentUser));
             }
             
-            if (currentGameIndex <= 8) { //checking if there are more games in the list (max. 5) and updating the state accordingly 
+            if (currentGameIndex <= 8) { //checking if there are more games in the list and updating the state accordingly 
                 setCurrentGameIndex(currentGameIndex + 1);
                 setCurrentGame(games[currentGameIndex + 1]);
                 console.log("Working: nextExercise() in gameFour")   
@@ -59,6 +61,7 @@ const GameFour = () => {
     };
 
     useEffect(() => { //runs every time the "games" or "currentGameIndex" state changes, and updates the "currentGame" state to be the correct object based on the current index
+        // const shuffledGames = shuffle(games);
         setCurrentGame(games[currentGameIndex]);
     }, [games, currentGameIndex]);  
 
@@ -89,7 +92,7 @@ const GameFour = () => {
                                     <button className="chars-btn" onClick={() => {
                                         setSelectedAnswer(ans);
                                     }}key={ans}>{ans}</button>
-                                ))} {/* Else, it should render a button to the next page */}
+                                ))} 
                     </div>
                 </div> 
 

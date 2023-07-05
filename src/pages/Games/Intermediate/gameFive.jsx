@@ -2,6 +2,7 @@ import { Container, Button, Col } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { shuffle } from "lodash";
 import { fetchInterThird } from "../../../redux/actions/index.js";
 import RightAnswerModal from "../../../components/RightAnswerModal.jsx";
 import WrongAnswerModal from "../../../components/WrongAnswerModal.jsx";
@@ -12,7 +13,7 @@ const GameFive = () => {
 
     const navigate = useNavigate();
 
-    let [currentGameIndex, setCurrentGameIndex] = useState(10); //stores the index of the current game beong displayed
+    let [currentGameIndex, setCurrentGameIndex] = useState(10); //stores the index of the current game being displayed
     let [currentGame, setCurrentGame] = useState({}); //stores the game object
     let [showRightAnsModal, setShowRightAnsModal] = useState(false);
     let [showWrongAns, setShowWrongAns] = useState(false);
@@ -27,6 +28,7 @@ const GameFive = () => {
 
     useEffect(() => {
         dispatch(fetchInterThird());
+        // const shuffledGames = shuffle(games);
         setCurrentGame(games[currentGameIndex]) //setting the initial value of "game" to the first game in the list
         console.log("Working: dispatch(fetchInterThird) in gameFive")  
     }, [])
@@ -58,6 +60,7 @@ const GameFive = () => {
     };
 
     useEffect(() => { //runs every time the "games" or "currentGameIndex" state changes, and updates the "currentGame" state to be the correct object based on the current index
+        // const shuffledGames = shuffle(games);
         setCurrentGame(games[currentGameIndex]);
     }, [games, currentGameIndex]);  
 

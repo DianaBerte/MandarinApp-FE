@@ -8,6 +8,8 @@ import WrongAnswerModal from "../../../components/WrongAnswerModal.jsx";
 import "../../../assets/games.css"
 import NavbarComponent from "../../../components/NavbarComponent.jsx";
 
+//SHUFFLING GAMES: before being able to do so, I need to separate the TEXT from the AUDIO games.
+
 const GameOne = () => {
 
     const {level} = useParams();
@@ -74,7 +76,6 @@ const GameOne = () => {
         setCurrentGame(games[currentGameIndex]);
     }, [games, currentGameIndex]);
 
-    // MAYBE OKAY:
     useEffect(() => {
         let currentUser = JSON.parse(localStorage.getItem("currentUser"));
         if (!currentUser) {
