@@ -54,7 +54,7 @@ const StartPage = () => {
     useEffect(() => {
         if (timerEnded) {
             const id = setTimeout(() => {
-                navigate(`/games/${level}`); //this should be a dynamic route based on the difficulty level chosen
+                navigate(`/games/${level}`); //dynamic route based on the chosen difficulty level 
             }, 1000)
             return() => clearTimeout(id);
         }
@@ -75,7 +75,6 @@ const StartPage = () => {
             <Row className="timer-container">
                 <Col col="10" md="4">
                     <div className="timer"><h1>{timer}</h1></div>
-                    {/* {timerEnded && <h1 className="go">Go!</h1> } */}
                     
                 </Col>
             </Row>
@@ -83,7 +82,7 @@ const StartPage = () => {
 
         </Container>  
         <Container className="ready-container" >
-                <img className="chineseArt" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684501360/ChineseArt_wsm6fm.png" alt="" />
+                <img className="chineseArt" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684501360/ChineseArt_wsm6fm.png" alt="Chinese painting" />
         </Container>      
         </>
     )

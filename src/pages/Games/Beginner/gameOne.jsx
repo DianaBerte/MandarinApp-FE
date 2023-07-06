@@ -36,7 +36,6 @@ const GameOne = () => {
     const nextExercise = async () => {     
         try {
 
-            ///////// currentUser:
             let currentUser = JSON.parse(localStorage.getItem("currentUser"));
             if (!currentUser) {
                 currentUser = {quizAnswers: []};
@@ -110,19 +109,22 @@ const GameOne = () => {
         <Container>
             <div className="container-div">
                 <div><h1>Match the pairs!</h1></div>
+
                 <div className="game-container">
                     <div className="left-title"><h5></h5></div>
+
                     <div className="left-column">
                         <p className="pinyin">{currentGame.question}</p>
                     </div>
+
                     <div className="right-title"><h5></h5></div>
                     <div className="right-column">
-                            {currentGame.answers && currentGame.answers.length > 0 //checking if the object "currentGame" has a property called "answers" and if it has elements in its "answers" array
+                            {currentGame.answers && currentGame.answers.length > 0 //checking if the object "currentGame" has a property array called "answers"; if so, it checks if "answers" has any elements
                                 && currentGame.answers[0].answers.map((ans) => ( //If condition is met, it maps through the first element in the "answers" array and renders button with chars
                                     <button className="chars-btn" onClick={() => {
                                         setSelectedAnswer(ans);
                                     }}key={ans}>{ans}</button>
-                                ))} {/* Else, it should render a button to the next page */}
+                                ))} 
                     </div>
                 </div> 
 
@@ -150,7 +152,7 @@ const GameOne = () => {
 
         <Col >
             <div className="bamboo-wrapper">
-                <img className="bamboo" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684511851/Bamboo_1_s5isiv.png" alt="" />
+                <img className="bamboo" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684511851/Bamboo_1_s5isiv.png" alt="Image of bamboo tree" />
             </div>
         </Col>
 

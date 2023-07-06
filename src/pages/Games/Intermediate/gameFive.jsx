@@ -80,9 +80,11 @@ const GameFive = () => {
 
                 <div className="game-container">
                     <div className="left-title"><h5></h5></div>
+
                     <div className="left-column">
                            <video src={currentGame.question} controls></video>
                     </div>
+
                     <div className="right-title"><h5></h5></div>
                     <div className="right-column">
                             {currentGame.answers && currentGame.answers.length > 0 //checking if the object "currentGame" has a property called "answers" and if it has elements in its "answers" array
@@ -90,7 +92,7 @@ const GameFive = () => {
                                     <button className="chars-btn" onClick={() => {
                                         setSelectedAnswer(ans);
                                     }}key={ans}>{ans}</button>
-                                ))} {/* Else, it should render a button to the next page */}
+                                ))} 
                     </div>
                 </div> 
 
