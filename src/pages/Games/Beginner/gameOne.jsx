@@ -102,7 +102,8 @@ const GameOne = () => {
                     <div className="left-title"><h5></h5></div>
 
                     <div className="left-column">
-                        <p className="pinyin">{currentGame.question}</p>
+                        {/* To shuffle games, this should rather be currentTextGame.question, and in intermediate level, it should continue with currentAudioGame.question */}
+                        <p className="pinyin">{currentGame.question}</p> 
                     </div>
 
                     <div className="right-title"><h5></h5></div>

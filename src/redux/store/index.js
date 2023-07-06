@@ -14,6 +14,9 @@ const combinedReducer = combineReducers({
     users: userReducer,
     currentUser: currentUserReducer,
     currentGame: currentGameReducer
+    // To shuffle games, it should be: 
+    // currentTextGame: currentTextGameReducer,
+    // currentAudioGame:  currentAudioGameReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, combinedReducer);

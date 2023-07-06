@@ -17,10 +17,12 @@ function shuffleArray(array) {
     return shuffledArray;
 }
 
+// To shuffle games, this should be fetchTextGames
 export const fetchGames = (level) => {
     return async (dispatch) => {
         try {
             const res = await fetch(
+                // should be fetching from BE ${}/textGames/${level}
                 `${process.env.REACT_APP_BE_URL}/games/${level}`, {
                 method: "GET",
                 headers: {

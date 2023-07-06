@@ -14,7 +14,10 @@ const GameFour = () => {
     const navigate = useNavigate();
 
     let [currentGameIndex, setCurrentGameIndex] = useState(5); //stores the index of the current game being displayed
+    
     let [currentGame, setCurrentGame] = useState({}); //stores the game object
+    // should be: let [currentAudioGame, setCurrentAudioGame] = useState({})
+
     let [showRightAnsModal, setShowRightAnsModal] = useState(false);
     let [showWrongAns, setShowWrongAns] = useState(false);
     let [selectedAnswer, setSelectedAnswer] = useState(null);
@@ -82,9 +85,12 @@ const GameFour = () => {
 
                 <div className="game-container">
                     <div className="left-title"><h5></h5></div>
+
                     <div className="left-column">
+                        {/* To shuffle games, this should rather be currentAudioGame.question */}
                            <video src={currentGame.question} controls></video>
                     </div>
+
                     <div className="right-title"><h5></h5></div>
                     <div className="right-column">
                             {currentGame.answers && currentGame.answers.length > 0 //checking if the object "currentGame" has a property called "answers" and if it has elements in its "answers" array
