@@ -12,7 +12,7 @@ const GameThree = () => {
     
     const navigate = useNavigate();
 
-    let [currentGameIndex, setCurrentGameIndex] = useState(10); //stores the index of the current game beong displayed
+    let [currentGameIndex, setCurrentGameIndex] = useState(10); //stores the index of the current game being displayed
     let [currentGame, setCurrentGame] = useState({}); //stores the game object
     let [showRightAnsModal, setShowRightAnsModal] = useState(false);
     let [showWrongAns, setShowWrongAns] = useState(false);
@@ -87,7 +87,7 @@ const GameThree = () => {
                                     <button className="chars-btn" onClick={() => {
                                         setSelectedAnswer(ans);
                                     }}key={ans}>{ans}</button>
-                                ))} {/* Else, it should render a button to the next page */}
+                                ))} 
                     </div>
                 </div> 
 
@@ -115,7 +115,7 @@ const GameThree = () => {
 
         <Col >
             <div className="bamboo-wrapper">
-                <img className="bamboo" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684511851/Bamboo_1_s5isiv.png" alt="" />
+                <img className="bamboo" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684511851/Bamboo_1_s5isiv.png" alt="Bamboo tree" />
             </div>
         </Col>
 

@@ -47,11 +47,6 @@ const Homepage = () => {
                     </Button>
             </Col>
 
-                {/* <Col col="4" md="6" xs="2">
-                    <div className="riverli-wrapper">
-                        <img className="riverLi" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684416686/River_Li_p7a6zo.png" alt="River Li" />
-                    </div>
-                </Col> */}
         </Row>
         </Container>
 

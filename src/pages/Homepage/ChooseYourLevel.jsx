@@ -37,9 +37,7 @@ const ChooseYourLevel = () => {
                 <Col col="10" md="4">
                 <div className="adv-wrapper text-center">
                     <img className="advanced" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684427571/LevelDragon_1_qmimfk.png" alt="Chinese dragon" />
-                    {/* <Button className="level-btn" onClick={() => navigate("/start/advanced")}> */}
-                    <div className="advanced-level-btn">Advanced <span>(coming soon)</span></div> 
-                    {/* </Button> */}
+                    <div className="advanced-level-btn">Advanced <span>(coming soon)</span></div>                     
                 </div>
                 </Col>
 

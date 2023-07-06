@@ -27,7 +27,7 @@ const store = configureStore(
             })
 
     }
-    // composedEnhancer
+
 );
 
 const persistedStore = persistStore(store)

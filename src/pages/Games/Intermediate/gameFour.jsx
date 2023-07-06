@@ -44,7 +44,7 @@ const GameFour = () => {
                 localStorage.setItem("currentUser", JSON.stringify(currentUser));
             }
             
-            if (currentGameIndex <= 8) { //checking if there are more games in the list (max. 5) and updating the state accordingly 
+            if (currentGameIndex <= 8) { //checking if there are more games in the list and updating the state accordingly 
                 setCurrentGameIndex(currentGameIndex + 1);
                 setCurrentGame(games[currentGameIndex + 1]);
                 console.log("Working: nextExercise() in gameFour")   
@@ -89,7 +89,7 @@ const GameFour = () => {
                                     <button className="chars-btn" onClick={() => {
                                         setSelectedAnswer(ans);
                                     }}key={ans}>{ans}</button>
-                                ))} {/* Else, it should render a button to the next page */}
+                                ))} 
                     </div>
                 </div> 
 
@@ -112,21 +112,12 @@ const GameFour = () => {
                     </ Button>
                 </div>
 
-                {/* {showNextBtn && (
-                <div className="btn-wrapper">
-                    <Button className="next-btn" onClick={nextExercise}> 
-                      Next
-                    </Button>
-                </div>
-                )} */}
-
-
             </div>
         </Container>
 
         <Col >
             <div className="bamboo-wrapper">
-                <img className="bamboo" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684511851/Bamboo_1_s5isiv.png" alt="" />
+                <img className="bamboo" src="https://res.cloudinary.com/degg5zebq/image/upload/v1684511851/Bamboo_1_s5isiv.png" alt="Bamboo tree" />
             </div>
         </Col>
 

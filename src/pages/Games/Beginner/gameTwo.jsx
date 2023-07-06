@@ -43,7 +43,7 @@ const GameTwo = () => {
                 localStorage.setItem("currentUser", JSON.stringify(currentUser));
             }
             
-            if (currentGameIndex <= 8) { //checking if there are more games in the list (max.5) and updating the state accordingly 
+            if (currentGameIndex <= 8) { //checking if there are more games in the list and updating the state accordingly 
                 setCurrentGameIndex(currentGameIndex + 1);
                 setCurrentGame(games[currentGameIndex + 1]);
                 console.log("Working: nextExercise() in gameTwo")   
@@ -86,7 +86,7 @@ const GameTwo = () => {
                                     <button className="chars-btn" onClick={() => {
                                         setSelectedAnswer(ans);
                                     }}key={ans}>{ans}</button>
-                                ))} {/* Else, it should render a button to the next page */}
+                                ))} 
                     </div>
                 </div> 
 
@@ -109,11 +109,6 @@ const GameTwo = () => {
                     </ Button>
                 </div>
 
-                {/* <div className="btn-wrapper">
-                    <Button className="next-btn" onClick={nextExercise}> 
-                      Next
-                    </Button>
-                </div> */}
             </div>
         </Container>
 

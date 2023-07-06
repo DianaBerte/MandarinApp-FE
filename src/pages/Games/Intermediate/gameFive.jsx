@@ -12,7 +12,7 @@ const GameFive = () => {
 
     const navigate = useNavigate();
 
-    let [currentGameIndex, setCurrentGameIndex] = useState(10); //stores the index of the current game beong displayed
+    let [currentGameIndex, setCurrentGameIndex] = useState(10); //stores the index of the current game being displayed
     let [currentGame, setCurrentGame] = useState({}); //stores the game object
     let [showRightAnsModal, setShowRightAnsModal] = useState(false);
     let [showWrongAns, setShowWrongAns] = useState(false);
@@ -87,7 +87,7 @@ const GameFive = () => {
                                     <button className="chars-btn" onClick={() => {
                                         setSelectedAnswer(ans);
                                     }}key={ans}>{ans}</button>
-                                ))} {/* Else, it should render a button to the next page */}
+                                ))} 
                     </div>
                 </div> 
 
@@ -110,11 +110,6 @@ const GameFive = () => {
                     </ Button>
                 </div>
 
-                {/* <div className="btn-wrapper">
-                    <Button className="next-btn" onClick={nextExercise}> 
-                      Next
-                    </Button>
-                </div> */}
             </div>
         </Container>
 

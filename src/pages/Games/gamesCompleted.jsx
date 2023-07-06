@@ -4,10 +4,6 @@ import NavbarComponent from "../../components/NavbarComponent.jsx";
 import { Container, Col } from "react-bootstrap";
 import "../../assets/completedGames.css"
 
-// const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-// localStorage.setItem("currentUser", JSON.stringify(currentUser));
-
-
 const countAnswers = (arr) => {
     let count = 0;
     arr.forEach((item) => {

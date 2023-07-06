@@ -54,7 +54,7 @@ const StartPage = () => {
     useEffect(() => {
         if (timerEnded) {
             const id = setTimeout(() => {
-                navigate(`/games/${level}`); //this should be a dynamic route based on the difficulty level chosen
+                navigate(`/games/${level}`); 
             }, 1000)
             return() => clearTimeout(id);
         }
@@ -74,9 +74,7 @@ const StartPage = () => {
 
             <Row className="timer-container">
                 <Col col="10" md="4">
-                    <div className="timer"><h1>{timer}</h1></div>
-                    {/* {timerEnded && <h1 className="go">Go!</h1> } */}
-                    
+                    <div className="timer"><h1>{timer}</h1></div>                    
                 </Col>
             </Row>
             {timerEnded &&<h1 className="go">开始!</h1>}
