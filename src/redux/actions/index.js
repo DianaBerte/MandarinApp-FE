@@ -4,6 +4,19 @@ export const FETCH_GAME = "FETCH_GAME";
 
 const accessToken = localStorage.getItem("accessToken");
 
+//Fisher-Yates algorithm to shuffle the games:
+function shuffleArray(array) {
+    const shuffledArray = [...array]; // creating a new array by spreading the elements of the original array;
+    for (let i = shuffledArray.length - 1; i > 0; i--) { // looping from the last element of shuffledArray, and iterating backwards until the 1st element;
+        const j = Math.floor(Math.random() * (i + 1)); // in each iteration, generating random index j, which is between 0 and the current index i, inclusive.
+        // Math.random() returns random floating point btw 0 and 1;
+        // Math.floor() rounds down the number to the nearest integer; multiplying Math.floor() by i+1 generates a random number in the range of 0 to i.
+        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]; // swapping the elements by destructuring the arrays => effective shuffling
+
+    }
+    return shuffledArray;
+}
+
 export const fetchGames = (level) => {
     return async (dispatch) => {
         try {
@@ -44,9 +57,11 @@ export const fetchInterSecond = () => {
             );
             if (res.ok) {
                 const data = await res.json();
+                //Shuffling the games array:
+                const shuffledGames = shuffleArray(data);
                 dispatch({
                     type: FETCH_GAME,
-                    payload: data,
+                    payload: shuffledGames,
                 }); console.log("Working: fetchInterSecond()");
             } else {
                 console.log("FE: Error in fetchInterSecond()");

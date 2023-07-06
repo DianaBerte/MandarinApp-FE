@@ -45,7 +45,7 @@ const GameOne = () => {
                 localStorage.setItem("currentUser", JSON.stringify(currentUser));
             }
 
-            if (currentGameIndex <= 3) { //checking if there are more games (max. 5) in the list and updating the state accordingly 
+            if (currentGameIndex <= 3) { //checking if there are more games in the list and updating the state accordingly 
                 setCurrentGameIndex(currentGameIndex + 1);
                 setCurrentGame(games[currentGameIndex + 1]);
                 console.log("Working: nextExercise() in gameOne")     
@@ -84,18 +84,6 @@ const GameOne = () => {
         localStorage.setItem("currentUser", JSON.stringify(currentUser));
       }, []);
     
-    // NOT OKAY - clears the quizAnswers array of the currentUser object in the local storage when the component unmounts:
-    //   useEffect(() => {
-    //     return () => {
-    //       let currentUser = JSON.parse(localStorage.getItem("currentUser"));
-    //       if (!currentUser) {
-    //         currentUser = {quizAnswers: []};
-    //       }
-    //       currentUser.quizAnswers = []; // set quizAnswers to an empty array
-    //       localStorage.setItem("currentUser", JSON.stringify(currentUser));
-    //     };
-    //   }, []);
-
     return(
         <>
         <NavbarComponent />
