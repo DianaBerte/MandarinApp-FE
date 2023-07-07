@@ -4,6 +4,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import userReducer from "../reducers/userReducer.js";
 import currentUserReducer from "../reducers/currentUserReducer.js";
 import currentGameReducer from "../reducers/currentGameReducer.js";
+import currentAudioGameReducer from "../reducers/currentAudioGameReducer.js";
 
 const persistConfig = {
     storage: Storage,
@@ -13,10 +14,10 @@ const persistConfig = {
 const combinedReducer = combineReducers({
     users: userReducer,
     currentUser: currentUserReducer,
-    currentGame: currentGameReducer
+    currentGame: currentGameReducer,
     // To shuffle games, it should be: 
     // currentTextGame: currentTextGameReducer,
-    // currentAudioGame:  currentAudioGameReducer
+    currentAudioGame: currentAudioGameReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, combinedReducer);

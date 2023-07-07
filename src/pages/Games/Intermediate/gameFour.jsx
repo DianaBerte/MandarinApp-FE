@@ -32,7 +32,8 @@ const GameFour = () => {
 
     useEffect(() => {
         dispatch(fetchInterSecond());
-        // const shuffledGames = shuffle(games); //shuffling the games before displaying them;
+        // should rather be: dispatch(fetchAudioInterSecond)
+        
         setCurrentGame(games[currentGameIndex]) //setting the initial value of "game" to the first game in the list
         console.log("Working: dispatch(fetchInterSecond) in gameFour")  
     }, [])

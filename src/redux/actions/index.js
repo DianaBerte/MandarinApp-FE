@@ -1,6 +1,7 @@
 export const SET_USER_INFO = "SET_USER_INFO";
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
-export const FETCH_GAME = "FETCH_GAME";
+export const FETCH_GAME = "FETCH_GAME"; //should be FETCH_TEXT_GAME;
+export const FETCH_AUDIO_GAME = "FETCH_AUDIO_GAME";
 
 const accessToken = localStorage.getItem("accessToken");
 
@@ -17,12 +18,14 @@ function shuffleArray(array) {
     return shuffledArray;
 }
 
-// To shuffle games, this should be fetchTextGames
 export const fetchGames = (level) => {
+    //should be fetchTextGames
+
     return async (dispatch) => {
         try {
             const res = await fetch(
-                // should be fetching from BE ${}/textGames/${level}
+
+                // should be fetching from BE ${process.env.REACT_APP_BE_URL}/textGames/${level}
                 `${process.env.REACT_APP_BE_URL}/games/${level}`, {
                 method: "GET",
                 headers: {
@@ -34,6 +37,8 @@ export const fetchGames = (level) => {
                 const data = await res.json();
                 dispatch({
                     type: FETCH_GAME,
+                    //should be FETCH_TEXT_GAME
+
                     payload: data,
                 }); console.log("Working: fetchGames()");
             } else {
@@ -46,10 +51,13 @@ export const fetchGames = (level) => {
 };
 
 export const fetchInterSecond = () => {
+    //should rather be: fetchAudioInterSecond
+
     return async (dispatch) => {
         try {
             console.log("Entering: fetchInterSecond()")
             const res = await fetch(
+                // `${process.env.REACT_APP_BE_URL}/games/intermediateAudio/second`
                 `${process.env.REACT_APP_BE_URL}/games/intermediate/second`, {
                 method: "GET",
                 headers: {
@@ -63,6 +71,8 @@ export const fetchInterSecond = () => {
                 const shuffledGames = shuffleArray(data);
                 dispatch({
                     type: FETCH_GAME,
+                    //type: FETCH_AUDIO_GAME,
+
                     payload: shuffledGames,
                 }); console.log("Working: fetchInterSecond()");
             } else {

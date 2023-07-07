@@ -1,4 +1,5 @@
 import { FETCH_GAME } from "../actions/index.js";
+// should be import { FETCH_TEXT_GAME } from "../actions/index.js"
 
 const inState = {};
 
@@ -12,4 +13,4 @@ const currentGameReducer = (state = inState, action) => {
     }
 };
 
-export default currentGameReducer;
+export default currentGameReducer; //should be currentTextGameReducer

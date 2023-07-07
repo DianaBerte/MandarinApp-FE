@@ -109,11 +109,6 @@ const GameTwo = () => {
                     </ Button>
                 </div>
 
-                {/* <div className="btn-wrapper">
-                    <Button className="next-btn" onClick={nextExercise}> 
-                      Next
-                    </Button>
-                </div> */}
             </div>
         </Container>
 
