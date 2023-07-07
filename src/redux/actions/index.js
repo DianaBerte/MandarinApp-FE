@@ -57,8 +57,10 @@ export const fetchInterSecond = () => {
         try {
             console.log("Entering: fetchInterSecond()")
             const res = await fetch(
+
                 // `${process.env.REACT_APP_BE_URL}/games/intermediateAudio/second`
                 `${process.env.REACT_APP_BE_URL}/games/intermediate/second`, {
+
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

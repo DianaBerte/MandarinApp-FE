@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { shuffle } from "lodash";
-import { fetchInterSecond } from "../../../redux/actions/index.js";
+import { fetchInterSecond } from "../../../redux/actions/index.js"; //fetchAudioInterSecond
 import RightAnswerModal from "../../../components/RightAnswerModal.jsx";
 import WrongAnswerModal from "../../../components/WrongAnswerModal.jsx";
 import NavbarComponent from "../../../components/NavbarComponent.jsx";
@@ -21,7 +21,6 @@ const GameFour = () => {
     let [showRightAnsModal, setShowRightAnsModal] = useState(false);
     let [showWrongAns, setShowWrongAns] = useState(false);
     let [selectedAnswer, setSelectedAnswer] = useState(null);
-    const [showNextBtn, setShowNextBtn] = useState(false);
 
     const games = useSelector((state) => {
         console.log("Working: return state.currentGame in gameFour")
@@ -33,7 +32,7 @@ const GameFour = () => {
     useEffect(() => {
         dispatch(fetchInterSecond());
         // should rather be: dispatch(fetchAudioInterSecond)
-        
+
         setCurrentGame(games[currentGameIndex]) //setting the initial value of "game" to the first game in the list
         console.log("Working: dispatch(fetchInterSecond) in gameFour")  
     }, [])
