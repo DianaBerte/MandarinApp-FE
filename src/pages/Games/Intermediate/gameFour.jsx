@@ -62,8 +62,8 @@ const GameFour = () => {
     };
 
     useEffect(() => { //runs every time the "games" or "currentGameIndex" state changes, and updates the "currentGame" state to be the correct object based on the current index
-        // const shuffledGames = shuffle(games);
-        setCurrentAudioGame(audioGames[currentGameIndex]);
+        const shuffledGames = shuffle(audioGames);
+        setCurrentAudioGame(shuffledGames[currentGameIndex]);
     }, [audioGames, currentGameIndex]);  
 
     return(

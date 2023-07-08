@@ -70,11 +70,11 @@ export const fetchAudioInterSecond = () => {
                 const audioGames = await res.json();
 
                 //Shuffling the games array:
-                // const shuffledGames = shuffleArray(data);
+                const shuffledGames = shuffleArray(data);
                 dispatch({
                     // type: FETCH_GAME,
                     type: FETCH_AUDIO_GAME,
-                    payload: audioGames,
+                    payload: shuffledGames,
 
                 }); console.log("Working: fetchAudioInterSecond()");
             } else {
