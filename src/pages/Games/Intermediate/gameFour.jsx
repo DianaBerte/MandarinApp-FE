@@ -17,14 +17,13 @@ const GameFour = () => {
     
     // let [currentGame, setCurrentGame] = useState({}); //stores the game object
     let [currentAudioGame, setCurrentAudioGame] = useState({});
-    console.log("HELLOOOO CurrentAudioGame in GameFour: ", currentAudioGame.question)
 
     let [showRightAnsModal, setShowRightAnsModal] = useState(false);
     let [showWrongAns, setShowWrongAns] = useState(false);
     let [selectedAnswer, setSelectedAnswer] = useState(null);
 
     const audioGames = useSelector((state) => {
-        console.log("Working: return state.currentAudioGame in gameFour: ", currentAudioGame)
+        console.log("Working: return state.currentAudioGame in gameFour")
         return state.currentAudioGame;
     });
  
@@ -33,7 +32,7 @@ const GameFour = () => {
     useEffect(() => {
         dispatch(fetchAudioInterSecond());
         setCurrentAudioGame(audioGames[currentGameIndex]) //setting the initial value of "game" to the first game in the list
-        console.log("Working: dispatch(fetchAudioInterSecond) in gameFour: ", currentAudioGame)  
+        console.log("Working: dispatch(fetchAudioInterSecond) in gameFour")  
     }, [])
 
     const nextExercise = async () => {     
@@ -66,9 +65,6 @@ const GameFour = () => {
         // const shuffledGames = shuffle(games);
         setCurrentAudioGame(audioGames[currentGameIndex]);
     }, [audioGames, currentGameIndex]);  
-
-    console.log("BIBIBIBIBI", currentAudioGame)
-
 
     return(
         <>

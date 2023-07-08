@@ -71,7 +71,6 @@ export const fetchAudioInterSecond = () => {
 
                 //Shuffling the games array:
                 // const shuffledGames = shuffleArray(data);
-                console.log("HIIIIIIIIIIIIIIIII")
                 dispatch({
                     // type: FETCH_GAME,
                     type: FETCH_AUDIO_GAME,
