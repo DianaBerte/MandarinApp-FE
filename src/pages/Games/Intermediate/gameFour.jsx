@@ -13,11 +13,11 @@ const GameFour = () => {
 
     const navigate = useNavigate();
 
-    let [currentGameIndex, setCurrentGameIndex] = useState(5); //stores the index of the current game being displayed
+    let [currentGameIndex, setCurrentGameIndex] = useState(0); //stores the index of the current game being displayed
     
     // let [currentGame, setCurrentGame] = useState({}); //stores the game object
     let [currentAudioGame, setCurrentAudioGame] = useState({});
-    console.log("HELLOOOO CurrentAudioGame in GameFour: ", currentAudioGame)
+    console.log("HELLOOOO CurrentAudioGame in GameFour: ", currentAudioGame.question)
 
     let [showRightAnsModal, setShowRightAnsModal] = useState(false);
     let [showWrongAns, setShowWrongAns] = useState(false);
