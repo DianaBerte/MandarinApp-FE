@@ -32,7 +32,7 @@ function App() {
                 <Route path="/games/beginner/second" element={< GameTwo />} />
                 <Route path="/games/beginner/third" element={< GameThree />} />
 
-                <Route path="/games/intermediate/second" element={< GameFour />} />
+                <Route path="/games/intermediateAudio/second" element={< GameFour />} />
                 <Route path="/games/intermediate/third" element={< GameFive />} />
 
                 {/* <Route path="/games/advanced/second" element={< GameSix />} />

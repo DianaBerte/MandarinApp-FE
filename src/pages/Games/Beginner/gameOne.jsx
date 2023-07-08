@@ -57,7 +57,7 @@ const GameOne = () => {
                 }
                 if (level === "intermediate") {
                     setTimeout(() => {
-                        navigate(`/games/intermediate/second`);
+                        navigate(`/games/intermediateAudio/second`);
                     }, 2000);
                 }
                 if (level === "advanced") {

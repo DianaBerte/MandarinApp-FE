@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { shuffle } from "lodash";
-import { fetchInterSecond } from "../../../redux/actions/index.js"; //fetchAudioInterSecond
+import { fetchAudioInterSecond } from "../../../redux/actions/index.js"; //fetchInterSecond
 import RightAnswerModal from "../../../components/RightAnswerModal.jsx";
 import WrongAnswerModal from "../../../components/WrongAnswerModal.jsx";
 import NavbarComponent from "../../../components/NavbarComponent.jsx";
@@ -15,26 +15,25 @@ const GameFour = () => {
 
     let [currentGameIndex, setCurrentGameIndex] = useState(5); //stores the index of the current game being displayed
     
-    let [currentGame, setCurrentGame] = useState({}); //stores the game object
-    // should be: let [currentAudioGame, setCurrentAudioGame] = useState({})
+    // let [currentGame, setCurrentGame] = useState({}); //stores the game object
+    let [currentAudioGame, setCurrentAudioGame] = useState({});
+    console.log("HELLOOOO CurrentAudioGame in GameFour: ", currentAudioGame)
 
     let [showRightAnsModal, setShowRightAnsModal] = useState(false);
     let [showWrongAns, setShowWrongAns] = useState(false);
     let [selectedAnswer, setSelectedAnswer] = useState(null);
 
-    const games = useSelector((state) => {
-        console.log("Working: return state.currentGame in gameFour")
-        return state.currentGame;
+    const audioGames = useSelector((state) => {
+        console.log("Working: return state.currentAudioGame in gameFour: ", currentAudioGame)
+        return state.currentAudioGame;
     });
  
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchInterSecond());
-        // should rather be: dispatch(fetchAudioInterSecond)
-
-        setCurrentGame(games[currentGameIndex]) //setting the initial value of "game" to the first game in the list
-        console.log("Working: dispatch(fetchInterSecond) in gameFour")  
+        dispatch(fetchAudioInterSecond());
+        setCurrentAudioGame(audioGames[currentGameIndex]) //setting the initial value of "game" to the first game in the list
+        console.log("Working: dispatch(fetchAudioInterSecond) in gameFour: ", currentAudioGame)  
     }, [])
 
     const nextExercise = async () => {     
@@ -44,14 +43,14 @@ const GameFour = () => {
             if (!currentUser) {
                 currentUser = {quizAnswers: []};
             }
-            if (selectedAnswer === currentGame.answers[0].correctAnswer) { //if the answer clicked on is correct...
+            if (selectedAnswer === currentAudioGame.answers[0].correctAnswer) { //if the answer clicked on is correct...
                 currentUser.quizAnswers.push(selectedAnswer); //...push the correct answer into the user's quiz answers.
                 localStorage.setItem("currentUser", JSON.stringify(currentUser));
             }
             
             if (currentGameIndex <= 8) { //checking if there are more games in the list and updating the state accordingly 
                 setCurrentGameIndex(currentGameIndex + 1);
-                setCurrentGame(games[currentGameIndex + 1]);
+                setCurrentAudioGame(audioGames[currentGameIndex + 1]);
                 console.log("Working: nextExercise() in gameFour")   
             } else {
                 setTimeout(() => {
@@ -65,8 +64,10 @@ const GameFour = () => {
 
     useEffect(() => { //runs every time the "games" or "currentGameIndex" state changes, and updates the "currentGame" state to be the correct object based on the current index
         // const shuffledGames = shuffle(games);
-        setCurrentGame(games[currentGameIndex]);
-    }, [games, currentGameIndex]);  
+        setCurrentAudioGame(audioGames[currentGameIndex]);
+    }, [audioGames, currentGameIndex]);  
+
+    console.log("BIBIBIBIBI", currentAudioGame)
 
 
     return(
@@ -87,14 +88,13 @@ const GameFour = () => {
                     <div className="left-title"><h5></h5></div>
 
                     <div className="left-column">
-                        {/* To shuffle games, this should rather be currentAudioGame.question */}
-                           <video src={currentGame.question} controls></video>
+                           <video src={currentAudioGame.question} controls></video>
                     </div>
 
                     <div className="right-title"><h5></h5></div>
                     <div className="right-column">
-                            {currentGame.answers && currentGame.answers.length > 0 //checking if the object "currentGame" has a property called "answers" and if it has elements in its "answers" array
-                                && currentGame.answers[0].answers.map((ans) => ( //If condition is met, it maps through the first element in the "answers" array and renders button with chars
+                            {currentAudioGame.answers && currentAudioGame.answers.length > 0 //checking if the object "currentGame" has a property called "answers" and if it has elements in its "answers" array
+                                && currentAudioGame.answers[0].answers.map((ans) => ( //If condition is met, it maps through the first element in the "answers" array and renders button with chars
                                     <button className="chars-btn" onClick={() => {
                                         setSelectedAnswer(ans);
                                     }}key={ans}>{ans}</button>
@@ -104,7 +104,7 @@ const GameFour = () => {
 
                 <div className="btn-wrapper">                                
                     <Button className="check-btn" onClick={() => {
-                        if(selectedAnswer === currentGame.answers[0].correctAnswer) {
+                        if(selectedAnswer === currentAudioGame.answers[0].correctAnswer) {
                              setShowRightAnsModal(true);
                              setTimeout(() => {
                                 setShowRightAnsModal(false);

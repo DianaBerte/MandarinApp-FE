@@ -50,17 +50,16 @@ export const fetchGames = (level) => {
     };
 };
 
-export const fetchInterSecond = () => {
-    //should rather be: fetchAudioInterSecond
+export const fetchAudioInterSecond = () => {
+    //used to be: fetchInterSecond
 
     return async (dispatch) => {
         try {
-            console.log("Entering: fetchInterSecond()")
+            console.log("Entering: fetchAudioInterSecond()")
             const res = await fetch(
 
-                // `${process.env.REACT_APP_BE_URL}/games/intermediateAudio/second`
-                `${process.env.REACT_APP_BE_URL}/games/intermediate/second`, {
-
+                `${process.env.REACT_APP_BE_URL}/games/intermediateAudio/second`, {
+                // `${process.env.REACT_APP_BE_URL}/games/intermediate/second`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -68,17 +67,19 @@ export const fetchInterSecond = () => {
             }
             );
             if (res.ok) {
-                const data = await res.json();
-                //Shuffling the games array:
-                const shuffledGames = shuffleArray(data);
-                dispatch({
-                    type: FETCH_GAME,
-                    //type: FETCH_AUDIO_GAME,
+                const audioGames = await res.json();
 
-                    payload: shuffledGames,
-                }); console.log("Working: fetchInterSecond()");
+                //Shuffling the games array:
+                // const shuffledGames = shuffleArray(data);
+                console.log("HIIIIIIIIIIIIIIIII")
+                dispatch({
+                    // type: FETCH_GAME,
+                    type: FETCH_AUDIO_GAME,
+                    payload: audioGames,
+
+                }); console.log("Working: fetchAudioInterSecond()");
             } else {
-                console.log("FE: Error in fetchInterSecond()");
+                console.log("FE: Error in fetchAudioInterSecond()");
             }
         } catch (error) {
             console.log(error);
