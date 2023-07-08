@@ -67,7 +67,7 @@ export const fetchAudioInterSecond = () => {
             }
             );
             if (res.ok) {
-                const audioGames = await res.json();
+                const data = await res.json();
 
                 //Shuffling the games array:
                 const shuffledGames = shuffleArray(data);
