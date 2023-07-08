@@ -13,7 +13,9 @@ function shuffleArray(array) {
         // Math.random() returns random floating point btw 0 and 1;
         // Math.floor() rounds down the number to the nearest integer; multiplying Math.floor() by i+1 generates a random number in the range of 0 to i.
         [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]; // swapping the elements by destructuring the arrays => effective shuffling
-
+    }
+    if (shuffledArray[0] === array[array.length - 1]) { //checking if first element in shuffledArray is the same as last element in original array;
+        [shuffledArray[0], shuffledArray[1]] = [shuffledArray[1], shuffledArray[0]]; //if so, swap the first for te second element in the shuffledArray.
     }
     return shuffledArray;
 }
