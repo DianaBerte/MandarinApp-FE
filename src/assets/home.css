@@ -1,17 +1,27 @@
-.home-container {
+/* .home-container { */
     /* padding-right: 3rem; */
     /* padding-left: 3rem;  */
     /* padding-top: 3rem; */
     /* margin-top: 3rem; */
-    padding: 0;
-    margin-left: 2rem;
+    /* padding: 0;
+    margin-left: 2rem; */
     /* margin-top: -15rem; */
-    width: fit-content;
+    /* width: fit-content;
     height: 100%;
-    display: flex;
+    display: flex; */
     /* justify-content: flex-end; */
-    border: 3px solid rgb(0, 248, 248);
+    /* border: 3px solid rgb(0, 248, 248);
+} */
+
+.first-home-container {
+    /* border: 3px solid red; */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0%;
 }
+
+/* ******************************** */
 
 .choose-n-start-btn {
     font-family: 'Indie Flower', cursive;
@@ -23,11 +33,12 @@
     border: 1px solid rgb(0, 45, 45);
     height: 5rem;
     width: 30rem;
-    margin-right: 2rem;
-    margin-left: 2rem;
+    /* margin-right: 2rem; */
+    /* margin-left: 2rem; */
+    z-index: -1;
     box-shadow: rgb(0, 45, 45) 2px 8px 8px -8px;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    border: 3px solid red;
+    /* border: 3px solid red; */
 }
 
 .choose-n-start-btn:hover {
@@ -42,10 +53,11 @@
 .home-bamboo-wrapper {
     width: 80%;
     float: right;
-    margin-top: -15rem;
+    margin-top: -10rem;
     position: sticky;
+    margin-right: -5rem;
     z-index: -1;
-    border: 3px solid red;
+    /* border: 3px solid red; */
 }
 
 .home-bamboo {
@@ -53,35 +65,28 @@
 }
 
 .riverli-wrapper {
-    width: 80%;
-    float: right;
-    /* margin-right: -8rem; */
-    margin-top: -5rem;
-    position: sticky;
+    width: 20%;
+    margin-top: -20rem;
+    /* margin-right: -5rem; */
     z-index: -1;
-    border: 3px solid yellow;
+    right: 0;
+    position: fixed;
+    /* border: 3px solid red; */
 }
 
 .riverLi {
     width: 100%;
+
 }
 
 /* ****************** */
 
-.first-home-container {
-    border: 3px solid red;
-    display: flex;
-    justify-content: flex-start;
-    margin-left: 10rem;
-    width: 100%;
-    z-index: -1;
-}
-
 .cloud-wrapper {
-    border: 3px solid greenyellow;
+    /* border: 3px solid greenyellow; */
     width: 30%;
+    height: fit-content;
     margin-top: 3rem;
-    /* margin-left: -5rem; */
+    margin-left: -10rem;
     z-index: -1;
 }
 
@@ -90,12 +95,11 @@
 }
 
 .temple-wrapper {
-    width: 80%;
-    margin-left: 5rem;
+    width: 100%;
+    /* margin-left: 5rem; */
     margin-top: -2rem;
-    /* position: sticky; */
-    z-index: -1;
-    border: 3px solid skyblue;
+    z-index: 2;
+    /* border: 3px solid skyblue; */
 }
 
 .temple {
