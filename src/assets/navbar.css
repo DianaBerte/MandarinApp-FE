@@ -150,6 +150,7 @@ font-family: 'Ma Shan Zheng', cursive; */
 
 @media screen and (max-width: 779px) {
     .navbar {
+        /* border: 3px solid red; */
         max-width: 100%;
     }
 
@@ -172,6 +173,11 @@ font-family: 'Ma Shan Zheng', cursive; */
 
 @media screen and (max-width: 734px) {
     .navbar {
-        max-width: 100%;
+        width: 100%;
+    }
+
+    .admin-navlink {
+        font-size: 15px;
+        margin-left: 60%;
     }
 }
