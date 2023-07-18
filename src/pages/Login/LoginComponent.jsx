@@ -30,6 +30,7 @@ const LoginComponent = () => {
         const currentUser = await res.json();
         localStorage.setItem("accessToken", currentUser.accessToken);
         dispatch(setCurrentUser(currentUser.user));
+        console.log("currentUser.accessToken: ", currentUser.accessToken)
         navigate("/")
       }
     } catch (error) {
