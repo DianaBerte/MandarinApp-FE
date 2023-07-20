@@ -1,6 +1,7 @@
 import { Button, Col, Container, Row } from "react-bootstrap"
 import { useNavigate, useSearchParams } from "react-router-dom"
 import { useEffect } from "react"
+import { useSelector } from "react-redux"
 import NavbarComponent from "../../components/NavbarComponent.jsx"
 import "../../assets/home.css"
 
@@ -16,6 +17,9 @@ const Homepage = () => {
             navigate("/")
         }
     }, [navigate, searchParams])
+
+    let currentUser = useSelector((state) => state.currentUser.currentUser)
+    console.log("Hello: ", currentUser)
 
     return(
         <>

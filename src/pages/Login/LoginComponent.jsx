@@ -19,7 +19,8 @@ const LoginComponent = () => {
       password: password,
     };
     try {
-      let res = await fetch(`${process.env.REACT_APP_BE_URL}/users/login`, {
+      
+      let res = await fetch(`${process.env.REACT_APP_BE_URL}/users/login` , {
         method: "POST",
         body: JSON.stringify(userCredentials),
         headers: {
@@ -30,7 +31,9 @@ const LoginComponent = () => {
         const currentUser = await res.json();
         localStorage.setItem("accessToken", currentUser.accessToken);
         dispatch(setCurrentUser(currentUser.user));
+        console.log("currentUser.user.email: ", currentUser.user.email)
         console.log("currentUser.accessToken: ", currentUser.accessToken)
+        // console.log("JJJJJJJJJ", req.user)
         navigate("/")
       }
     } catch (error) {
@@ -99,6 +102,7 @@ const LoginComponent = () => {
                 Login with Google
               </Button>
             </a>
+
             <div className="line"></div>
             <a className="reg-link mb-3" href="Registration">
               Register to MandarinApp
