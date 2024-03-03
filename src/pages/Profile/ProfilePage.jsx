@@ -1,7 +1,7 @@
 import { Col, Container, Row, Form, Button, Modal, ListGroup } from "react-bootstrap";
 import { FiLogOut } from "react-icons/fi"
 import { MdOutlinePhotoCamera } from "react-icons/md";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "../../redux/actions/index.js";
 import { useNavigate } from "react-router-dom";
@@ -93,6 +93,21 @@ const UserProfile = () => {
         dispatch(setCurrentUser(emptyUser));
         navigate("/")
     }
+
+    useEffect(() => {
+        const fetchData = async () => {
+          const response = await fetch(`${process.env.REACT_APP_BE_URL}/users/me`, {headers:                 
+            {
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json",
+          },});
+          const userProfile = await response.json();
+          dispatch(setCurrentUser(userProfile))
+        };
+      
+        fetchData();
+      },[] );
+      
 
     return(
         <>
